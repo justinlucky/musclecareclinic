@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=SUSE:wght@100..800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+::-webkit-scrollbar {
+  width: 8px; /* Adjust the width */
+  background-color: #4e5662; /* Background color */
+}
+
+
+::-webkit-scrollbar-thumb {
+  background-color: #28323f; /* Thumb color */
+  border-radius: 8px; /* Rounded corners */
+}
