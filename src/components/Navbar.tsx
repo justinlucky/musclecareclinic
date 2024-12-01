@@ -44,8 +44,8 @@ const Navbar = () => {
         </div>
 
 
-        <div className={`flex-1 justify-self-center pb-3 mt-8 xl:block xl:pb-0 xl:mt-0 ${state ? 'block  bg-secondary rounded-3xl' : 'hidden'}`}>
-          <ul className="justify-center items-center space-y-8 xl:gap-7 xl:flex xl:space-x-6 xl:space-y-0 gap-32  p-3 xl:px-5 rounded-2xl xl:mx-5 text-white">
+        <div className={`w-full xl:w-auto flex justify-start pb-3 mt-8 xl:block xl:pb-0 xl:mt-0 ${state ? 'block  bg-secondary rounded-3xl' : 'hidden'}`}>
+          <ul className="flex flex-col xl:flex-row justify-start items-start x:space-y-0 xl:gap-7 xl:flex xl:space-x-6 xl:space-y-0 gap-32  p-3 xl:px-5 rounded-2xl xl:mx-5 text-white">
             {
               navigation.map((item, idx) => {
                 return (
