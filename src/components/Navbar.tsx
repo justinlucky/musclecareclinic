@@ -13,10 +13,10 @@ const Navbar = () => {
   ]
 
   return (
-    <nav className=" w-full   md:static ">
-      <div className="items-center  mx-auto xl:flex  md:justify-between md:mb-6 ">
+    <nav className=" w-full   md:static bg-primary ">
+      <div className=" flex items-center justify-between mx-auto p-4 xl:flex-row  md:flex-col md:items-start ">
 
-        <div className="flex items-center justify-between py-3   ">
+        <div className="flex items-center justify-between w-full py-3   ">
 
           <a href="/" className='p-3  gap-3  rounded-2xl   text-white font-heading flex justify-center items-center'>
             <img src="/logo.png" className='h-32 lg:h-24 ' />
