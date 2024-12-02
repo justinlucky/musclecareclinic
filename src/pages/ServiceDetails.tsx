@@ -126,14 +126,14 @@ const ServiceDetails = () => {
         <h1 className="text-3xl font-bold mb-4 text-center">
           {service.title}
         </h1>
-        <div>
+        <div className=" py-12 flex xl:flex-row flex-col xl:items-center gap-10">
           <img
             src={service.src}
             alt={service.title}
             className="w-full h-auto mb:p-20"
             style={{ borderRadius: "20px" }}
           />
-          <div>
+          <div className="gap-5 flex flex-col">
             <p>{service.description}</p>
             <ul>
               {service.points?.map((point, index) => (
