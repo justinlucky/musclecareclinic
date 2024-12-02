@@ -1,4 +1,7 @@
 import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
+import Navbar from "../components/Navbar";
+import FooterDark from "../components/FooterDark";
 
 const ServiceDetails = () => {
   const { id } = useParams();
@@ -11,7 +14,12 @@ const ServiceDetails = () => {
       description:
         "Stretching is a gentle way to prepare your muscles for activity. It also improves flexibility and mobility and beneficial for overall muscle health.",
       src: "/stretching.jpg",
-      points: ["Flexibility", "Mobility", "Relaxation", "Performance Enhancement"],
+      points: [
+        "Flexibility",
+        "Mobility",
+        "Relaxation",
+        "Performance Enhancement",
+      ],
     },
     {
       id: "chiropractic-therapy",
@@ -35,7 +43,12 @@ const ServiceDetails = () => {
       src: "/needle.jpg",
       description:
         "Experience the soothing power of cupping therapy. Our skilled practitioners will apply cups to your skin to promote blood flow, relieve muscle tension, and accelerate healing. Relax and let your body rejuvenate.",
-      points: ["Circulation", "Pain Relief", "Inflammation Reduction", "Muscle Recovery"],
+      points: [
+        "Circulation",
+        "Pain Relief",
+        "Inflammation Reduction",
+        "Muscle Recovery",
+      ],
     },
     {
       id: "full-body-relaxation",
@@ -43,7 +56,12 @@ const ServiceDetails = () => {
       src: "relax.jpg",
       description:
         "Indulge in pure tranquility with our full-body relaxation massage. Our skilled therapists will melt away your stress and tension, leaving you feeling rejuvenated and refreshed. Experience the ultimate escape from the demands of daily life.",
-      points: ["Stress Relief", "Relaxation", "Improved Sleep", "Mental Clarity"],
+      points: [
+        "Stress Relief",
+        "Relaxation",
+        "Improved Sleep",
+        "Mental Clarity",
+      ],
     },
     {
       id: "kinesiology-taper",
@@ -75,7 +93,13 @@ const ServiceDetails = () => {
       src: "/hiit.webp",
       description:
         "HIIT it hard with our intense interval training sessions. Our expert trainers will push you to your limits, helping you burn calories, build muscle, and boost your metabolism. Get ready to transform your body and mind.",
-      points: ["Efficiency", "Fat Burn", "Fitness", "Metabolism Boost", "Time Efficient"],
+      points: [
+        "Efficiency",
+        "Fat Burn",
+        "Fitness",
+        "Metabolism Boost",
+        "Time Efficient",
+      ],
     },
     {
       id: "circuit-training",
@@ -96,23 +120,40 @@ const ServiceDetails = () => {
   }
 
   return (
-    <div className="p-6">
-      <h1 className="text-3xl font-bold mb-4">{service.title}</h1>
-      <div>
-        <img
-          src={service.src}
-          alt={service.title}
-          className="w-full h-auto mb-4"
-        />
+    <div className="p-6 bg-primary h-full flex flex-col gap-10">
+      <Navbar />
+      <div className="w-full bg-white rounded-t-2x1 mt-20 md:p-20 pb-28" style={{borderRadius:"20px"}}>
+        <h1 className="text-3xl font-bold mb-4 text-center">
+          {service.title}
+        </h1>
         <div>
-          <p>{service.description}</p>
-          <ul>
-            {service.points?.map((point, index) => (
-              <li key={index} style={{listStyle:'disc'}}>{point}</li>
-            ))}
-          </ul>
+          <img
+            src={service.src}
+            alt={service.title}
+            className="w-full h-auto mb:p-20"
+            style={{ borderRadius: "20px" }}
+          />
+          <div>
+            <p>{service.description}</p>
+            <ul>
+              {service.points?.map((point, index) => (
+                <li key={index} style={{ listStyle: "disc" }}>
+                  {point}
+                </li>
+              ))}
+            </ul>
+            <div style={{ marginTop: "30px" }}>
+              <Link
+                to={`/service/booking/${service.id}`}
+                className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md"
+              >
+                Book Appointment
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
+      <FooterDark/>
     </div>
   );
 };

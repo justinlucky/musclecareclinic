@@ -6,6 +6,7 @@ import Services from './pages/Services'
 import PatientEducation from './pages/PatientEducation'
 import Contact from './pages/Contact'
 import ServiceDetails from './pages/ServiceDetails'
+import BookForm from './pages/BookForm'
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
           <Route path="/education" element={<PatientEducation />} />
           <Route path="/contact" element={<Contact />} /> 
           <Route path="/service/:id" element={<ServiceDetails />} />
+          <Route path="/service/booking/:id" element={<BookForm />} />
         </Routes>
       </Router>
     </>
