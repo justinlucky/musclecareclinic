@@ -39,8 +39,8 @@ const HeroText = () => {
       </div>
       <div className=" bg-secondary p-5 lg:bg-none  lg:w-1/3 w-full text-xl lg:text-2xl lg:px-5  lg:flex   flex-col gap-1 rounded-2xl">
         <h1 className="font-bold text-3xl my-3 font-heading">Working Hours</h1>
-        <p>Monday - Saturday: 8:30am - 8:30pm</p>
-        <p>Sunday: 8:30am - 12:30pm(Half Day)</p>
+        <p>Mon - Sat: 8:30am - 8:30pm</p>
+        <p>Sun: 8:30am - 12:30pm(Half Day)</p>
         <div className=" bg-backgroundColor w-full hidden lg:block py-5 font-bold mt-8 text-center px-3  md:px-5 rounded-2xl ">
           Today is {dayp} - {timep}
         </div>
