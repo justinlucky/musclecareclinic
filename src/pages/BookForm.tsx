@@ -40,7 +40,6 @@ const BookForm = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log("Form Submitted:", formData);
-    alert(`Appointment booked for ${services[id] || "the selected service"}!`);
   };
 
   return (
