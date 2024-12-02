@@ -85,7 +85,7 @@ const ServiceDetails = () => {
       src: "/boxing.jpg",
       description:
         "Combine the thrill of boxing with the power of fitness. Our expert trainers will guide you through intense workouts that build strength, agility, and cardiovascular health. Unleash your inner fighter and achieve your fitness goals.",
-      points: ["", "", "", "", ""],
+      points: ["Endurance", "Strength", "Motivation", "Discipline"],
     },
     {
       id: "high-intensity-interval-training",
@@ -142,10 +142,10 @@ const ServiceDetails = () => {
                 </li>
               ))}
             </ul>
-            <div style={{ marginTop: "30px" }}>
+            <div style={{ marginTop: "30px", display:"flex", alignItems:"center", justifyContent:"center" }}>
               <Link
                 to={`/service/booking/${service.id}`}
-                className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md"
+                className="bg-blue-700 hover:bg-blue-900 text-white px-4 py-2 rounded-md"
               >
                 Book Appointment
               </Link>
