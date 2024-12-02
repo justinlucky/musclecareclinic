@@ -5,7 +5,7 @@ const BookForm = () => {
   const { id } = useParams();
 
   // Service details for display (optional enhancement)
-  const services = {
+  const serviceList = {
     "stretching-card": "Stretching",
     "chiropractic-therapy": "Chiropractic Therapy",
     "needle-therapy": "Needle Therapy",
@@ -45,7 +45,7 @@ const BookForm = () => {
   return (
     <div className="p-6 max-w-xl mx-auto">
       <h1 className="text-3xl font-bold mb-4">
-        Book Appointment for  "Selected Service"
+        Book Appointment for {serviceList[id] || "Selected Service"}
       </h1>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
