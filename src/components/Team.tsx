@@ -27,7 +27,7 @@ const Team = () => {
 
   return (
     <section className="py-28 font-manrope">
-      <div className="max-w-screen-xl mx-auto px-4 md:px-8">
+      <div className="flex flex-col items-center max-w-screen-xl mx-auto px-4 md:px-8 gap-10">
         <div className="max-w-xl">
           <h3 className="text-text text-5xl font-semibold sm:text-4xl">
             Meet our team
@@ -35,10 +35,10 @@ const Team = () => {
 
         </div>
         <div className="mt-12">
-          <ul className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          <ul className="flex flex-wrap items-center justify-center gap-20">
             {
               team.map((item, idx) => (
-                <li key={idx} className="flex gap-4  items-center">
+                <li key={idx} className="flex flex-col justify-center gap-4 items-center text-center">
                   {/* <div className="flex-none h-28 w-28 md:h-40 md:w-1/3">
                     <img
                       src={item.avatar}

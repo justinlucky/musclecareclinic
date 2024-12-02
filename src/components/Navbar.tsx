@@ -45,7 +45,7 @@ const Navbar = () => {
 
 
         <div className={`w-full xl:w-auto flex justify-start pb-3 mt-8 xl:block xl:pb-0 xl:mt-0 ${state ? 'block  bg-secondary rounded-3xl' : 'hidden'}`}>
-          <ul className="flex flex-col xl:flex-row justify-start items-start space-y-8 xl:space-y-0 xl:gap-17 p-3 xl:px-5 rounded-2xl xl:mx-5 text-white">
+          <ul className="flex flex-col xl:flex-row justify-start items-start space-y-8 xl:space-y-0 xl:gap-8 p-3 xl:px-10 rounded-2xl xl:mx-5 text-white">
             {
               navigation.map((item, idx) => {
                 return (
