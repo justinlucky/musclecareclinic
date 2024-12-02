@@ -45,7 +45,7 @@ const BookForm = () => {
   return (
     <div className="p-6 max-w-xl mx-auto">
       <h1 className="text-3xl font-bold mb-4">
-        Book Appointment for {services[id] || "Selected Service"}
+        Book Appointment for  "Selected Service"
       </h1>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
