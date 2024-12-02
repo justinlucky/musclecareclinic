@@ -12,7 +12,7 @@ const BookForm = () => {
     "cupping-therapy": "Cupping Therapy",
     "full-body-relaxation": "Full Body Relaxation",
     "kinesiology-taper": "Kinesiology Tape",
-    cryotherapy: "Cryotherapy",
+    "cryotherapy": "Cryotherapy",
     "boxing-and-fitness": "Boxing and Fitness",
     "high-intensity-interval-training": "HIIT",
     "circuit-training": "Circuit Training",
@@ -42,9 +42,6 @@ const BookForm = () => {
     console.log("Form Submitted:", formData);
     alert(`Appointment booked for ${services[id] || "the selected service"}!`);
   };
-
-  const serviceName = id ? services[id] : "Selected Service";
-  alert(`Appointment booked for ${serviceName}!`);
 
   return (
     <div className="p-6 max-w-xl mx-auto">
