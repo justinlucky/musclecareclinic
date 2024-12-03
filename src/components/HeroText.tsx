@@ -7,19 +7,27 @@ const HeroText = () => {
   const words = [
     {
       text: "Where ",
-      className: "font-heading font-bold lg:text-[110px] md:text-[75px]  md:w-2/3 text-[50px] ",
+      className: "font-heading font-bold lg:text-[110px] md:text-[77px]  md:w-2/3 xl:text-[50px] text-[37px]",
     },
     {
-      text: "Healing ",
-      className: "font-heading font-bold lg:text-[110px] md:text-[75px] md:w-2/3 text-[50px] ",
+      text: " Healing ",
+      className: "font-heading font-bold lg:text-[110px] md:text-[75px] md:w-2/3 xl:text-[50px] text-[37px] text-purple",
     },
     {
-      text: "Meets ",
-      className: "font-heading font-bold lg:text-[110px] md:text-[75px] md:w-2/3 text-[50px] ",
+      text: " Meets ",
+      className: "font-heading font-bold lg:text-[110px] md:text-[75px] md:w-2/3 xl:text-[50px] text-[37px]",
     },
     {
-      text: "Expertise. ",
-      className: "font-heading font-bold md:text-[75px] lg:text-[110px] md:w-2/3 text-[50px] ",
+      text: " Expertise ",
+      className: "font-heading font-bold md:text-[75px] lg:text-[110px] md:w-2/3 xl:text-[50px] text-[37px] text-gold",
+    },
+    {
+      text: " & ",
+      className: "font-heading font-bold lg:text-[75px] md:text-[110px] md:w-2/3 xl:text-[50px] text-[37px]",
+    },
+    {
+      text:" Experienced. ",
+      className:"font-heading font-bold md:text-[110px] lg:text-[75px] md:w-2/3 xl:text-[50px] text-[37px] text-gold",
     },
   ];
   const [time, setTime] = useState(new Date())
@@ -37,7 +45,7 @@ const HeroText = () => {
           <TypewriterEffect words={words} />
         </h1>
       </div>
-      <div className=" bg-secondary p-5 lg:bg-none  lg:w-1/3 w-full text-xl lg:text-2xl lg:px-5  lg:flex   flex-col gap-1 rounded-2xl">
+      <div className=" bg-secondary p-5 lg:bg-none  lg:w-1/3 w-full text-xl lg:text-2xl lg:px-5  lg:flex   flex-col gap-1 rounded-2xl mt-5">
         <h1 className="font-bold text-3xl my-3 font-heading">Working Hours</h1>
         <p>Mon - Sat: 8:30am - 8:30pm</p>
         <p>Sun: 8:30am - 12:30pm(Half Day)</p>

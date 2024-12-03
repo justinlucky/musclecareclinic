@@ -18,9 +18,9 @@ const Preview = () => {
 
 
         <div className="  md:w-1/3 w-full text-xl lg:text-2xl lg:px-5 p-10  flex  flex-col gap-1 rounded-2xl bg-text mt-3">
-          <h1 className="font-manrope text-3xl pt-50  text-white md:font-bold font-semibold pb-3">Working Hours</h1>
-          <p>Mon - Sat: 8:30am - 8:30pm</p>
-          <p>Sun: 8:30am - 12:30pm</p>
+          <h1 className="font-manrope text-2xl pt-50  text-white md:font-bold font-semibold pb-3">Working Hours</h1>
+          <p style={{color:"orange"}}>Mon - Sat: 8:30am - 8:30pm</p>
+          <p style={{color:"yellow"}}>Sun: 8:30am - 12:30pm</p>
           {/* <div className=" bg-backgroundColor py-5 font-bold mt-8 w-fit  md:px-5 rounded-2xl ">
           Today is {dayp} - {timep}
         </div> */}

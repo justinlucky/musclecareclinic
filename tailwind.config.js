@@ -31,7 +31,9 @@ export default {
         text:"#00406c",
         heading:"#f0f7ff",
         primary:"#1b3a4b",
-        secondary:"#455e6c"
+        secondary:"#455e6c",
+        gold:"#ffd700",
+        purple:"#7d3c98",
       },
       animation: {
         scroll:
