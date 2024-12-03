@@ -53,7 +53,7 @@ const BookForm = () => {
         <h1 className="text-3xl font-bold mb-4 text-center text-white">
           Book Appointment for {serviceName}
         </h1>
-        <form onSubmit={handleSubmit} className="space-y-4 bg-secondary p-5" style={{borderRadius:"15px"}}>
+        <form onSubmit={handleSubmit} className="space-y-4 bg-secondary p-5 m-2" style={{borderRadius:"15px"}}>
           <div>
             <label className="block text-sm font-medium mb-1" htmlFor="name">
               Full Name

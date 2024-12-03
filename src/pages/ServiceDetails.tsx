@@ -120,10 +120,10 @@ const ServiceDetails = () => {
   }
 
   return (
-    <div className="p-6 bg-primary h-full flex flex-col gap-10">
+    <div className=" bg-primary h-full flex flex-col gap-10">
       <Navbar />
-      <div className="w-full bg-white rounded-t-2x1 mt-20 md:p-20 pb-28" style={{borderRadius:"20px"}}>
-        <h1 className="text-3xl font-bold mb-4 text-center">
+      <div className="w-full bg-white rounded-t-2x1 mt-20 xl:p-20 p-5" style={{borderRadius:"20px"}}>
+        <h1 className=" font-bold mb-4 text-center">
           {service.title}
         </h1>
         <div className=" py-12 flex xl:flex-row flex-col xl:items-center gap-10">
@@ -133,7 +133,7 @@ const ServiceDetails = () => {
             className="w-full h-auto mb:p-20"
             style={{ borderRadius: "20px" }}
           />
-          <div className="gap-5 flex flex-col">
+          <div className="gap-5 flex flex-col p-3">
             <p>{service.description}</p>
             <ul>
               {service.points?.map((point, index) => (
