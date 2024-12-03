@@ -120,9 +120,9 @@ const ServiceDetails = () => {
   }
 
   return (
-    <div className=" bg-primary h-full flex flex-col gap-10 p-3 xl:p-7">
+    <div className=" bg-primary h-full flex flex-col gap-5 p-3 xl:p-7">
       <Navbar />
-      <div className="w-full bg-white rounded-t-2x1 mt-20 xl:p-20 p-5" style={{borderRadius:"20px"}}>
+      <div className="w-full bg-white rounded-t-2xl rounded-b-2xl mt-10 xl:p-20 p-5">
         <h1 className=" font-bold mb-2 text-center text-3xl text-text">
           {service.title}
         </h1>
