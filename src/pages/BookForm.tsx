@@ -2,10 +2,10 @@ import { useParams } from "react-router-dom";
 import { useState } from "react";
 
 const BookForm = () => {
-  const { id } = useParams();
+  const { id } = useParams<{id:string}>();
 
   // Service details for display (optional enhancement)
-  const serviceList = {
+  const serviceList:Record<string,string> = {
     "stretching-card": "Stretching",
     "chiropractic-therapy": "Chiropractic Therapy",
     "needle-therapy": "Needle Therapy",
@@ -28,6 +28,7 @@ const BookForm = () => {
     additionalNotes: "",
   });
 
+  const serviceName = id && serviceList[id] ? serviceList[id] : "Selected Service";
   // Handle form input changes
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -45,7 +46,7 @@ const BookForm = () => {
   return (
     <div className="p-6 max-w-xl mx-auto">
       <h1 className="text-3xl font-bold mb-4">
-        Book Appointment for {serviceList[id] || "Selected Service"}
+        Book Appointment for {serviceName} 
       </h1>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
