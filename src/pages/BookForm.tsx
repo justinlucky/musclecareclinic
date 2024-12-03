@@ -47,10 +47,10 @@ const BookForm = () => {
   };
 
   return (
-    <div className=" bg-primary flex flex-col items-center content-center p-10 gap-10">
+    <div className=" bg-primary flex flex-col items-center content-center gap-10">
         <Navbar/>
-      <div className="max-w-xl max-auto">
-        <h1 className="text-3xl font-bold mb-4 text-center">
+      <div className="max-w-xl max-auto flex flex-col gap-5">
+        <h1 className="text-3xl font-bold mb-4 text-center text-white">
           Book Appointment for {serviceName}
         </h1>
         <form onSubmit={handleSubmit} className="space-y-4 bg-secondary p-5" style={{borderRadius:"15px"}}>
@@ -151,7 +151,7 @@ const BookForm = () => {
 
           <button
             type="submit"
-            className="w-full bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md"
+            className="w-full bg-blue-700 hover:bg-blue-900 text-white px-4 py-2 rounded-md"
           >
             Submit Appointment
           </button>
