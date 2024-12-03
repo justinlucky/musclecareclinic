@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useState } from "react";
+import emailjs from "emailjs-com";
 import Navbar from "../components/Navbar";
 import FooterDark from "../components/FooterDark";
 
@@ -43,6 +44,32 @@ const BookForm = () => {
   // Handle form submission
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const serviceID = "service_659j6oh";
+    const templateID = "template_lacobkk";
+    const userID ="X1NAjQb8QBuvYQzB0";
+
+    const emailData = {
+        ...formData,
+        serviceName
+    };
+
+    emailjs
+    .send(serviceID, templateID, emailData, userID)
+    .then(() => {
+        alert("Appointment booked successfully!");
+        setFormData({
+            name:"",
+            email:"",
+            phone:"",
+            date:"",
+            time:"",
+            additionalNotes:"",
+        });
+    })
+    .catch((err) => {
+        console.log("Error while sending submitting the form:", err);
+        alert("Failed to send the appointment. Please try again");
+    });
     console.log("Form Submitted:", formData);
   };
 
