@@ -122,8 +122,8 @@ const ServiceDetails = () => {
   return (
     <div className=" bg-primary h-full flex flex-col gap-5 p-3 xl:p-7">
       <Navbar />
-      <div className="w-full bg-white rounded-t-2xl rounded-b-2xl mt-10 xl:p-20 p-5">
-        <h1 className=" font-bold mb-2 text-center text-3xl text-text">
+      <div className="w-full bg-secondary rounded-t-2xl rounded-b-2xl mt-10 xl:p-20 p-5">
+        <h1 className=" font-bold mb-2 text-center text-3xl text-white">
           {service.title}
         </h1>
         <div className=" py-3 xl:py-7 flex xl:flex-row flex-col xl:items-center gap-5">
@@ -131,13 +131,13 @@ const ServiceDetails = () => {
             src={service.src}
             alt={service.title}
             className="w-full h-auto"
-            style={{ borderRadius: "20px", boxShadow:"3px 5px blue"}}
+            style={{ borderRadius: "20px"}}
           />
           <div className="gap-4 xl:p-5 flex flex-col p-3">
-            <p>{service.description}</p>
-            <ul>
+            <p className="text-white text-bold">{service.description}</p>
+            <ul className="pl-5">
               {service.points?.map((point, index) => (
-                <li key={index} style={{ listStyle: "disc" }}>
+                <li key={index} style={{ listStyle: "disc" ,color:"#fdfdfd"}}>
                   {point}
                 </li>
               ))}
