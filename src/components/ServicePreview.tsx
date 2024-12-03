@@ -15,10 +15,10 @@ const ServicePreview = () => {
   ];
 
   return (
-    <div className="p-6">
-      <div className="xl:hidden flex flex-col gap-10 items-center">
+    <div className="p-5">
+      <div className="xl:hidden flex flex-col gap-7 items-center">
         {/* Mobile/Table Mode */}
-        <div className="col-span-2 row-span-2 md:h-24 md:p-5 md:pl-10 pt-[120px]">
+        <div className="col-span-2 row-span-2 md:h-24 md:p-5 md:pl-10 pt-[50px]">
           <h1 className="font-manrope text-text my-8 text-5xl md:font-semibold font-semibold">Our Services</h1>
         </div>
         {cards.map((item) => (

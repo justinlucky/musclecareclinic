@@ -120,20 +120,20 @@ const ServiceDetails = () => {
   }
 
   return (
-    <div className=" bg-primary h-full flex flex-col gap-10">
+    <div className=" bg-primary h-full flex flex-col gap-10 p-3 xl:p-7">
       <Navbar />
       <div className="w-full bg-white rounded-t-2x1 mt-20 xl:p-20 p-5" style={{borderRadius:"20px"}}>
-        <h1 className=" font-bold mb-4 text-center">
+        <h1 className=" font-bold mb-2 text-center text-3xl text-text">
           {service.title}
         </h1>
-        <div className=" py-12 flex xl:flex-row flex-col xl:items-center gap-10">
+        <div className=" py-3 xl:py-7 flex xl:flex-row flex-col xl:items-center gap-5">
           <img
             src={service.src}
             alt={service.title}
-            className="w-full h-auto mb:p-20"
-            style={{ borderRadius: "20px" }}
+            className="w-full h-auto"
+            style={{ borderRadius: "20px", boxShadow:"3px 5px blue"}}
           />
-          <div className="gap-5 flex flex-col p-3">
+          <div className="gap-4 xl:p-5 flex flex-col p-3">
             <p>{service.description}</p>
             <ul>
               {service.points?.map((point, index) => (

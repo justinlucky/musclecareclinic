@@ -63,7 +63,7 @@ const FaqsCard: React.FC<FaqsCardProps> = (props) => {
 };
 
 // Define the props for Faq component
-interface FaqProps { }
+type FaqProps = object
 
 const Faq: React.FC<FaqProps> = () => {
   const faqsList: FaqItem[] = [
@@ -90,7 +90,7 @@ const Faq: React.FC<FaqProps> = () => {
   ];
 
   return (
-    <section className="leading-relaxed w-full bg-secondary font-manrope mt-[-10px] rounded-t-2xl pt-10 mx-auto px-4 md:px-8">
+    <section className="leading-relaxed w-full bg-secondary font-manrope mt-[-10px] rounded-t-2xl rounded-b-2xl pt-10 mx-auto px-4 md:px-8">
       <div className="space-y-3 text-center">
         <h1 className="text-3xl text-white font-semibold">
           Frequently Asked Questions

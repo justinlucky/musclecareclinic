@@ -26,10 +26,10 @@ const Team = () => {
 
 
   return (
-    <section className="py-28 font-manrope">
+    <section className="py-20 font-manrope">
       <div className="flex flex-col items-center max-w-screen-xl mx-auto px-4 md:px-8 gap-10">
         <div className="max-w-xl">
-          <h3 className="text-text text-5xl font-semibold sm:text-4xl">
+          <h3 className="text-text text-5xl font-semibold sm:text-4xl text-center">
             Meet our team
           </h3>
 
@@ -38,7 +38,7 @@ const Team = () => {
           <ul className="flex flex-wrap items-center justify-center gap-20">
             {
               team.map((item, idx) => (
-                <li key={idx} className="flex flex-col justify-center gap-4 items-center text-center">
+                <li key={idx} className="flex flex-col justify-center gap-3 items-center text-center">
                   {/* <div className="flex-none h-28 w-28 md:h-40 md:w-1/3">
                     <img
                       src={item.avatar}
@@ -62,23 +62,6 @@ const Team = () => {
   )
 }
 
-
-
-
-// function Team() {
-//   return (
-//     <div className="h-[40rem] rounded-md flex flex-col antialiased bg-white  dark:bg-grid-white/[0.05] items-center justify-center relative overflow-hidden">
-//       <h1 className="text-text text-[55px] font-heading font-semibold my-10 md:self-start md:pl-40  ">
-//         Our Team
-//       </h1>
-//       <InfiniteMovingCards
-//         items={team}
-//         direction="left"
-//         speed="slow"
-//       />
-//     </div>
-//   );
-// }
 
 
 export default Team
