@@ -116,7 +116,7 @@ const Services = () => {
     },
     {
       id: "circuit-training",
-      title: "Personal Circuit Training",
+      title: "Circuit Training",
       description:
         "A training method that involves moving quickly from one exercise to another in a circuit to target different muscle groups and improve overall fitness.",
       points: [
@@ -164,7 +164,6 @@ const Services = () => {
                       <Link
                         to={`/service/booking/${service.id}`}
                         className="px-4 py-2 text-white bg-blue-700 hover:bg-blue-900 rounded-md"
-                        style={{ boxShadow: "2px 3px violet" }}
                       >
                         Book Appointment
                       </Link>

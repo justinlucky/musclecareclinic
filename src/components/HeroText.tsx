@@ -7,27 +7,27 @@ const HeroText = () => {
   const words = [
     {
       text: "Where ",
-      className: "font-heading font-bold lg:text-[110px] md:text-[77px]  md:w-2/3 xl:text-[50px] text-[37px]",
+      className: "font-heading font-bold lg:text-[99px] md:text-[73px]  md:w-2/3 xl:text-[100px] text-[35px]",
     },
     {
       text: " Healing ",
-      className: "font-heading font-bold lg:text-[110px] md:text-[75px] md:w-2/3 xl:text-[50px] text-[37px] text-gold",
+      className: "font-heading font-bold lg:text-[99px] md:text-[73px] md:w-2/3 xl:text-[100px] text-[35px] text-gold",
     },
     {
       text: " Meets ",
-      className: "font-heading font-bold lg:text-[110px] md:text-[75px] md:w-2/3 xl:text-[50px] text-[37px]",
+      className: "font-heading font-bold lg:text-[99px] md:text-[73px] md:w-2/3 xl:text-[100px] text-[35px]",
     },
     {
       text: " Expertise ",
-      className: "font-heading font-bold md:text-[75px] lg:text-[110px] md:w-2/3 xl:text-[50px] text-[37px] text-gold",
+      className: "font-heading font-bold md:text-[73px] lg:text-[99px] md:w-2/3 xl:text-[100px] text-[35px] text-gold",
     },
     {
       text: " & ",
-      className: "font-heading font-bold lg:text-[110px] md:text-[75px] md:w-2/3 xl:text-[50px] text-[37px]",
+      className: "font-heading font-bold lg:text-[99px] md:text-[73px] md:w-2/3 xl:text-[100px] text-[35px]",
     },
     {
-      text:" Experienced. ",
-      className:"font-heading font-bold md:text-[75px] lg:text-[110px] md:w-2/3 xl:text-[50px] text-[37px] text-gold",
+      text:" Experience. ",
+      className:"font-heading font-bold md:text-[73px] lg:text-[99px] md:w-2/3 xl:text-[100px] text-[35px] text-gold",
     },
   ];
   const [time, setTime] = useState(new Date())

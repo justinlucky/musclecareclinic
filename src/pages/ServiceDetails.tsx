@@ -53,7 +53,7 @@ const ServiceDetails = () => {
     {
       id: "full-body-relaxation",
       title: "Full Body Relaxation",
-      src: "relax.jpg",
+      src: "/relax.jpg",
       description:
         "Indulge in pure tranquility with our full-body relaxation massage. Our skilled therapists will melt away your stress and tension, leaving you feeling rejuvenated and refreshed. Experience the ultimate escape from the demands of daily life.",
       points: [
@@ -74,7 +74,7 @@ const ServiceDetails = () => {
     {
       id: "cryotherapy",
       title: "Cryotherapy",
-      src: "cryo.webp",
+      src: "/cryo.webp",
       description:
         "Immerse yourself in the invigorating cold of cryotherapy. Our state-of-the-art cryotherapy chamber offers rapid whole-body cooling, reducing inflammation, alleviating pain, and boosting recovery. Experience the future of wellness today.",
       points: ["Muscle Soreness", "Mental Alertness", "Recovery"],
@@ -120,7 +120,7 @@ const ServiceDetails = () => {
   }
 
   return (
-    <div className=" bg-primary h-full flex flex-col gap-5 p-3 xl:p-7">
+    <div className=" bg-primary h-full flex flex-col gap-10 px-10">
       <Navbar />
       <div className="w-full bg-secondary rounded-t-2xl rounded-b-2xl mt-10 xl:p-20 p-5">
         <h1 className=" font-bold mb-2 text-center text-3xl text-white">
