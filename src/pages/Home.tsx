@@ -1,21 +1,12 @@
-import { useState } from "react";
+
 import HeroText from "../components/HeroText";
 import Details from "../components/Details";
 import Navbar from "../components/Navbar";
 import Banner from "../components/Banner";
 import Faq from "../components/Faq";
 import Footer from "../components/Footer";
-import Chatbot from "../components/Chatbot";
-import { FaRobot } from "react-icons/fa"; // Using the robot icon
 
 const Home = () => {
-  // State to handle the visibility of the chatbot
-  const [isChatbotVisible, setIsChatbotVisible] = useState<boolean>(false);
-
-  // Function to toggle the chatbot visibility
-  const toggleChatbot = () => {
-    setIsChatbotVisible((prevState) => !prevState);
-  };
 
   return (
     <div className="md:p-10 p-3 pb-1 md:px-14 flex flex-col font-manrope bg-primary h-full">
@@ -58,26 +49,12 @@ const Home = () => {
       </div>
 
       {/* Chatbot toggle button */}
-      <div className="z-50 fixed bottom-5 left-5 md:right-20 sm:right-25 shadow-lg rounded-full flex items-center cursor-pointer">
-        <button 
-          onClick={toggleChatbot} 
-          className="bg-green-500 p-3 rounded-full hover:bg-green-400">
-          <FaRobot className="text-white w-7 h-7" />
-        </button>
-      </div>
 
       <div className="flex flex-col gap-5">
         <HeroText />
         <Banner />
         <Details />
         <Faq />
-        
-        {/* Conditionally render the chatbot */}
-        {isChatbotVisible && (
-          <div>
-            <Chatbot />
-          </div>
-        )}
 
         <Footer />
       </div>
