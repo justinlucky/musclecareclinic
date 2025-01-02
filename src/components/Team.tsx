@@ -7,7 +7,7 @@ const team = [
   {
     avatar: "/kin.jpg",
     name: "Poukinlung Kamei",
-    title: "Physiotherapist, Professional Boxer, Gym Trainer",
+    title: "Physiotherapist, Dietician, Professional Boxer",
 
   },
   {
