@@ -26,7 +26,7 @@ const services: Service[] = [
   {
     id: "chiropractic-therapy",
     title: "Chiropractic Therapy",
-    image: "/chiropractic.jpg",
+    image: "/chriopractor.png",
     path: "/service/chiropractic-therapy",
   },
   {
