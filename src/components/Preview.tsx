@@ -5,7 +5,11 @@ const Preview = () => {
     plans tailored to your unique needs. Whether you're recovering from an injury, managing chronic pain, or 
     seeking preventive care, we're here to support you on your journey to optimal health. Our goal is to empower 
     you to live a more active, pain-free life.
+    Experience the Muscle Care Clinic difference today and discover how our specialized treatments can help you 
+    achieve your wellness goals.
   `;
+
+  const closing = `Thank you for visiting Muscle Care Clinic! We’re excited to be part of your journey toward better health and wellness. Our team is here to provide you with personalized care and unwavering support every step of the way. Let’s work together to achieve your goals and help you feel your best. We look forward to welcoming you soon!`;
 
   const Button = () => (
     <a
@@ -38,39 +42,26 @@ const Preview = () => {
   return (
     <>
       {/* Mobile View */}
-      <div className="flex md:hidden flex-col p-2 md:p-10 md:px-20">
-        <h1 className="font-manrope text-5xl pt-10 pl-3 text-text font-semibold">
-          Our Clinic
-        </h1>
-        <p className="text-justify pb-10 pt-5 m-5">{description}</p>
+      <div className="flex md:hidden flex-col p-2 md:p-10">
+        <h1 className="font-manrope text-5xl pt-10 pl-3 text-text font-semibold">Our Clinic</h1>
+        <p className="text-justify py-3 m-5">{description}</p>
         <Button />
+        <p className="text-justify py-3 m-5">{closing}</p>
       </div>
 
       {/* Desktop View */}
       <section className="py-24 mb-32 hidden md:flex font-manrope">
-        <div className="max-w-screen-xl mx-auto">
-          <div className="items-center gap-x-12 sm:px-4 md:px-0 lg:flex">
-            <div className="flex-1 sm:hidden xl:block pt-8">
-              <img
-                src="https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
-                className="md:max-w-lg h-full sm:rounded-lg"
-                alt="Clinic"
-              />
-            </div>
-            <div className="max-w-xl px-4 mt-6 sm:px-0 md:mt-0 ml-5 lg:max-w-2xl">
-              <h1 className="text-text text-[55px] font-semibold my-10">
-                Our Clinic
-              </h1>
-              <p className="my-10 text-lg text-gray-600">
-                {description}
-                <br />
-                <br />
-                Experience the Muscle Care Clinic difference today and discover
-                how our specialized treatments can help you achieve your
-                wellness goals.
-              </p>
-              <Button />
-            </div>
+        <div className="max-w-screen-xl mx-auto flex items-center gap-x-12">
+          <img
+            src="https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
+            className="w-1/2 h-full sm:rounded-lg hidden xl:block object-cover"
+            alt="Clinic"
+          />
+          <div className="max-w-xl ml-5 lg:max-w-2xl">
+            <h1 className="text-text text-[55px] font-semibold my-10">Our Clinic</h1>
+            <p className="my-10 text-lg text-gray-600">{description}</p>
+            <Button />
+            <p className="my-10 text-lg text-gray-600">{closing}</p>
           </div>
         </div>
       </section>

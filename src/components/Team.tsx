@@ -35,11 +35,11 @@ const Team = () => {
             {
               team.map((item, idx) => (
                 <li key={idx} className="flex flex-col justify-center gap-3 items-center text-center">
-                   <div className="flex-none h-28 w-28 md:h-40 md:w-40">
+                  <div className="flex-none h-28 w-28 md:h-40 md:w-40 bg-gold rounded-full p-1">
                     <img
                       src={item.avatar}
-                      className="w-full h-full rounded-full"
-                      alt=""
+                      className="w-full h-full rounded-full object-cover"
+                      alt={item.name}
                     />
                   </div>
                   <div>

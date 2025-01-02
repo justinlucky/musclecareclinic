@@ -32,7 +32,7 @@ const services: Service[] = [
   {
     id: "needle-therapy",
     title: "Needle Therapy",
-    image: "/needle-therapy.jpg",
+    image: "/needle.jpg",
     path: "/service/needle-therapy",
   },
   // Add other services as needed...
