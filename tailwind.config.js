@@ -25,6 +25,7 @@ export default {
         "boxing" : "url('/boxing.jpg')",
         "circuit" : "url('/circuit.webp')",
         "hiit" : "url('/hiit.webp')",
+        "poukin" : "url('/doctorKin.jpg')",
 
       },colors:{
         backgroundColor:"#002e4e",

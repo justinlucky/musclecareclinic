@@ -130,7 +130,7 @@ const ServiceDetails = () => {
           <img
             src={service.src}
             alt={service.title}
-            className="w-full h-auto"
+            className="w-full h-auto xl:w-1/2"
             style={{ borderRadius: "20px"}}
           />
           <div className="gap-4 xl:p-5 flex flex-col p-3">

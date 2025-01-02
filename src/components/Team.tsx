@@ -1,23 +1,19 @@
 // import { InfiniteMovingCards } from "./ui/infinite-moving-cards";
 
+import { Link } from "react-router-dom"
+
 
 const team = [
   {
-    avatar: "https://images.unsplash.com/photo-1511485977113-f34c92461ad9?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&ixid=eyJhcHBfaWQiOjE3Nzg0fQ",
-    name: "Kin",
+    avatar: "/kin.jpg",
+    name: "Poukinlung Kamei",
     title: "Physiotherapist, Professional Boxer, Gym Trainer",
 
   },
   {
-    avatar: "https://api.uifaces.co/our-content/donated/xZ4wg2Xj.jpg",
-    name: "Mahesh",
-    title: "Physiotherapist, Chiropractor",
-
-  },
-  {
-    avatar: "https://randomuser.me/api/portraits/women/79.jpg",
+    avatar: "/abhi.jpg",
     name: "Abhishek",
-    title: "Professional Gym Trainer, Administrative Personnel",
+    title: "Professional Gym Trainer, Administrative",
 
   },
 
@@ -39,17 +35,18 @@ const Team = () => {
             {
               team.map((item, idx) => (
                 <li key={idx} className="flex flex-col justify-center gap-3 items-center text-center">
-                  {/* <div className="flex-none h-28 w-28 md:h-40 md:w-1/3">
+                   <div className="flex-none h-28 w-28 md:h-40 md:w-40">
                     <img
                       src={item.avatar}
                       className="w-full h-full rounded-full"
                       alt=""
                     />
-                  </div> */}
+                  </div>
                   <div>
                     <h4 className="text-text font-semibold sm:text-lg">{item.name}</h4>
                     <p className="text-gray-500">{item.title}</p>
-                    <div className="mt-3 flex gap-4 text-gray-400">
+                    <div className="mt-5">
+                      <Link to="" className="bg-text text-gold px-4 py-2 rounded-2xl">Reach Out</Link>
                     </div>
                   </div>
                 </li>
