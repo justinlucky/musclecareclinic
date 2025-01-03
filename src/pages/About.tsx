@@ -3,6 +3,7 @@ import FooterDark from "../components/FooterDark";
 import Navbar from "../components/Navbar";
 import { FaArrowRight, FaArrowDown, FaArrowUp } from "react-icons/fa";
 import { useState } from "react";
+import Team from "../components/Team";
 
 const About = () => {
   const [showMore, setShowMore] = useState(false);
@@ -65,6 +66,7 @@ const About = () => {
           <p>
             Our team is composed of highly skilled professionals who bring a wealth of experience and expertise to the clinic. Kin, a seasoned physiotherapist, professional boxer, and gym trainer, offers a dynamic approach to recovery and fitness. Mahesh, our expert physiotherapist and chiropractor, combines traditional practices with innovative methods to provide holistic care. Abhishek, a professional gym trainer and administrative personnel, ensures that every aspect of your experience at Muscle Care Clinic is seamless and personalized.
           </p>
+          <Team />
           <p>
             We pride ourselves on our vision to offer not just treatments but transformative experiences. Our mission is to create a supportive and healing environment where every patient can achieve optimal physical function, prevent future injuries, and maintain long-term muscle health. By integrating advanced techniques, personalized care, and continuous education, we aspire to empower individuals to live healthier, more active lives.
           </p>
