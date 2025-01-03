@@ -71,7 +71,7 @@ const ServicePreview = () => {
       : services[selectedCategory] || [];
 
   return (
-    <div className="p-5">
+    <div className="p-5 mt-[-150px]">
       <h1 className="font-manrope text-text my-8 text-5xl md:font-semibold font-semibold text-center">
         Our Services
       </h1>

@@ -1,11 +1,15 @@
-
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
+
+import { Navigation, Pagination, Autoplay, Scrollbar, A11y, EffectFade  } from "swiper/modules";
+
 import { useNavigate } from "react-router-dom";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-//import { Navigation } from "swiper";
+import "../styles.css";
+import 'swiper/css/scrollbar';
+
 
 // Define a type for services
 type Service = {
@@ -13,29 +17,53 @@ type Service = {
   title: string;
   image: string;
   path: string;
+  description: string;
 };
 
 // Define the services array with proper typing
 const services: Service[] = [
   {
+    id: "greeting",
+    title: "Happy New Year from Care Clinic",
+    image: "/newYear.jpg",
+    path:"/",
+    description:"We wish you all a very happy new Year 2025. May this year bring you all the health, happiness and prosperity.",
+  },
+  {
     id: "stretching-card",
-    title: "Stretching",
+    title: "Full Body Stretching",
     image: "/stretching.jpg",
     path: "/service/stretching-card",
+    description:"",
   },
   {
     id: "chiropractic-therapy",
     title: "Chiropractic Therapy",
     image: "/chriopractor.png",
     path: "/service/chiropractic-therapy",
+    description:"Hello",
   },
   {
     id: "needle-therapy",
     title: "Needle Therapy",
     image: "/needle.jpg",
     path: "/service/needle-therapy",
+    description:"Hello",
   },
-  // Add other services as needed...
+  {
+    id: "cupping-therapy",
+    title: "Cupping Therapy",
+    image: "/cupping.png",
+    path: "/service/cupping-therapy",
+    description:"Hello",
+  },
+  {
+    id: "boxing-training",
+    title: "Boxing Training",
+    image: "/boxing.jpg",
+    path: "/service/boxing-training",
+    description:"Hello",
+  },
 ];
 
 const Banner: React.FC = () => {
@@ -54,9 +82,11 @@ const Banner: React.FC = () => {
           slidesPerView={1}
           navigation
           pagination={{ clickable: true }}
-          autoplay={{ delay: 3000 }}
-          //modules={[Navigation]}
+          scrollbar={{ draggable: true }}
+          autoplay={{ delay: 15000, disableOnInteraction: false }} // Set autoplay delay to 15 seconds
+          modules={[Navigation, Pagination, Autoplay, Scrollbar, A11y, EffectFade ]}
           className="w-full h-full"
+          effect="fadeIn"
         >
           {services.map((service) => (
             <SwiperSlide key={service.id}>
@@ -67,10 +97,13 @@ const Banner: React.FC = () => {
                 <img
                   src={service.image}
                   alt={service.title}
-                  className="w-full h-full object-cover rounded-2xl"
+                  className="w-full h-full object-cover rounded-xl"
                 />
-                <div className="absolute bottom-5 left-5 bg-white bg-opacity-70 p-4 rounded-lg">
-                  <h2 className="text-lg font-bold">{service.title}</h2>
+                <div className="absolute bottom-0 bg-white bg-opacity-50 p-4 rounded-b-lg w-full">
+                  <div className="marquee">
+                    <h2 className="text-2xl font-bold text-center mb-2 text-text">{service.title}</h2>
+                    <p className="marquee"><span className="text-red font-bold text-lg">Notice:</span>&nbsp;&nbsp;{service.description}</p>
+                  </div>
                 </div>
               </div>
             </SwiperSlide>
@@ -82,4 +115,3 @@ const Banner: React.FC = () => {
 };
 
 export default Banner;
-

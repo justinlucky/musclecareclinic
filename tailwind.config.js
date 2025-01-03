@@ -35,6 +35,7 @@ export default {
         secondary:"#455e6c",
         gold:"#ffd700",
         purple:"#7d3c98",
+        red:"#ff0000",
       },
       animation: {
         scroll:
