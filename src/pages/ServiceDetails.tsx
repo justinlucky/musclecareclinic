@@ -9,6 +9,84 @@ const ServiceDetails = () => {
   // Define the service data
   const services = [
     {
+      id:"post-surgery-physiotherapy",
+      title:"Post Surgery Physiotherapy",
+      description:"Post-surgery physiotherapy is a crucial part of the recovery process. Our skilled therapists will create a personalized treatment plan to help you regain strength, mobility, and function after surgery. Get back on your feet faster with our expert care.",
+      src:"/stretching.jpg",
+      points:["Recovery","Mobility","Strength","Function"],
+    },
+    {
+      id: "orthopaedic-physiotherapy",
+      title: "Orthopaedic Physiotherapy",
+      description:
+        "Orthopaedic physiotherapy focuses on the treatment of musculoskeletal conditions, including injuries and disorders of the bones, muscles, ligaments, tendons, and joints. Our expert therapists will create a customized treatment plan to help you recover from orthopaedic injuries and surgeries.",
+      src: "/chriopractor.png",
+      points: ["Musculoskeletal Health", "Injury Recovery", "Mobility", "Function"],
+    },
+    {
+      id: "neurology-physiotherapy",
+      title: "Neurology Physiotherapy",
+      description:
+        "Neurology physiotherapy focuses on the treatment of neurological conditions, including stroke, spinal cord injury, Parkinson's disease, and multiple sclerosis. Our expert therapists will create a personalized treatment plan to help you improve movement, balance, and function.",
+      src: "/needle.jpg",
+      points: ["Neurological Health", "Movement", "Balance", "Function"],
+    },
+    {
+      id: "sports-physiotherapy",
+      title: "Sports Physiotherapy",
+      description:
+        "Sports physiotherapy focuses on the treatment and prevention of sports-related injuries. Our expert therapists will create a personalized treatment plan to help you recover from injuries, improve performance, and prevent future injuries. Get back in the game with our specialized care.",
+      src: "/cupping.png",
+      points: ["Injury Recovery", "Performance Enhancement", "Prevention", "Mobility"],
+    },
+    {
+      id: "pediatric-physiotherapy",
+      title: "Pediatric Physiotherapy",
+      description:
+        "Pediatric physiotherapy focuses on the treatment of children with movement disorders, developmental delays, and musculoskeletal conditions. Our expert therapists will create a fun and engaging treatment plan to help your child reach their full potential.",
+      src: "/cupping.png",
+      points: ["Child Development", "Movement", "Function", "Engagement"],
+    },
+    {
+      id: "rehabilitation",
+      title: "Rehabilitation",
+      description:
+        "Rehabilitation is a crucial part of the recovery process after injury, surgery, or illness. Our expert therapists will create a personalized treatment plan to help you regain strength, mobility, and function, and improve your quality of life.",
+      src: "/relax.jpg",
+      points: ["Recovery", "Mobility", "Strength", "Function"],
+    },
+    {
+      id: "knee-pain",
+      title: "Knee Pain",
+      description:
+        "Knee pain can be debilitating, affecting your ability to walk, run, and perform daily activities. Our expert therapists will create a personalized treatment plan to help you reduce pain, improve mobility, and regain function in your knees.",
+      src: "/stretching.jpg",
+      points: ["Pain Relief", "Mobility", "Function", "Strength"],
+    },
+    {
+      id: "spinal-injuries",
+      title: "Spinal Injuries",
+      description:
+        "Spinal injuries can be life-changing, affecting your ability to move, work, and enjoy life. Our expert therapists will create a personalized treatment plan to help you recover from spinal injuries, reduce pain, and improve function.",
+      src: "/relax.jpg",
+      points: ["Injury Recovery", "Pain Relief", "Mobility", "Function"],
+    },
+    {
+      id: "foot-and-ankle",
+      title: "Foot and Ankle Pain",
+      description:
+        "Foot and ankle pain can make it difficult to walk, run, and stand for long periods. Our expert therapists will create a personalized treatment plan to help you reduce pain, improve mobility, and regain function in your feet and ankles.",
+      src: "/cupping.png",
+      points: ["Pain Relief", "Mobility", "Function", "Strength"],
+    },
+    {
+      id: "hip-and-back",
+      title: "Hip and Back Pain",
+      description: "Hip and Back Pain can make it difficult to walk, run, and stand for long periods. Our expert therapists will create a personalized treatment plan to help you reduce pain, improve mobility, and regain function in your hips and back.",
+      src: "/cupping.png",
+      points: ["Pain Relief", "Mobility", "Function", "Strength"],
+    },
+    {
       id: "stretching-card",
       title: "Stretching",
       description:

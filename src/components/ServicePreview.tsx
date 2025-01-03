@@ -17,14 +17,21 @@ const ServicePreview = () => {
   // Define the services object with the appropriate type
   const services: Services = {
     "All Services": [],
-    "Muscle Care Service": [
-      { id: "physiotherapist", title: "Physiotherapist", src: "/stretching.jpg" },
-      { id: "orthopaedic-physiotherapist", title: "Orthopaedic Physiotherapist", src: "/chriopractor.png" },
-      { id: "neurology-physiotherapist", title: "Neurology Physiotherapist", src: "/needle.jpg" },
-      { id: "sports-physiotherapist", title: "Sports Physiotherapist", src: "/cupping.png" },
+    "Physiotherapy": [
+      { id: "post-surgery-physiotherapy", title: "Post Surgery Physiotherapy", src: "/stretching.jpg" },
+      { id: "orthopaedic-physiotherapy", title: "Orthopaedic Physiotherapy", src: "/chriopractor.png" },
+      { id: "neurology-physiotherapy", title: "Neurology Physiotherapy", src: "/needle.jpg" },
+      { id: "sports-physiotherapy", title: "Sports Physiotherapy", src: "/cupping.png" },
+      { id: "pediatric-physiotherapy", title: "Pediatric Physiotherapy", src: "/cupping.png" },
       { id: "rehabilitation", title: "Rehabilitation", src: "/relax.jpg" },
+      { id: "neck-and-shoulder", title: "Neck and Shoulder Pain", src: "/relax.jpg"},
+      { id: "knee-pain", title: "Knee pain", src: "/stretching.jpg" },
+      { id: "spinal-injuries", title: "Spinal Injuries", src: "/relax.jpg" },
+      { id: "foot-and-ankle", title: "Foot and Ankle Pain", src: "/cupping.png" },
+      { id: "hip-and-back", title: "Hip and Back Pain", src: "/cupping.png" },
+
     ],
-    "Muscle Relaxation": [
+    "Body Relaxation": [
       { id: "cupping", title: "Cupping", src: "/cupping.png" },
       { id: "i-astm", title: "IASTM", src: "/tape.webp" },
       { id: "cryotherapy", title: "Cryotherapy", src: "/cryo.webp" },
@@ -42,6 +49,7 @@ const ServicePreview = () => {
       { id: "circuit-training", title: "Circuit Training", src: "/circuit.webp" },
       { id: "functional-training", title: "Functional Training", src: "/boxing.jpg" },
       { id: "athletic-training", title: "Athletic Training (ROM)", src: "/hiit.webp" },
+      { id: "boxing-training", title: "Boxing Training", src: "/boxing.jpg" },
       { id: "yoga", title: "Yoga", src: "/relax.jpg" },
     ],
     "Nutrition and Diet Plan": [
@@ -84,7 +92,7 @@ const ServicePreview = () => {
       </div>
 
       {/* Display Filtered Cards */}
-      <div className="flex flex-wrap justify-center gap-6">
+      <div className="flex flex-wrap justify-center gap-5">
         {filteredCards.map((item) => (
           <Link
             key={item.id}
