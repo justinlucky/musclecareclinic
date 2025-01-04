@@ -44,10 +44,24 @@ const services: Service[] = [
     description:"Hello",
   },
   {
+    id: "sports-physiotherapy",
+    title: "Sports Physiotherapy",
+    image: "/sport.jpg",
+    path: "/service/sports-physiotherapy",
+    description:"Hello",
+  },
+  {
     id: "needle-therapy",
     title: "Needle Therapy",
     image: "/needle.jpg",
     path: "/service/needle-therapy",
+    description:"Hello",
+  },
+  {
+    id : "yoga",
+    title: "Yoga",
+    image: "/yoga.jpg",
+    path: "/service/yoga",
     description:"Hello",
   },
   {
@@ -76,11 +90,10 @@ const Banner: React.FC = () => {
 
   return (
     <div className="font-manrope flex flex-col">
-      <div className="w-full md:h-[700px] h-60 xl:h-[900px] bg-gray-700 rounded-t-2xl rounded-b-2xl text-[#28323f] flex gap-4 items-center justify-center">
+      <div className="w-full md:h-[700px] h-150 xl:h-[900px] bg-gray-700 rounded-t-2xl rounded-b-2xl text-[#28323f] flex gap-4 items-center justify-center">
         <Swiper
           spaceBetween={30}
           slidesPerView={1}
-          navigation
           pagination={{ clickable: true }}
           scrollbar={{ draggable: true }}
           autoplay={{ delay: 15000, disableOnInteraction: false }} // Set autoplay delay to 15 seconds

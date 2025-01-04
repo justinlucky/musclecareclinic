@@ -11,16 +11,16 @@ const ServiceDetails = () => {
     {
       id:"post-surgery-physiotherapy",
       title:"Post Surgery Physiotherapy",
-      description:"Post-surgery physiotherapy is a crucial part of the recovery process. Our skilled therapists will create a personalized treatment plan to help you regain strength, mobility, and function after surgery. Get back on your feet faster with our expert care.",
-      src:"/stretching.jpg",
+      description:"Post-surgery physiotherapy is a crucial part of the recovery process. Our skilled therapists will create a personalized treatment plan to help you regain strength, mobility, and function after surgery. Get back on your feet faster with our expert care. This is a very important part of the recovery process after surgery. Our skilled therapists will create a personalized treatment plan to help you regain strength, mobility, and function after surgery. Get back on your feet faster with our expert care.",
+      src:"/postSurgerHos.jpg",
       points:["Recovery","Mobility","Strength","Function"],
     },
     {
       id: "orthopaedic-physiotherapy",
       title: "Orthopaedic Physiotherapy",
       description:
-        "Orthopaedic physiotherapy focuses on the treatment of musculoskeletal conditions, including injuries and disorders of the bones, muscles, ligaments, tendons, and joints. Our expert therapists will create a customized treatment plan to help you recover from orthopaedic injuries and surgeries.",
-      src: "/chriopractor.png",
+        "Orthopaedic physiotherapy focuses on the treatment of musculoskeletal conditions, including injuries and disorders of the bones, muscles, ligaments, tendons, and joints. Our expert therapists will create a customized treatment plan to help you recover from orthopaedic injuries and surgeries.m Our expert therapists will create a customized treatment plan to help you recover from orthopaedic injuries and surgeries.",
+      src: "/ortho.jpg",
       points: ["Musculoskeletal Health", "Injury Recovery", "Mobility", "Function"],
     },
     {
@@ -35,8 +35,8 @@ const ServiceDetails = () => {
       id: "sports-physiotherapy",
       title: "Sports Physiotherapy",
       description:
-        "Sports physiotherapy focuses on the treatment and prevention of sports-related injuries. Our expert therapists will create a personalized treatment plan to help you recover from injuries, improve performance, and prevent future injuries. Get back in the game with our specialized care.",
-      src: "/cupping.png",
+        "Sports physiotherapy focuses on the treatment and prevention of sports-related injuries. Our expert therapists will create a personalized treatment plan to help you recover from injuries, improve performance, and prevent future injuries. Get back in the game with our specialized care. This is a very important part of the recovery process after surgery. Our skilled therapists will create a personalized treatment plan to help you regain strength, mobility, and function after surgery. Get back on your feet faster with our expert care.",
+      src: "/sport.jpg",
       points: ["Injury Recovery", "Performance Enhancement", "Prevention", "Mobility"],
     },
     {

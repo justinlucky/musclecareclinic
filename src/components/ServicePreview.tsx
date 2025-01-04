@@ -18,17 +18,17 @@ const ServicePreview = () => {
   const services: Services = {
     "All Services": [],
     "Physiotherapy": [
-      { id: "post-surgery-physiotherapy", title: "Post Surgery Physiotherapy", src: "/stretching.jpg" },
-      { id: "orthopaedic-physiotherapy", title: "Orthopaedic Physiotherapy", src: "/chriopractor.png" },
+      { id: "post-surgery-physiotherapy", title: "Post Surgery Physiotherapy", src: "/postSurgerHos.jpg" },
+      { id: "orthopaedic-physiotherapy", title: "Orthopaedic Physiotherapy", src: "/ortho.jpg" },
       { id: "neurology-physiotherapy", title: "Neurology Physiotherapy", src: "/needle.jpg" },
-      { id: "sports-physiotherapy", title: "Sports Physiotherapy", src: "/cupping.png" },
+      { id: "sports-physiotherapy", title: "Sports Physiotherapy", src: "/sport.jpg" },
       { id: "pediatric-physiotherapy", title: "Pediatric Physiotherapy", src: "/cupping.png" },
-      { id: "rehabilitation", title: "Rehabilitation", src: "/relax.jpg" },
-      { id: "neck-and-shoulder", title: "Neck and Shoulder Pain", src: "/relax.jpg"},
-      { id: "knee-pain", title: "Knee pain", src: "/stretching.jpg" },
-      { id: "spinal-injuries", title: "Spinal Injuries", src: "/relax.jpg" },
-      { id: "foot-and-ankle", title: "Foot and Ankle Pain", src: "/cupping.png" },
-      { id: "hip-and-back", title: "Hip and Back Pain", src: "/cupping.png" },
+      { id: "rehabilitation", title: "Rehabilitation", src: "/rehab.jpg" },
+      { id: "neck-and-shoulder", title: "Neck and Shoulder Pain", src: "/neck.jpg"},
+      { id: "knee-pain", title: "Knee pain", src: "/postSurgery.jpg" },
+      { id: "spinal-injuries", title: "Spinal Injuries", src: "/spinal.jpg" },
+      { id: "foot-and-ankle", title: "Foot and Ankle Pain", src: "/ankle.jpg" },
+      { id: "hip-and-back", title: "Hip and Back Pain", src: "/hip.jpg" },
 
     ],
     "Body Relaxation": [
@@ -38,19 +38,19 @@ const ServicePreview = () => {
       { id: "chiropractic", title: "Chiropractic", src: "/chriopractor.png" },
       { id: "body-stretching", title: "Complete Body Stretching", src: "/stretching.jpg" },
       { id: "dry-needling", title: "Dry Needling", src: "/needle.jpg" },
-      { id: "massage-therapy", title: "Soft Muscle Mobilisation", src: "/relax.jpg" },
+      { id: "massage-therapy", title: "Soft Muscle Mobilisation", src: "/massage.jpg" },
       { id: "heat-therapy", title: "Heat Therapy", src: "/boxing.jpg" },
     ],
     "Fitness Training": [
       { id: "weight-loss", title: "Weight Loss", src: "/stretching.jpg" },
-      { id: "weight-gain", title: "Weight Gain", src: "/cupping.png" },
-      { id: "strengthening-training", title: "Strengthening Training", src: "/tape.webp" },
+      { id: "weight-gain", title: "Weight Gain", src: "/weightGain.jpg" },
+      { id: "strengthening-training", title: "Strengthening Training", src: "/strength.jpg" },
       { id: "crossfit-training", title: "CrossFit Training", src: "/cryo.webp" },
       { id: "circuit-training", title: "Circuit Training", src: "/circuit.webp" },
       { id: "functional-training", title: "Functional Training", src: "/boxing.jpg" },
       { id: "athletic-training", title: "Athletic Training (ROM)", src: "/hiit.webp" },
       { id: "boxing-training", title: "Boxing Training", src: "/boxing.jpg" },
-      { id: "yoga", title: "Yoga", src: "/relax.jpg" },
+      { id: "yoga", title: "Yoga", src: "/yoga.jpg" },
     ],
     "Nutrition and Diet Plan": [
       { id: "diet-weight-loss", title: "Weight Loss Diet", src: "/stretching.jpg" },
@@ -71,7 +71,7 @@ const ServicePreview = () => {
       : services[selectedCategory] || [];
 
   return (
-    <div className="p-5 mt-[-150px]">
+    <div className="p-5 mt-[-10px]">
       <h1 className="font-manrope text-text my-8 text-5xl md:font-semibold font-semibold text-center">
         Our Services
       </h1>

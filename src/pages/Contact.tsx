@@ -1,3 +1,4 @@
+import Faq from "../components/Faq";
 import FooterDark from "../components/FooterDark";
 import Navbar from "../components/Navbar";
 
@@ -72,6 +73,9 @@ const Contact = () => {
               </button>
             </div>
           </form>
+        </div>
+        <div>
+          <Faq/>
         </div>
         <div className="flex flex-col md:flex-row gap-5 h-full">
           <div className="md:w-1/2 border-[7px] h-4/3 rounded-xl shadow border-white">
