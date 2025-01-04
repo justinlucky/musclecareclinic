@@ -7,8 +7,8 @@ const Navbar = () => {
   // Replace javascript:void(0) path with your path
   const navigation = [
     { title: "Home", path: "/" },
-    { title: "About us", path: "/about" },
-    { title: "Our Achievements", path:"/about/gallery"},
+    { title: "About", path: "/about" },
+    { title: "Our Galleries", path:"/about/gallery"},
     { title: "Services", path: "/services" },
     { title: "Contact Us", path: "/contact" }
   ]

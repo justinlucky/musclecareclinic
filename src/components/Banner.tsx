@@ -90,7 +90,7 @@ const Banner: React.FC = () => {
 
   return (
     <div className="font-manrope flex flex-col">
-      <div className="w-full md:h-[700px] h-150 xl:h-[900px] bg-gray-700 rounded-t-2xl rounded-b-2xl text-[#28323f] flex gap-4 items-center justify-center">
+      <div className=" h-[500px] lg:h-[700px] xl:h-[900px] bg-gray-700 rounded-t-2xl rounded-b-2xl text-[#28323f]">
         <Swiper
           spaceBetween={30}
           slidesPerView={1}
