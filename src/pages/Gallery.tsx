@@ -67,11 +67,11 @@ const Gallery: React.FC = () => {
   };
 
   return (
-    <div className="bg-primary flex flex-col gap-10 px-10 min-h-screen">
+    <div className="bg-primary flex flex-col gap-10 px-5 min-h-screen">
       <Navbar />
-      <div className="bg-secondary p-10 rounded-xl text-white">
+      <div className="bg-secondary py-10  rounded-xl text-white">
         <h1 className="text-3xl font-bold mb-6 text-center">Gallery</h1>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className=" flex flex-wrap gap-10 justify-center">
           {photos.map((photo) => (
             <div
               key={photo.id}
@@ -110,7 +110,7 @@ const Gallery: React.FC = () => {
                 )
               }
             >
-              <video className="w-full h-50 object-cover" muted>
+              <video className="w-full h-70 object-cover" muted>
                 <source src={video.src} type="video/mp4" />
               </video>
               <p className="text-center mt-2">{video.title}</p>
