@@ -1,4 +1,3 @@
-import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import { Navigation, Pagination, Autoplay, Scrollbar, A11y, EffectFade  } from "swiper/modules";
@@ -22,13 +21,6 @@ type Service = {
 
 // Define the services array with proper typing
 const services: Service[] = [
-  {
-    id: "greeting",
-    title: "Happy New Year from Care Clinic",
-    image: "/newYear.jpg",
-    path:"/",
-    description:"We wish you all a very happy new Year 2025. May this year bring you all the health, happiness and prosperity.",
-  },
   {
     id: "stretching-card",
     title: "Full Body Stretching",
