@@ -16,6 +16,11 @@ const team = [
     title: "Professional Gym Trainer, Administrative",
 
   },
+  {
+    avatar: "/mahesh.jpg",
+    name: "Mahesh",
+    title: "Manager and Administrator",
+  },
 
 ]
 const Team = () => {
