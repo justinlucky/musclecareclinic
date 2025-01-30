@@ -141,7 +141,6 @@ const Gallery: React.FC = () => {
               <video className="w-full h-70 object-cover" muted>
                 <source src={video.src} type="video/mp4" />
               </video>
-              <p className="text-center mt-2">{video.title}</p>
             </div>
           ))}
         </div>
