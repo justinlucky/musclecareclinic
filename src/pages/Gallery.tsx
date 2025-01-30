@@ -37,9 +37,16 @@ const Gallery: React.FC = () => {
     {
       id: "massage-treatment",
       title: "Massage Treatment",
-      src: "/treatment2.jpg",
+      src: "/massage.jpg",
       type: "image",
       size: "h-[250px] w-[250px]",
+    },
+    {
+      id: "dumbell-workout",
+      title: "Dumbell Workout",
+      src:"/dumbbell.jpg",
+      type: "image",
+      size: "h-[350px] w-[250px]",
     },
   ];
 

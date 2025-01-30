@@ -13,7 +13,7 @@ const team = [
   {
     avatar: "/abhi.jpg",
     name: "Abhishek",
-    title: "Professional Gym Trainer, Administrative",
+    title: "Master Personal Trainer, Administrative",
 
   },
   {

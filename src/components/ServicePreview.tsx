@@ -20,11 +20,11 @@ const ServicePreview = () => {
     "Physiotherapy": [
       { id: "post-surgery-physiotherapy", title: "Post Surgery Physiotherapy", src: "/postSurgerHos.jpg" },
       { id: "orthopaedic-physiotherapy", title: "Orthopaedic Physiotherapy", src: "/ortho.jpg" },
-      { id: "neurology-physiotherapy", title: "Neurology Physiotherapy", src: "/needle.jpg" },
+      { id: "neurology-physiotherapy", title: "Neurology Physiotherapy", src: "/Neuro.jpg" },
       { id: "sports-physiotherapy", title: "Sports Physiotherapy", src: "/sport.jpg" },
       { id: "pediatric-physiotherapy", title: "Pediatric Physiotherapy", src: "/Pediatric.jpg" },
       { id: "rehabilitation", title: "Rehabilitation", src: "/rehab.jpg" },
-      { id: "neck-and-shoulder", title: "Neck and Shoulder Pain", src: "/neck.jpg"},
+      { id: "neck-and-shoulder", title: "Geriatric Care", src: "/neck.jpg"},
       { id: "knee-pain", title: "Knee pain", src: "/postSurgery.jpg" },
       { id: "spinal-injuries", title: "Spinal Injuries", src: "/spinal.jpg" },
       { id: "foot-and-ankle", title: "Foot and Ankle Pain", src: "/ankle.jpg" },
@@ -34,7 +34,7 @@ const ServicePreview = () => {
     "Body Relaxation": [
       { id: "cupping", title: "Cupping", src: "/cupping.png" },
       { id: "cryotherapy", title: "Cryotherapy", src: "/cryo.webp" },
-      { id: "chiropractic", title: "Chiropractic", src: "/chriopractor.png" },
+      { id: "chiropractic", title: "Chiropractic", src: "/chiro.jpg" },
       { id: "body-stretching", title: "Complete Body Stretching", src: "/stretching.jpg" },
       { id: "dry-needling", title: "Dry Needling", src: "/treatment1.jpg" },
       { id: "massage-therapy", title: "Soft Muscle Mobilisation", src: "/massage.jpg" },

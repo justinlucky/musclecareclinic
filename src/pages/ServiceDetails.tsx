@@ -28,7 +28,7 @@ const ServiceDetails = () => {
       title: "Neurology Physiotherapy",
       description:
         "Neurology physiotherapy focuses on the treatment of neurological conditions, including stroke, spinal cord injury, Parkinson's disease, and multiple sclerosis. Our expert therapists will create a personalized treatment plan to help you improve movement, balance, and function.",
-      src: "/needle.jpg",
+      src: "/Neuro.jpg",
       points: ["Neurological Health", "Movement", "Balance", "Function"],
     },
     {
@@ -100,11 +100,11 @@ const ServiceDetails = () => {
       ],
     },
     {
-      id: "chiropractic-therapy",
+      id: "chiropractic",
       title: "Chiropractic Therapy",
       description:
         "Chiropractic therapy focuses on spinal alignment involving manual adjustments for optimal health, alleviate pain, improve function and support overall health.",
-      src: "/chriopractor.png",
+      src: "/chiro.jpg",
       points: ["Alignment", "Mobility", "Wellness", "Function"],
     },
     {
@@ -140,14 +140,6 @@ const ServiceDetails = () => {
         "Improved Sleep",
         "Mental Clarity",
       ],
-    },
-    {
-      id: "kinesiology-taper",
-      title: "Kinesiology Tape",
-      src: "/tape.webp",
-      description:
-        "Kinesiology tape is a versatile tool that can help reduce pain, improve flexibility, and enhance performance. Our therapists will apply the tape strategically to support your muscles and joints, allowing you to move with greater ease and comfort.",
-      points: ["Support", "Pain Relief", "Circulation", "Muscle Activation"],
     },
     {
       id: "cryotherapy",

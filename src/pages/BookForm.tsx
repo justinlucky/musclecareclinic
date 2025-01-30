@@ -10,17 +10,18 @@ const BookForm = () => {
   // Service details for display (optional enhancement)
   const serviceList: Record<string, string> = {
     "stretching-card": "Stretching",
-    "chiropractic-therapy": "Chiropractic Therapy",
+    "chiropractic": "Chiropractic Therapy",
     "needle-therapy": "Needle Therapy",
     "cupping-therapy": "Cupping Therapy",
     "full-body-relaxation": "Full Body Relaxation",
-    "kinesiology-taper": "Kinesiology Tape",
     "cryotherapy": "Cryotherapy",
     "boxing-and-fitness": "Boxing and Fitness",
     "high-intensity-interval-training": "HIIT",
     "circuit-training": "Circuit Training",
     "post-surgery-physiotherapy": "Post Surgery",
     "orthopaedic-physiotherapy": "Orthopaedic Therapy",
+    "neurology-physiotherapy" : "Neurology Therapy",
+
   };
 
   // Form state

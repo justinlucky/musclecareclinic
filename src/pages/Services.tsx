@@ -5,6 +5,18 @@ import Navbar from "../components/Navbar";
 const Services = () => {
   const servicesData = [
     {
+      id: "orthopaedic-physiotherapy",
+      title: "Orthopaedic Physiotherapy",
+      description: "Orthopaedic physiotherapy focuses on the treatment of musculoskeletal injuries and conditions, helping patients recover mobility and reduce pain.",
+      points: [
+        "Pain management",
+        "Improved mobility",
+        "Enhanced recovery",
+        "Injury prevention",
+      ],
+      imgSrc: "/ortho.jpg",
+    },
+    {
       id: "cupping-therapy",
       title: "Cupping Therapy",
       description:
@@ -16,6 +28,18 @@ const Services = () => {
         "Improved range of motion",
       ],
       imgSrc: "/cupping.png",
+    },
+    { 
+      id: "post-surgery-physiotherapy",
+      title: "Post Surgery Physiotherapy",
+      description: "Post-surgery physiotherapy helps patients recover faster by improving mobility, reducing pain, and restoring function after surgical procedures.",
+      points: [
+        "Enhanced recovery",
+        "Pain management",
+        "Improved mobility",
+        "Reduced swelling",
+      ],
+      imgSrc: "/postSurgerHos.jpg",
     },
     {
       id: "stretching-card",
@@ -52,7 +76,7 @@ const Services = () => {
         "Enhanced sleep",
         "Improved athletic performance",
       ],
-      imgSrc: "/chriopractor.png",
+      imgSrc: "/chiro.jpg",
     },
     {
       id: "full-body-relaxation",
@@ -61,19 +85,6 @@ const Services = () => {
         "This comprehensive service combines heat therapy, stretching, chiropractic adjustments, and muscle stimulation to provide full-body relaxation.",
       points: ["Overall relaxation", "Pain relief", "Enhanced recovery"],
       imgSrc: "/relax.jpg",
-    },
-    {
-      id: "kinesiology-taper",
-      title: "Kinesiology Tape Therapy",
-      description:
-        "Kinesiology tape therapy involves applying elastic, adhesive tape to the skin to support muscles and joints without restricting movement.",
-      points: [
-        "Relieves muscle and joint pain",
-        "Improves blood circulation and reduces swelling",
-        "Supports muscles without restricting movement",
-        "Speeds up recovery from injuries",
-      ],
-      imgSrc: "/tape.webp",
     },
     {
       id: "cryotherapy",
