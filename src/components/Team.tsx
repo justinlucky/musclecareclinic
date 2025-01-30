@@ -18,7 +18,7 @@ const team = [
   },
   {
     avatar: "/mahesh.jpg",
-    name: "Mahesh",
+    name: "Prudhivi",
     title: "Manager and Administrator",
   },
 

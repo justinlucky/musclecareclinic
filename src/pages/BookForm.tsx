@@ -19,6 +19,8 @@ const BookForm = () => {
     "boxing-and-fitness": "Boxing and Fitness",
     "high-intensity-interval-training": "HIIT",
     "circuit-training": "Circuit Training",
+    "post-surgery-physiotherapy": "Post Surgery",
+    "orthopaedic-physiotherapy": "Orthopaedic Therapy",
   };
 
   // Form state

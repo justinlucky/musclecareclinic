@@ -51,8 +51,8 @@ const services: Service[] = [
   },
   {
     id: "needle-therapy",
-    title: "Needle Therapy",
-    image: "/needle.jpg",
+    title: "Dry Needle Therapy",
+    image: "/treatment1.jpg",
     path: "/service/needle-therapy",
     description:"Hello",
   },
