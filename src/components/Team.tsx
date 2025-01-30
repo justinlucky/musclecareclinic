@@ -1,5 +1,3 @@
-// import { InfiniteMovingCards } from "./ui/infinite-moving-cards";
-
 import { Link } from "react-router-dom"
 
 
@@ -51,7 +49,12 @@ const Team = () => {
                     <h4 className="text-text font-semibold sm:text-lg">{item.name}</h4>
                     <p className="text-gray-500">{item.title}</p>
                     <div className="mt-5">
-                      <Link to="" className="bg-text text-gold px-4 py-2 rounded-2xl">Reach Out</Link>
+                      <Link
+                        to={`/team-contact?name=${encodeURIComponent(item.name)}&title=${encodeURIComponent(item.title)}`}
+                        className="bg-text text-gold px-4 py-2 rounded-2xl"
+                      >
+                        Reach Out
+                      </Link>
                     </div>
                   </div>
                 </li>

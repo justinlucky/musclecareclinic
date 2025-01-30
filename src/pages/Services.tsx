@@ -42,8 +42,8 @@ const Services = () => {
       imgSrc: "/postSurgerHos.jpg",
     },
     {
-      id: "stretching-card",
-      title: "Stretching",
+      id: "body-stretching",
+      title: "Full Body Stretching",
       description:
         "Stretching is essential for improving flexibility and mobility. It helps in preventing injuries and is beneficial for overall muscle health.",
       points: [
@@ -56,16 +56,16 @@ const Services = () => {
       imgSrc: "/stretching.jpg",
     },
     {
-      id: "needle-therapy",
-      title: "Dry Needling",
+      id: "dry-needle",
+      title: "Dry Needle Therapy",
       description:
         "Dry needling is used to treat musculoskeletal pain by inserting thin needles into trigger points, helping to reduce muscle tightness and pain.",
       points: ["Reduces muscle tightness", "Increases blood flow", "Pain management"],
       imgSrc: "/needle.jpg",
     },
     {
-      id: "chiropractic-therapy",
-      title: "Chiropractic Care",
+      id: "chiropractic",
+      title: "Chiropractic Therapy",
       description:
         "Chiropractic care involves manual adjustments of the spine and joints to alleviate pain, improve function, and support overall health.",
       points: [
@@ -113,8 +113,8 @@ const Services = () => {
       imgSrc: "/boxing.jpg",
     },
     {
-      id: "high-intensity-interval-training",
-      title: "High-Intensity Interval Training (HIIT)",
+      id:"athletic-training", 
+      title: "Athletic Training (ROM)",
       description:
         "A form of workout that alternates between intense bursts of exercise and short recovery periods, designed to improve fitness quickly.",
       points: [
@@ -138,6 +138,186 @@ const Services = () => {
       ],
       imgSrc: "/circuit.webp",
     },
+    {
+      id: "neurology-physiotherapy",
+      title: "Neurology Physiotherapy",
+      description: "Neurology physiotherapy focuses on treating patients with neurological disorders to improve their mobility and quality of life.",
+      points: [
+      "Improved mobility",
+      "Enhanced coordination",
+      "Pain management",
+      "Better balance",
+      ],
+      imgSrc: "/Neuro.jpg",
+    },
+    {
+      id: "sports-physiotherapy",
+      title: "Sports Physiotherapy",
+      description: "Sports physiotherapy helps athletes recover from injuries and improve their performance through specialized exercises and treatments.",
+      points: [
+      "Injury prevention",
+      "Enhanced recovery",
+      "Improved performance",
+      "Pain management",
+      ],
+      imgSrc: "/sport.jpg",
+    },
+    {
+      id: "pediatric-physiotherapy",
+      title: "Pediatric Physiotherapy",
+      description: "Pediatric physiotherapy focuses on the physical development and rehabilitation of children to help them achieve their full potential.",
+      points: [
+      "Improved motor skills",
+      "Enhanced coordination",
+      "Pain management",
+      "Better balance",
+      ],
+      imgSrc: "/Pediatric.jpg",
+    },
+    {
+      id: "rehabilitation",
+      title: "Rehabilitation",
+      description: "Rehabilitation services help patients recover from injuries, surgeries, or illnesses to regain their strength and functionality.",
+      points: [
+      "Enhanced recovery",
+      "Improved mobility",
+      "Pain management",
+      "Better quality of life",
+      ],
+      imgSrc: "/rehab.jpg",
+    },
+    {
+      id: "geriatric-care",
+      title: "Geriatric Care",
+      description: "Geriatric care focuses on the health and well-being of elderly patients, helping them maintain their independence and quality of life.",
+      points: [
+      "Improved mobility",
+      "Pain management",
+      "Enhanced balance",
+      "Better quality of life",
+      ],
+      imgSrc: "/neck.jpg",
+    },
+    {
+      id: "knee-pain",
+      title: "Knee Pain",
+      description: "Knee pain treatment focuses on reducing pain and improving the function of the knee joint through various therapeutic techniques.",
+      points: [
+      "Pain relief",
+      "Improved mobility",
+      "Enhanced recovery",
+      "Injury prevention",
+      ],
+      imgSrc: "/postSurgery.jpg",
+    },
+    {
+      id: "spinal-injuries",
+      title: "Spinal Injuries",
+      description: "Spinal injury treatment focuses on improving the function and reducing pain in patients with spinal injuries through specialized therapies.",
+      points: [
+      "Pain management",
+      "Improved mobility",
+      "Enhanced recovery",
+      "Better quality of life",
+      ],
+      imgSrc: "/spinal.jpg",
+    },
+    {
+      id: "foot-and-ankle",
+      title: "Foot and Ankle Pain",
+      description: "Foot and ankle pain treatment focuses on reducing pain and improving the function of the foot and ankle through various therapeutic techniques.",
+      points: [
+      "Pain relief",
+      "Improved mobility",
+      "Enhanced recovery",
+      "Injury prevention",
+      ],
+      imgSrc: "/ankle.jpg",
+    },
+    {
+      id: "stroke",
+      title: "Stroke Rehabilitation",
+      description: "Stroke rehabilitation helps patients recover from the effects of a stroke, improving their mobility and quality of life through specialized therapies.",
+      points: [
+      "Improved mobility",
+      "Enhanced coordination",
+      "Pain management",
+      "Better quality of life",
+      ],
+      imgSrc: "/hip.jpg",
+    },
+    {
+      id: "weight-loss",
+      title: "Weight Loss",
+      description: "Weight loss programs designed to help you shed excess weight through a combination of diet, exercise, and lifestyle changes.",
+      points: [
+      "Personalized diet plans",
+      "Effective workout routines",
+      "Regular progress tracking",
+      "Support and motivation",
+      ],
+      imgSrc: "/weightLoss.jpg",
+    },
+    {
+      id: "weight-gain",
+      title: "Weight Gain",
+      description: "Weight gain programs focused on helping you build muscle mass and achieve a healthy weight through proper nutrition and exercise.",
+      points: [
+      "Customized meal plans",
+      "Strength training exercises",
+      "Progress monitoring",
+      "Nutritional guidance",
+      ],
+      imgSrc: "/weightGain.jpg",
+    },
+    {
+      id: "strengthening-training",
+      title: "Strengthening Training",
+      description: "Strength training programs aimed at increasing muscle strength and endurance through resistance exercises and weightlifting.",
+      points: [
+      "Personalized workout plans",
+      "Strength and conditioning",
+      "Progress tracking",
+      "Injury prevention",
+      ],
+      imgSrc: "/strength.jpg",
+    },
+    {
+      id: "crossfit-training",
+      title: "CrossFit Training",
+      description: "CrossFit training combines high-intensity workouts with functional movements to improve overall fitness and performance.",
+      points: [
+      "High-intensity workouts",
+      "Functional movements",
+      "Community support",
+      "Improved fitness",
+      ],
+      imgSrc: "/CrossFitTraining.jpg",
+    },
+    {
+      id: "yoga",
+      title: "Yoga",
+      description: "Yoga sessions designed to improve flexibility, strength, and mental well-being through various poses and breathing techniques.",
+      points: [
+      "Improved flexibility",
+      "Enhanced strength",
+      "Stress relief",
+      "Better mental focus",
+      ],
+      imgSrc: "/yoga.jpg",
+    },
+    {
+      id: "nutrition-diet",
+      title: "Nutrition Diet",
+      description: "Nutrition and diet plans tailored to your specific needs to help you achieve your health and fitness goals.",
+      points: [
+      "Personalized meal plans",
+      "Nutritional guidance",
+      "Healthy eating habits",
+      "Support and motivation",
+      ],
+      imgSrc: "/Deit.jpg",
+    }
   ];
 
   return (

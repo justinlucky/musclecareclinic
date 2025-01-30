@@ -7,6 +7,7 @@ import Contact from './pages/Contact'
 import ServiceDetails from './pages/ServiceDetails'
 import BookForm from './pages/BookForm'
 import Gallery from './pages/Gallery'
+import TeamContact from './pages/TeamContact'
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
           <Route path="/contact" element={<Contact />} /> 
           <Route path="/service/:id" element={<ServiceDetails />} />
           <Route path="/service/booking/:id" element={<BookForm />} />
+          <Route path="/team-contact" element={<TeamContact/>} />
         </Routes>
       </Router>
     </>

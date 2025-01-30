@@ -22,10 +22,10 @@ type Service = {
 // Define the services array with proper typing
 const services: Service[] = [
   {
-    id: "stretching-card",
+    id: "body-stretching",
     title: "Full Body Stretching",
     image: "/stretching.jpg",
-    path: "/service/stretching-card",
+    path: "/service/body-stretching",
     description:"",
   },
   {
@@ -36,10 +36,10 @@ const services: Service[] = [
     description:"Hello",
   },
   {
-    id: "chiropractic-therapy",
+    id: "chiropractic",
     title: "Chiropractic Therapy",
-    image: "/chriopractor.png",
-    path: "/service/chiropractic-therapy",
+    image: "/chiro.jpg",
+    path: "/service/chiropractic",
     description:"Hello",
   },
   {
@@ -50,7 +50,7 @@ const services: Service[] = [
     description:"Hello",
   },
   {
-    id: "needle-therapy",
+    id: "dry-needle",
     title: "Dry Needle Therapy",
     image: "/treatment1.jpg",
     path: "/service/needle-therapy",

@@ -48,6 +48,27 @@ const Gallery: React.FC = () => {
       type: "image",
       size: "h-[350px] w-[250px]",
     },
+    {
+      id: "treatment-2",
+      title: "",
+      src:"/treatment2.jpg",
+      type: "image",
+      size: "h-[250px] w-[250px]",
+    },
+    {
+      id: "treatment-3",
+      title: "",
+      src:"/treatment3.jpg",
+      type: "image",
+      size: "h-[300px] w-[250px]",
+    },
+    {
+    id: "treatment-4",
+    title:"",
+    src: "/treatment4.jpg",
+    type: "image",
+    size: "h-[250px] w-[250px]",
+    }
   ];
 
   const videos: MediaItem[] = [

@@ -24,19 +24,19 @@ const ServicePreview = () => {
       { id: "sports-physiotherapy", title: "Sports Physiotherapy", src: "/sport.jpg" },
       { id: "pediatric-physiotherapy", title: "Pediatric Physiotherapy", src: "/Pediatric.jpg" },
       { id: "rehabilitation", title: "Rehabilitation", src: "/rehab.jpg" },
-      { id: "neck-and-shoulder", title: "Geriatric Care", src: "/neck.jpg"},
+      { id: "geriatric-care", title: "Geriatric Care", src: "/neck.jpg"},
       { id: "knee-pain", title: "Knee pain", src: "/postSurgery.jpg" },
       { id: "spinal-injuries", title: "Spinal Injuries", src: "/spinal.jpg" },
       { id: "foot-and-ankle", title: "Foot and Ankle Pain", src: "/ankle.jpg" },
-      { id: "hip-and-back", title: "Stroke Rehabilitation", src: "/hip.jpg" },
+      { id: "stroke", title: "Stroke Rehabilitation", src: "/hip.jpg" },
 
     ],
     "Body Relaxation": [
-      { id: "cupping", title: "Cupping", src: "/cupping.png" },
+      { id: "cupping-therapy", title: "Cupping Therapy", src: "/cupping.png" },
       { id: "cryotherapy", title: "Cryotherapy", src: "/cryo.webp" },
       { id: "chiropractic", title: "Chiropractic", src: "/chiro.jpg" },
       { id: "body-stretching", title: "Complete Body Stretching", src: "/stretching.jpg" },
-      { id: "dry-needling", title: "Dry Needling", src: "/treatment1.jpg" },
+      { id: "dry-needle", title: "Dry Needle Therapy", src: "/treatment1.jpg" },
       { id: "massage-therapy", title: "Soft Muscle Mobilization", src: "/massage.jpg" },
     ],
     "Fitness Training": [
