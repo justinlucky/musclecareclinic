@@ -28,7 +28,7 @@ const ServicePreview = () => {
       { id: "knee-pain", title: "Knee pain", src: "/postSurgery.jpg" },
       { id: "spinal-injuries", title: "Spinal Injuries", src: "/spinal.jpg" },
       { id: "foot-and-ankle", title: "Foot and Ankle Pain", src: "/ankle.jpg" },
-      { id: "hip-and-back", title: "Hip and Back Pain", src: "/hip.jpg" },
+      { id: "hip-and-back", title: "Stroke Rehabilitation", src: "/hip.jpg" },
 
     ],
     "Body Relaxation": [
@@ -37,7 +37,7 @@ const ServicePreview = () => {
       { id: "chiropractic", title: "Chiropractic", src: "/chiro.jpg" },
       { id: "body-stretching", title: "Complete Body Stretching", src: "/stretching.jpg" },
       { id: "dry-needling", title: "Dry Needling", src: "/treatment1.jpg" },
-      { id: "massage-therapy", title: "Soft Muscle Mobilisation", src: "/massage.jpg" },
+      { id: "massage-therapy", title: "Soft Muscle Mobilization", src: "/massage.jpg" },
     ],
     "Fitness Training": [
       { id: "weight-loss", title: "Weight Loss", src: "/weightLoss.jpg" },

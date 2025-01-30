@@ -190,7 +190,7 @@ const ServiceDetails = () => {
   }
 
   return (
-    <div className=" bg-primary h-full flex flex-col gap-10 px-10">
+    <div className=" bg-primary h-full flex flex-col gap-10 px-5">
       <Navbar />
       <div className="w-full bg-secondary rounded-t-2xl rounded-b-2xl mt-10 xl:p-20 p-5">
         <h1 className=" font-bold mb-2 text-center text-3xl text-white">
