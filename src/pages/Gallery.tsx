@@ -95,7 +95,7 @@ const Gallery: React.FC = () => {
   };
 
   return (
-    <div className="bg-primary flex flex-col gap-10 px-5 min-h-screen">
+    <div className="bg-primary flex flex-col gap-10 px-2 lg:px-[10px] min-h-screen">
       <Navbar />
       <div className="bg-secondary py-10  rounded-xl text-white">
         <h1 className="text-3xl font-bold mb-6 text-center">Gallery</h1>

@@ -15,64 +15,6 @@ const Contact = () => {
           Contact us
         </h1>
         <div>
-          <form className="bg-gray-300 p-5 rounded-xl shadow-md mb-10">
-            <h2 className="text-2xl font-semibold mb-5 text-center text-backgroundColor">Send Us a Message</h2>
-            <div className="mb-4">
-              <label htmlFor="name" className="block text-lg font-medium mb-2 text-primary">
-                Your Name
-              </label>
-              <input
-                type="text"
-                id="name"
-                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
-                placeholder="Enter your full name"
-                required
-              />
-            </div>
-            <div className="mb-4">
-              <label htmlFor="email" className="block text-lg font-medium mb-2 text-primary">
-                Email Address
-              </label>
-              <input
-                type="email"
-                id="email"
-                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
-                placeholder="Enter your email address"
-                required
-              />
-            </div>
-            <div className="mb-4">
-              <label htmlFor="phone" className="block text-lg font-medium mb-2 text-primary">
-                Phone Number
-              </label>
-              <input
-                type="tel"
-                id="phone"
-                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
-                placeholder="Enter your phone number"
-              />
-            </div>
-            <div className="mb-4">
-              <label htmlFor="message" className="block text-lg font-medium mb-2 text-primary">
-                Your Message
-              </label>
-              <textarea
-                id="message"
-                rows={5}
-                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
-                placeholder="Write your message here"
-                required
-              ></textarea>
-            </div>
-            <div className="text-center">
-              <button
-                type="submit"
-                className="bg-primary text-white px-6 py-3 rounded-lg hover:bg-[#005a8d] transition-all"
-              >
-                Send Message
-              </button>
-            </div>
-          </form>
         </div>
         <div>
           <Faq/>
