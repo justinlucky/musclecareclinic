@@ -1,5 +1,7 @@
 import { useLocation } from "react-router-dom";
 import { useState } from "react";
+import Navbar from "../components/Navbar";
+import FooterDark from "../components/FooterDark";
 
 // Component for selecting purpose based on specialist
 const PurposeSelection: React.FC<{ name: string; reason: string; setReason: (value: string) => void }> = ({ name, reason, setReason }) => {
@@ -84,7 +86,8 @@ const TeamContact: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-secondary px-5">
+    <div className="min-h-screen flex flex-col items-center pt-10 bg-secondary px-3 lg:gap-20 gap-10">
+      <Navbar />
       <div className="bg-white p-8 rounded shadow-md w-full max-w-md">
         <h1 className="text-3xl font-bold mb-4 text-text">Contact {name}</h1>
         <p className="text-gray-700 mb-4">{title}</p>
@@ -159,6 +162,7 @@ const TeamContact: React.FC = () => {
           </div>
         </form>
       </div>
+      <FooterDark/>
     </div>
   );
 };

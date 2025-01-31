@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import FooterDark from "../components/FooterDark";
 import Navbar from "../components/Navbar";
+import { useState } from "react";
+
 
 const Services = () => {
   const servicesData = [
@@ -320,51 +322,71 @@ const Services = () => {
     }
   ];
 
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const filteredServices = servicesData.filter((service) =>
+    service.title.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <div className="md:p-10 p-3 pb-1 md:px-14 flex flex-col font-manrope bg-primary h-full gap-5">
       <Navbar />
       <div className="w-full bg-white rounded-t-2xl rounded-b-2xl mt-20 md:p-20 pb-28">
         <h1 className="text-5xl font-semibold py-5 text-text mx-10 mt-5">Services</h1>
+        <div className="mx-10 mb-5">
+          <input
+            type="text"
+            placeholder="Search for services..."
+            className="w-full p-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-600"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}/>
+        </div>
+
         <section className="py-12">
           <div className="container mx-auto px-6">
-            <div className="grid grid-cols-1 gap-8">
-              {servicesData.map((service) => (
-                <div
-                  key={service.id}
-                  id={service.id}
-                  className="flex flex-col gap-3 md:flex-row bg-white p-6 rounded-lg shadow-md"
-                >
-                  <div className="md:w-1/3">
-                    <img
-                      src={service.imgSrc}
-                      alt={service.title}
-                      className="w-full rounded-lg object-cover"
-                    />
-                  </div>
-                  <div className="md:w-2/3 md:pl-8">
-                    <h3 className="text-xl font-semibold text-gray-700 mb-4">
-                      {service.title}
-                    </h3>
-                    <p className="text-gray-600">{service.description}</p>
-                    <ul className="list-disc list-inside mt-4 text-gray-600">
-                      {service.points.map((point, index) => (
-                        <li key={index}>{point}</li>
-                      ))}
-                    </ul>
-                    <div className="flex items-center content-center mt-5">
-                      <Link
-                        to={`/service/booking/${service.id}`}
-                        className="px-4 py-2 text-white bg-blue-700 hover:bg-blue-900 rounded-md"
-                      >
-                        Book Appointment
-                      </Link>
+            {filteredServices.length > 0 ? (
+              <div className="grid grid-cols-1 gap-8">
+                {filteredServices.map((service) => (
+                  <div
+                    key={service.id}
+                    id={service.id}
+                    className="flex flex-col gap-3 md:flex-row bg-white p-6 rounded-lg shadow-md"
+                  >
+                    <div className="md:w-1/3">
+                      <img
+                        src={service.imgSrc}
+                        alt={service.title}
+                        className="w-full rounded-lg object-cover"
+                      />
+                    </div>
+                    <div className="md:w-2/3 md:pl-8">
+                      <h3 className="text-xl font-semibold text-gray-700 mb-4">
+                        {service.title}
+                      </h3>
+                      <p className="text-gray-600">{service.description}</p>
+                      <ul className="list-disc list-inside mt-4 text-gray-600">
+                        {service.points.map((point, index) => (
+                          <li key={index}>{point}</li>
+                        ))}
+                      </ul>
+                      <div className="flex items-center content-center mt-5">
+                        <Link
+                          to={`/service/booking/${service.id}`}
+                          className="px-4 py-2 text-white bg-blue-700 hover:bg-blue-900 rounded-md"
+                        >
+                          Book Appointment
+                        </Link>
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
-            </div>
+                ))}
+              </div>
+            ) : (
+              <p className="text-center text-gray-600">No services found.</p>
+            )}
           </div>
         </section>
+
       </div>
       <FooterDark />
     </div>

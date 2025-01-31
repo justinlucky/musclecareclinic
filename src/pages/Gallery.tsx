@@ -32,42 +32,42 @@ const Gallery: React.FC = () => {
       title: "Dry Needle Treatment",
       src: "/treatment1.jpg",
       type: "image",
-      size: "h-[350px] w-[250px]",
+      size: "h-[350px] w-[270px]",
     },
     {
       id: "massage-treatment",
       title: "Massage Treatment",
       src: "/massage.jpg",
       type: "image",
-      size: "h-[250px] w-[250px]",
+      size: "h-[250px] w-[270px]",
     },
     {
       id: "dumbell-workout",
       title: "Dumbell Workout",
       src:"/dumbbell.jpg",
       type: "image",
-      size: "h-[350px] w-[250px]",
+      size: "h-[350px] w-[270px]",
     },
     {
       id: "treatment-2",
       title: "",
       src:"/treatment2.jpg",
       type: "image",
-      size: "h-[250px] w-[250px]",
+      size: "h-[250px] w-[270px]",
     },
     {
       id: "treatment-3",
       title: "",
       src:"/treatment3.jpg",
       type: "image",
-      size: "h-[300px] w-[250px]",
+      size: "h-[300px] w-[270px]",
     },
     {
     id: "treatment-4",
     title:"",
     src: "/treatment4.jpg",
     type: "image",
-    size: "h-[250px] w-[250px]",
+    size: "h-[250px] w-[270px]",
     }
   ];
 
@@ -127,18 +127,18 @@ const Gallery: React.FC = () => {
           {videos.map((video) => (
             <div
               key={video.id}
-              className="rounded overflow-hidden bg-black p-2 cursor-pointer"
+              className="rounded-xl overflow-hidden bg-black p-2 cursor-pointer"
               onClick={() =>
                 openLightbox(
                   video.type,
-                  <video controls className="w-full h-full">
+                  <video controls className="w-full h-full rounded-xl">
                     <source src={video.src} type="video/mp4" />
                     Your browser does not support the video tag.
                   </video>
                 )
               }
             >
-              <video className="w-full h-70 object-cover" muted>
+              <video className="w-full h-70 object-cover rounded-xl" muted>
                 <source src={video.src} type="video/mp4" />
               </video>
             </div>
