@@ -274,7 +274,7 @@ const Services = () => {
     },
     {
       id: "strengthening-training",
-      title: "Strengthening Training",
+      title: "Strength and Conditioning Training",
       description: "Strength training programs aimed at increasing muscle strength and endurance through resistance exercises and weightlifting.",
       points: [
       "Personalized workout plans",
@@ -286,7 +286,7 @@ const Services = () => {
     },
     {
       id: "crossfit-training",
-      title: "CrossFit Training",
+      title: "Power Lifting",
       description: "CrossFit training combines high-intensity workouts with functional movements to improve overall fitness and performance.",
       points: [
       "High-intensity workouts",
@@ -310,7 +310,7 @@ const Services = () => {
     },
     {
       id: "nutrition-diet",
-      title: "Nutrition Diet",
+      title: "Nutrition and Diet",
       description: "Nutrition and diet plans tailored to your specific needs to help you achieve your health and fitness goals.",
       points: [
       "Personalized meal plans",

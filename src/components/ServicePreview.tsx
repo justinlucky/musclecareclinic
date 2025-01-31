@@ -42,8 +42,8 @@ const ServicePreview = () => {
     "Fitness Training": [
       { id: "weight-loss", title: "Weight Loss", src: "/weightLoss.jpg" },
       { id: "weight-gain", title: "Weight Gain", src: "/weightGain.jpg" },
-      { id: "strengthening-training", title: "Strengthening Training", src: "/strength.jpg" },
-      { id: "crossfit-training", title: "CrossFit Training", src: "/CrossFitTraining.jpg" },
+      { id: "strengthening-training", title: "Strength and Conditioning Training", src: "/strength.jpg" },
+      { id: "crossfit-training", title: "Power Lifting", src: "/CrossFitTraining.jpg" },
       { id: "circuit-training", title: "Circuit Training", src: "/circuit.webp" },
       { id: "athletic-training", title: "Athletic Training (ROM)", src: "/hiit.webp" },
       { id: "boxing-training", title: "Boxing Training", src: "/boxing.jpg" },
