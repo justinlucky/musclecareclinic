@@ -20,7 +20,7 @@ const PurposeSelection: React.FC<{ name: string; reason: string; setReason: (val
       "Cardio Training",
       "Flexibility Training"
     ],
-    "Prudhivi": ["General Enquiry"]
+    "Prudhivi": ["General Enquiry", "Membership Management", "Complaints", "Feedback", "Fees Enquiry"]
   };
 
   const options = purposes[name] || ["General Enquiry"];
