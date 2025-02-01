@@ -7,7 +7,6 @@ import FooterDark from "../components/FooterDark";
 const BookForm = () => {
   const { id } = useParams<{ id: string }>();
 
-  // Service details for display (optional enhancement)
   const serviceList: Record<string, string> = {
     "body-stretching": "Full Body Stretching",
     "chiropractic": "Chiropractic Therapy",
@@ -19,8 +18,8 @@ const BookForm = () => {
     "high-intensity-interval-training": "HIIT",
     "post-surgery-physiotherapy": "Post Surgery Therapy",
     "orthopaedic-physiotherapy": "Orthopaedic Therapy",
-    "neurology-physiotherapy" : "Neurology Therapy",
-    "sports-physiotherapy": "Sports Physiotherapy", 
+    "neurology-physiotherapy": "Neurology Therapy",
+    "sports-physiotherapy": "Sports Physiotherapy",
     "pediatric-physiotherapy": "Pediatric Physiotherapy",
     "rehabilitation": "Rehabilitation",
     "geriatric-care": "Geriatric Care",
@@ -28,20 +27,18 @@ const BookForm = () => {
     "spinal-injuries": "Spinal Injuries",
     "foot-and-ankle": "Foot and Ankle Pain",
     "stroke": "Stroke Rehabilitation",
-    "massage-therapy": "Soft Muscle Mobilization", 
+    "massage-therapy": "Soft Muscle Mobilization",
     "weight-loss": "Weight Loss",
     "weight-gain": "Weight Gain",
     "strengthening-training": "Strength and Conditioning Training",
     "crossfit-training": "Power Lifting",
     "circuit-training": "Circuit Training",
     "athletic-training": "Athletic Training (ROM)",
-    "boxing-training": "Boxing Training", 
-    "yoga": "Yoga", 
+    "boxing-training": "Boxing Training",
+    "yoga": "Yoga",
     "nutrition-diet": "Nutrition Diet",
-
   };
 
-  // Form state
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -49,77 +46,102 @@ const BookForm = () => {
     date: "",
     time: "",
     additionalNotes: "",
+    location: "",
   });
 
-  const serviceName =
-    id && serviceList[id] ? serviceList[id] : "Selected Service";
-  // Handle form input changes
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
+  const [visitType, setVisitType] = useState("at-site");
+  const serviceName = id && serviceList[id] ? serviceList[id] : "Selected Service";
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  // Handle form submission
+  const handleVisitChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setVisitType(e.target.value);
+  };
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const serviceID = "service_659j6oh";
     const templateID = "template_lacobkk";
-    const userID ="X1NAjQb8QBuvYQzB0";
+    const userID = "X1NAjQb8QBuvYQzB0";
 
     const emailData = {
-        ...formData,
-        serviceName
+      ...formData,
+      serviceName,
+      visitType,
     };
 
     emailjs
-    .send(serviceID, templateID, emailData, userID)
-    .then(() => {
+      .send(serviceID, templateID, emailData, userID)
+      .then(() => {
         alert("Appointment booked successfully!");
         setFormData({
-            name:"",
-            email:"",
-            phone:"",
-            date:"",
-            time:"",
-            additionalNotes:"",
+          name: "",
+          email: "",
+          phone: "",
+          date: "",
+          time: "",
+          additionalNotes: "",
+          location: "",
         });
-    })
-    .catch((err) => {
-        console.log("Error while sending submitting the form:", err);
+      })
+      .catch((err) => {
+        console.log("Error while submitting the form:", err);
         alert("Failed to send the appointment. Please try again");
-    });
-    console.log("Form Submitted:", formData);
+      });
   };
 
   return (
-    <div className=" bg-primary flex flex-col items-center content-center gap-10 p-3">
-        <Navbar/>
+    <div className="bg-primary flex flex-col items-center content-center gap-10 p-3">
+      <Navbar />
       <div className="max-w-xl max-auto flex flex-col gap-5">
         <h1 className="text-3xl font-bold mb-4 text-center text-white">
           Book Appointment for {serviceName}
         </h1>
-        <form onSubmit={handleSubmit} className="space-y-4 bg-secondary p-5" style={{borderRadius:"15px"}}>
+        <form onSubmit={handleSubmit} className="space-y-4 bg-secondary p-5" style={{ borderRadius: "15px" }}>
+          <div className="flex gap-2 flex-col">
+          <p className="text-xl text-white text-bold text-center">Select the mode of service you are looking for:</p>
+          <div className="flex gap-4 justify-center">
+            <label>
+              <input type="radio" name="visitType" value="at-site" checked={visitType === "at-site"} onChange={handleVisitChange} />
+              At Site
+            </label>
+            <label>
+              <input type="radio" name="visitType" value="home-visit" checked={visitType === "home-visit"} onChange={handleVisitChange} />
+              Home Visit
+            </label>
+            </div>
+          </div>
+
+          {visitType === "home-visit" && (
+            <div>
+              <label className="block text-sm font-medium mb-1" htmlFor="location">
+                Enter Your Location or URL
+              </label>
+              <input
+                type="text"
+                id="location"
+                name="location"
+                value={formData.location}
+                onChange={handleChange}
+                className="w-full px-3 py-2 border rounded-md"
+                placeholder="Enter address or location URL"
+                required
+              />
+            </div>
+          )}
+
           <div>
             <label className="block text-sm font-medium mb-1" htmlFor="name">
               Full Name
             </label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              className="w-full px-3 py-2 border rounded-md"
-              placeholder="Enter your full name"
-              required
-            />
+            <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} className="w-full px-3 py-2 border rounded-md" placeholder="Enter your full name" required />
           </div>
-
-          <div>
+            <div>
             <label className="block text-sm font-medium mb-1" htmlFor="email">
-              Email Address
+              Email
             </label>
             <input
               type="email"
@@ -131,9 +153,9 @@ const BookForm = () => {
               placeholder="Enter your email"
               required
             />
-          </div>
+            </div>
 
-          <div>
+            <div>
             <label className="block text-sm font-medium mb-1" htmlFor="phone">
               Phone Number
             </label>
@@ -147,11 +169,11 @@ const BookForm = () => {
               placeholder="Enter your phone number"
               required
             />
-          </div>
+            </div>
 
-          <div>
+            <div>
             <label className="block text-sm font-medium mb-1" htmlFor="date">
-              Preferred Date
+              Appointment Date
             </label>
             <input
               type="date"
@@ -162,11 +184,11 @@ const BookForm = () => {
               className="w-full px-3 py-2 border rounded-md"
               required
             />
-          </div>
+            </div>
 
-          <div>
+            <div>
             <label className="block text-sm font-medium mb-1" htmlFor="time">
-              Preferred Time
+              Appointment Time
             </label>
             <input
               type="time"
@@ -177,14 +199,11 @@ const BookForm = () => {
               className="w-full px-3 py-2 border rounded-md"
               required
             />
-          </div>
+            </div>
 
-          <div>
-            <label
-              className="block text-sm font-medium mb-1"
-              htmlFor="additionalNotes"
-            >
-              Additional Notes (Optional)
+            <div>
+            <label className="block text-sm font-medium mb-1" htmlFor="additionalNotes">
+              Additional Notes
             </label>
             <textarea
               id="additionalNotes"
@@ -192,19 +211,16 @@ const BookForm = () => {
               value={formData.additionalNotes}
               onChange={handleChange}
               className="w-full px-3 py-2 border rounded-md"
-              placeholder="Any additional information or requests"
+              placeholder="Enter any additional notes"
             />
-          </div>
+            </div>
 
-          <button
-            type="submit"
-            className="w-full bg-blue-700 hover:bg-blue-900 text-white px-4 py-2 rounded-md"
-          >
+          <button type="submit" className="w-full bg-blue-700 hover:bg-blue-900 text-white px-4 py-2 rounded-md">
             Submit Appointment
           </button>
         </form>
       </div>
-      <FooterDark/>
+      <FooterDark />
     </div>
   );
 };
