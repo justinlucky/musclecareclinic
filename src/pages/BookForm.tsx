@@ -213,6 +213,7 @@ const BookForm = () => {
               className="w-full px-3 py-2 border rounded-md"
               placeholder="Enter any additional notes"
             />
+            <p><span className="text-red">*</span>Please share your problems, we collect information only for medical purposes. And your information are not share with anyone apart from your doctor.</p>
             </div>
 
           <button type="submit" className="w-full bg-blue-700 hover:bg-blue-900 text-white px-4 py-2 rounded-md">
