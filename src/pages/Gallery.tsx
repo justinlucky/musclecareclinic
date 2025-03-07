@@ -248,7 +248,7 @@ const Gallery: React.FC = () => {
                   />
                   <button
                     onClick={() =>
-                      copyToClipboard(`https://yourwebsite.com/gallery/video/${lightbox.videoId}`)
+                      copyToClipboard(`https://www.musclescareclinic.com/about/gallery/video/${lightbox.videoId}`)
                     }
                     className="p-2 bg-primary text-white rounded-lg hover:bg-primary-dark transition-colors duration-200"
                   >
