@@ -242,7 +242,7 @@ const Gallery: React.FC = () => {
                 <div className="flex items-center gap-2">
                   <input
                     type="text"
-                    value={`https://yourwebsite.com/gallery/video/${lightbox.videoId}`}
+                    value={`https://www.musclescareclinic.com/about/gallery/video/${lightbox.videoId}`}
                     readOnly
                     className="flex-1 p-2 border border-gray-300 rounded-lg text-sm"
                   />
