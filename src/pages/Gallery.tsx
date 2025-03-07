@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import FooterDark from "../components/FooterDark";
 import Navbar from "../components/Navbar";
 
@@ -22,6 +23,7 @@ interface LightboxContent {
 }
 
 const Gallery: React.FC = () => {
+  const { videoId } = useParams(); // Get the videoId from the URL
   const [lightbox, setLightbox] = useState<LightboxContent>({
     isOpen: false,
     type: null,
@@ -30,6 +32,7 @@ const Gallery: React.FC = () => {
   });
 
   const photos: MediaItem[] = [
+    // ... (same as before)
     {
       id: "dry-needle-treatment",
       title: "Dry Needle Treatment",
@@ -75,6 +78,7 @@ const Gallery: React.FC = () => {
   ];
 
   const videos: MediaItem[] = [
+    // ... (same as before)
     {
       id: "PhysiotherapyVideo1",
       title: "Physiotherapy",
@@ -104,27 +108,47 @@ const Gallery: React.FC = () => {
       thumbnail: "/FitnessVideoThumbnail.jpg",
     },
     {
-      id: "FitnessVideo2",
+      id: "FitnessVideo1",
       title: "Cardio",
       src: "/Fitness2.mp4",
       type: "video",
       thumbnail: "/FitnessVideo2Thumbnail.jpg",
     },
     {
-      id: "FitnessVideo3",
+      id: "FitnessVideo2",
       title: "Strength Workout",
       src: "/Fitness3.mp4",
       type: "video",
       thumbnail: "/FitnessVideo3Thumbnail.jpg",
     },
     {
-      id: "FitnessVideo4",
+      id: "FitnessVideo3",
       title: "Intensive Workout",
       src: "/Fitness4.mp4",
       type: "video",
       thumbnail: "/FitnessVideo4Thumbnail.jpg",
     },
   ];
+
+  // Automatically open the lightbox if a videoId is present in the URL
+  useEffect(() => {
+    if (videoId) {
+      const video = videos.find((v) => v.id === videoId);
+      if (video) {
+        openLightbox(
+          video.type,
+          <video
+            controls
+            className="w-full max-h-[400px] rounded-xl object-contain"
+          >
+            <source src={video.src} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>,
+          video.id
+        );
+      }
+    }
+  }, [videoId]);
 
   const openLightbox = (type: MediaType, content: React.ReactNode, videoId?: string) => {
     setLightbox({ isOpen: true, type, content, videoId });
