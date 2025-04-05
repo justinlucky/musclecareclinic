@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
 import FooterDark from "../components/FooterDark";
 import Navbar from "../components/Navbar";
 
@@ -11,8 +12,8 @@ interface MediaItem {
   title: string;
   src: string;
   type: MediaType;
-  size?: string; // Optional, only applicable for images
-  thumbnail?: string; // Optional, for video thumbnails
+  size?: string;
+  thumbnail?: string;
 }
 
 interface LightboxContent {
@@ -82,20 +83,50 @@ const Gallery: React.FC = () => {
     });
   };
 
+  // Animation variants for media items
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: (i: number) => ({
+      opacity: 1,
+      y: 0,
+      transition: { delay: i * 0.1, duration: 0.5, ease: "easeOut" },
+    }),
+  };
+
   return (
-    <div className="bg-primary min-h-screen flex flex-col">
+    <motion.div
+      className="bg-primary min-h-screen flex flex-col"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+    >
       <Navbar />
       <main className="flex-grow container mx-auto px-4 py-8">
-        <h1 className="text-5xl font-bold text-center text-gray-300 mb-12 tracking-wide">
+        <motion.h1
+          className="text-4xl md:text-5xl font-bold text-center text-gray-300 mb-10 tracking-wide"
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
           Our Gallery
-        </h1>
+        </motion.h1>
 
         {/* Photos Section */}
-        <section className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
-          {photos.map((photo) => (
-            <div
+        <motion.section
+          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+        >
+          {photos.map((photo, index) => (
+            <motion.div
               key={photo.id}
+              custom={index}
+              variants={itemVariants}
+              initial="hidden"
+              animate="visible"
               className="group rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer"
+              whileHover={{ scale: 1.05 }}
               onClick={() =>
                 openLightbox(
                   photo.type,
@@ -113,18 +144,35 @@ const Gallery: React.FC = () => {
                   {photo.title}
                 </p>
               )}
-            </div>
+            </motion.div>
           ))}
-        </section>
+        </motion.section>
 
         {/* Videos Section */}
-        <section className="mt-12">
-          <h2 className="text-3xl font-semibold text-center text-gray-200 mb-8">Videos</h2>
+        <motion.section
+          className="mt-10"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+        >
+          <motion.h2
+            className="text-2xl md:text-3xl font-semibold text-center text-gray-200 mb-8"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.5 }}
+          >
+            Videos
+          </motion.h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {videos.map((video) => (
-              <div
+            {videos.map((video, index) => (
+              <motion.div
                 key={video.id}
+                custom={index}
+                variants={itemVariants}
+                initial="hidden"
+                animate="visible"
                 className="group rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer relative"
+                whileHover={{ scale: 1.05 }}
                 onClick={() =>
                   openLightbox(
                     video.type,
@@ -153,52 +201,67 @@ const Gallery: React.FC = () => {
                 <p className="absolute bottom-2 left-2 text-white font-semibold bg-black bg-opacity-60 px-3 py-1 rounded-full">
                   {video.title}
                 </p>
-              </div>
+              </motion.div>
             ))}
           </div>
-        </section>
+        </motion.section>
       </main>
       <FooterDark />
 
       {/* Lightbox */}
-      {lightbox.isOpen && (
-        <div
-          className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50"
-          onClick={closeLightbox}
-        >
-          <div
-            className="relative max-w-4xl w-full mx-4 p-4 bg-white rounded-xl shadow-2xl"
-            onClick={(e) => e.stopPropagation()}
+      <AnimatePresence>
+        {lightbox.isOpen && (
+          <motion.div
+            className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.4 }}
+            onClick={closeLightbox}
           >
-            {lightbox.content}
-            {lightbox.type === "video" && lightbox.videoId && (
-              <div className="mt-4 flex items-center gap-3">
-                <input
-                  type="text"
-                  value={`https://www.musclescareclinic.com/about/gallery/video/${lightbox.videoId}`}
-                  readOnly
-                  className="flex-1 p-2 border border-gray-300 rounded-lg text-sm text-gray-700"
-                />
-                <button
-                  onClick={() =>
-                    copyToClipboard(`https://www.musclescareclinic.com/about/gallery/video/${lightbox.videoId}`)
-                  }
-                  className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200"
-                >
-                  Copy
-                </button>
-              </div>
-            )}
-            <button
-              className="absolute top-2 right-2 text-gray-600 hover:text-gray-800 p-2 rounded-full bg-gray-200 hover:bg-gray-300 transition-colors duration-200"
-              onClick={closeLightbox}
+            <motion.div
+              className="relative max-w-4xl w-full mx-4 p-4 bg-white rounded-xl shadow-2xl"
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+              onClick={(e) => e.stopPropagation()}
             >
-              ✕
-            </button>
-          </div>
-        </div>
-      )}
-    </div>
+              {lightbox.content}
+              {lightbox.type === "video" && lightbox.videoId && (
+                <motion.div
+                  className="mt-4 flex items-center gap-3"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.3, delay: 0.2 }}
+                >
+                  <input
+                    type="text"
+                    value={`https://www.musclescareclinic.com/about/gallery/video/${lightbox.videoId}`}
+                    readOnly
+                    className="flex-1 p-2 border border-gray-300 rounded-lg text-sm text-gray-700"
+                  />
+                  <button
+                    onClick={() =>
+                      copyToClipboard(`https://www.musclescareclinic.com/about/gallery/video/${lightbox.videoId}`)
+                    }
+                    className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200"
+                  >
+                    Copy
+                  </button>
+                </motion.div>
+              )}
+              <button
+                className="absolute top-2 right-2 text-gray-600 hover:text-gray-800 p-2 rounded-full bg-gray-200 hover:bg-gray-300 transition-colors duration-200"
+                onClick={closeLightbox}
+              >
+                ✕
+              </button>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.div>
   );
 };
 

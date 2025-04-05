@@ -1,13 +1,59 @@
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import Navbar from "../components/Navbar";
 import FooterDark from "../components/FooterDark";
+
+// Animation variants
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+      delayChildren: 0.2,
+    },
+  },
+};
+
+const childVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: "easeOut",
+    },
+  },
+};
+
+const titleVariants = {
+  hidden: { opacity: 0, y: -20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: "easeOut",
+    },
+  },
+};
 
 const ServiceDetails = () => {
   const { id } = useParams();
 
-  // Define the service data
-  const services = [
+  // Define the type for services
+  type Service = {
+    id: string;
+    title: string;
+    src: string;
+    description: string;
+    points?: string[];
+  };
+
+  // Example service data
+  const services: Service[] = [
     {
       id:"post-surgery-physiotherapy",
       title:"Post Surgery Physiotherapy",
@@ -269,49 +315,82 @@ const ServiceDetails = () => {
         }
   ];
 
-  // Find the service by id
   const service = services.find((item) => item.id === id);
 
-  // If the service is not found, show a fallback
   if (!service) {
     return <p>Service not found!</p>;
   }
 
   return (
-    <div className=" bg-primary h-full flex flex-col gap-10 px-5">
+    <div className="bg-primary min-h-screen flex flex-col gap-6 px-4 sm:px-5">
       <Navbar />
-      <div className="w-full bg-secondary rounded-t-2xl rounded-b-2xl mt-10 xl:p-20 p-5">
-        <h1 className=" font-bold mb-2 text-center text-3xl text-white">
+      <motion.div
+        className="w-full bg-secondary rounded-t-2xl rounded-b-2xl mt-8 p-4 sm:p-6 md:p-10 lg:p-16 xl:p-20"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        <motion.h1
+          className="font-bold mb-4 text-center text-2xl sm:text-3xl text-white"
+          variants={titleVariants}
+        >
           {service.title}
-        </h1>
-        <div className=" py-3 xl:py-7 flex xl:flex-row flex-col xl:items-center gap-5">
-          <img
+        </motion.h1>
+        <motion.div
+          className="py-2 sm:py-3 xl:py-7 flex flex-col xl:flex-row xl:items-center gap-4 sm:gap-5"
+          variants={containerVariants}
+        >
+          <motion.img
             src={service.src}
             alt={service.title}
-            className="w-full h-auto xl:w-1/2"
-            style={{ borderRadius: "20px"}}
+            className="w-full h-auto xl:w-1/2 rounded-2xl"
+            variants={childVariants}
+            whileHover={{ scale: 1.05 }}
+            transition={{ duration: 0.3 }}
           />
-          <div className="gap-4 xl:p-5 flex flex-col p-3">
-            <p className="text-white text-bold">{service.description}</p>
+          <motion.div
+            className="gap-3 sm:gap-4 p-2 sm:p-3 xl:p-5 flex flex-col"
+            variants={containerVariants}
+          >
+            <motion.p
+              className="text-white font-medium"
+              variants={childVariants}
+            >
+              {service.description}
+            </motion.p>
             <ul className="pl-5">
               {service.points?.map((point, index) => (
-                <li key={index} style={{ listStyle: "disc" ,color:"#fdfdfd"}}>
+                <motion.li
+                  key={index}
+                  style={{ listStyle: "disc", color: "#fdfdfd" }}
+                  variants={childVariants}
+                  custom={index}
+                  transition={{ delay: index * 0.1 }}
+                >
                   {point}
-                </li>
+                </motion.li>
               ))}
             </ul>
-            <div style={{ marginTop: "30px", display:"flex", alignItems:"center", justifyContent:"center" }}>
-              <Link
-                to={`/service/booking/${service.id}`}
-                className="bg-blue-700 hover:bg-blue-900 text-white px-4 py-2 rounded-md"
+            <motion.div
+              className="mt-4 sm:mt-6 flex items-center justify-center"
+              variants={childVariants}
+            >
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.3 }}
               >
-                Book Appointment
-              </Link>
-            </div>
-          </div>
-        </div>
-      </div>
-      <FooterDark/>
+                <Link
+                  to={`/service/booking/${service.id}`}
+                  className="bg-blue-700 hover:bg-blue-900 text-white px-4 py-2 rounded-md inline-block"
+                >
+                  Book Appointment
+                </Link>
+              </motion.div>
+            </motion.div>
+          </motion.div>
+        </motion.div>
+      </motion.div>
+      <FooterDark />
     </div>
   );
 };
