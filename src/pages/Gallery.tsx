@@ -19,11 +19,11 @@ interface LightboxContent {
   isOpen: boolean;
   type: MediaType | null;
   content: React.ReactNode | null;
-  videoId?: string; // Add videoId to the lightbox state
+  videoId?: string;
 }
 
 const Gallery: React.FC = () => {
-  const { videoId } = useParams(); // Get the videoId from the URL
+  const { videoId } = useParams();
   const [lightbox, setLightbox] = useState<LightboxContent>({
     isOpen: false,
     type: null,
@@ -32,136 +32,33 @@ const Gallery: React.FC = () => {
   });
 
   const photos: MediaItem[] = [
-    // ... (same as before)
-    {
-      id: "dry-needle-treatment",
-      title: "Dry Needle Treatment",
-      src: "/treatment1.jpg",
-      type: "image",
-      size: "h-[350px] w-[270px]",
-    },
-    {
-      id: "massage-treatment",
-      title: "Massage Treatment",
-      src: "/massage.jpg",
-      type: "image",
-      size: "h-[250px] w-[270px]",
-    },
-    {
-      id: "dumbell-workout",
-      title: "Dumbell Workout",
-      src: "/dumbbell.jpg",
-      type: "image",
-      size: "h-[350px] w-[270px]",
-    },
-    {
-      id: "treatment-2",
-      title: "",
-      src: "/treatment2.jpg",
-      type: "image",
-      size: "h-[250px] w-[270px]",
-    },
-    {
-      id: "treatment-3",
-      title: "",
-      src: "/treatment3.jpg",
-      type: "image",
-      size: "h-[300px] w-[270px]",
-    },
-    {
-      id: "treatment-4",
-      title: "",
-      src: "/treatment4.jpg",
-      type: "image",
-      size: "h-[250px] w-[270px]",
-    },
+    { id: "dry-needle-treatment", title: "Dry Needle Treatment", src: "/treatment1.jpg", type: "image" },
+    { id: "dumbell-workout", title: "Dumbell Workout", src: "/dumbbell.jpg", type: "image" },
+    { id: "treatment-2", title: "Cupping Therapy", src: "/treatment2.jpg", type: "image" },
+    { id: "treatment-3", title: "Full Body Relaxation", src: "/treatment3.jpg", type: "image" },
+    { id: "treatment-4", title: "Cupping Therapy", src: "/treatment4.jpg", type: "image" },
   ];
 
   const videos: MediaItem[] = [
-    // ... (same as before)
-    {
-      id: "PhysiotherapyVideo1",
-      title: "Physiotherapy",
-      src: "/treatment-video1.mp4",
-      type: "video",
-      thumbnail: "/PhysiotherapyVideoThumbnail.jpg",
-    },
-    {
-      id: "RehabilitationVideo1",
-      title: "Rehabilitation",
-      src: "/treatment-video2.mp4",
-      type: "video",
-      thumbnail: "/RehabilitationVideoThumbnail.jpg",
-    },
-    {
-      id: "BoxingVideo1",
-      title: "Boxing",
-      src: "/boxing.mp4",
-      type: "video",
-      thumbnail: "/BoxingVideoThumbnail.jpg",
-    },
-    {
-      id: "FitnessVideo1",
-      title: "Fitness",
-      src: "/Fitness.mp4",
-      type: "video",
-      thumbnail: "/FitnessVideoThumbnail.jpg",
-    },
-    {
-      id: "FitnessVideo1",
-      title: "Cardio",
-      src: "/Fitness2.mp4",
-      type: "video",
-      thumbnail: "/FitnessVideo2Thumbnail.jpg",
-    },
-    {
-      id: "FitnessVideo2",
-      title: "Strength Workout",
-      src: "/Fitness3.mp4",
-      type: "video",
-      thumbnail: "/FitnessVideo3Thumbnail.jpg",
-    },
-    {
-      id: "FitnessVideo3",
-      title: "Intensive Workout",
-      src: "/Fitness4.mp4",
-      type: "video",
-      thumbnail: "/FitnessVideo4Thumbnail.jpg",
-    },
-    {
-      id:"StrokeRehabilitationVideo1",
-      title: "Stroke Rehabilitation",
-      src: "/treatment-video3.mp4",
-      type: "video",
-      thumbnail: "/StrokeRehabilitationVideoThumbnail.jpg",
-    },
-    {
-      id:"VacuumCupping",
-      title: "Vacuum Cupping",
-      src: "/treatment-video4.mp4",
-      type: "video",
-      thumbnail: "/VacuumCuppingVideoThumbnail.jpg",
-    },
-    {
-      id:"HajimaCupping",
-      title: "Hajima Cupping",
-      src: "/treatment-video5.mp4",
-      type: "video",
-      thumbnail: "/HajimaCuppingVideoThumbnail.jpg",
-    }
+    { id: "PhysiotherapyVideo1", title: "Physiotherapy", src: "/treatment-video1.mp4", type: "video", thumbnail: "/PhysiotherapyVideoThumbnail.jpg" },
+    { id: "RehabilitationVideo1", title: "Rehabilitation", src: "/treatment-video2.mp4", type: "video", thumbnail: "/RehabilitationVideoThumbnail.jpg" },
+    { id: "BoxingVideo1", title: "Boxing", src: "/boxing.mp4", type: "video", thumbnail: "/BoxingVideoThumbnail.jpg" },
+    { id: "FitnessVideo1", title: "Fitness", src: "/Fitness.mp4", type: "video", thumbnail: "/FitnessVideoThumbnail.jpg" },
+    { id: "FitnessVideo2", title: "Cardio", src: "/Fitness2.mp4", type: "video", thumbnail: "/FitnessVideo2Thumbnail.jpg" },
+    { id: "FitnessVideo3", title: "Strength Workout", src: "/Fitness3.mp4", type: "video", thumbnail: "/FitnessVideo3Thumbnail.jpg" },
+    { id: "FitnessVideo4", title: "Intensive Workout", src: "/Fitness4.mp4", type: "video", thumbnail: "/FitnessVideo4Thumbnail.jpg" },
+    { id: "StrokeRehabilitationVideo1", title: "Stroke Rehabilitation", src: "/treatment-video3.mp4", type: "video", thumbnail: "/StrokeRehabilitationVideoThumbnail.jpg" },
+    { id: "VacuumCupping", title: "Vacuum Cupping", src: "/treatment-video4.mp4", type: "video", thumbnail: "/VacuumCuppingVideoThumbnail.jpg" },
+    { id: "HajimaCupping", title: "Hajima Cupping", src: "/treatment-video5.mp4", type: "video", thumbnail: "/HajimaCuppingVideoThumbnail.jpg" },
   ];
 
-  // Automatically open the lightbox if a videoId is present in the URL
   useEffect(() => {
     if (videoId) {
       const video = videos.find((v) => v.id === videoId);
       if (video) {
         openLightbox(
           video.type,
-          <video
-            controls
-            className="w-full max-h-[400px] rounded-xl object-contain"
-          >
+          <video controls className="w-full max-h-[80vh] rounded-lg object-contain">
             <source src={video.src} type="video/mp4" />
             Your browser does not support the video tag.
           </video>,
@@ -186,124 +83,114 @@ const Gallery: React.FC = () => {
   };
 
   return (
-    <div className="bg-primary flex flex-col gap-12 px-4 lg:px-10 min-h-screen">
+    <div className="bg-primary min-h-screen flex flex-col">
       <Navbar />
-      <div className="bg-secondary py-12 rounded-2xl text-white shadow-lg">
-        <h1 className="text-4xl font-extrabold mb-8 text-center tracking-tight">
+      <main className="flex-grow container mx-auto px-4 py-8">
+        <h1 className="text-5xl font-bold text-center text-gray-300 mb-12 tracking-wide">
           Our Gallery
         </h1>
 
         {/* Photos Section */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 justify-items-center px-20">
+        <section className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
           {photos.map((photo) => (
             <div
               key={photo.id}
-              className={`group rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 ${photo.size}`}
+              className="group rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer"
               onClick={() =>
                 openLightbox(
                   photo.type,
-                  <img
-                    src={photo.src}
-                    alt={photo.title}
-                    className="w-full h-full object-cover"
-                  />
+                  <img src={photo.src} alt={photo.title} className="w-full h-full object-cover" />
                 )
               }
             >
               <img
                 src={photo.src}
                 alt={photo.title}
-                className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
+                className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
               />
               {photo.title && (
-                <p className="text-center mt-3 text-lg font-medium">
+                <p className="text-center text-gray-700 font-semibold py-2 bg-white">
                   {photo.title}
                 </p>
               )}
             </div>
           ))}
-        </div>
+        </section>
 
         {/* Videos Section */}
-        <h2 className="text-2xl font-bold mt-12 mb-6 text-center">Videos</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 justify-items-center px-6">
-          {videos.map((video) => (
-            <div
-              key={video.id}
-              className="relative group rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 w-[300px] h-[200px]"
-              onClick={() =>
-                openLightbox(
-                  video.type,
-                  <video
-                    controls
-                    className="w-full max-h-[400px] rounded-xl object-contain"
-                  >
-                    <source src={video.src} type="video/mp4" />
-                    Your browser does not support the video tag.
-                  </video>,
-                  video.id // Pass the video ID to the lightbox
-                )
-              }
-            >
-              <img
-                src={video.thumbnail || "/default-thumbnail.jpg"}
-                alt={video.title}
-                className="w-full h-full object-cover group-hover:opacity-80 transition-opacity duration-300"
-              />
-              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <div className="bg-white bg-opacity-80 p-3 rounded-full">
+        <section className="mt-12">
+          <h2 className="text-3xl font-semibold text-center text-gray-200 mb-8">Videos</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            {videos.map((video) => (
+              <div
+                key={video.id}
+                className="group rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer relative"
+                onClick={() =>
+                  openLightbox(
+                    video.type,
+                    <video controls className="w-full max-h-[80vh] rounded-lg object-contain">
+                      <source src={video.src} type="video/mp4" />
+                      Your browser does not support the video tag.
+                    </video>,
+                    video.id
+                  )
+                }
+              >
+                <img
+                  src={video.thumbnail || "/default-thumbnail.jpg"}
+                  alt={video.title}
+                  className="w-full h-48 object-cover group-hover:opacity-90 transition-opacity duration-300"
+                />
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <svg
-                    className="w-12 h-12 text-primary"
+                    className="w-16 h-16 text-white drop-shadow-lg"
                     fill="currentColor"
                     viewBox="0 0 20 20"
                   >
                     <path d="M6.5 5.5v9l7-4.5-7-4.5z" />
                   </svg>
                 </div>
+                <p className="absolute bottom-2 left-2 text-white font-semibold bg-black bg-opacity-60 px-3 py-1 rounded-full">
+                  {video.title}
+                </p>
               </div>
-              <p className="absolute bottom-2 left-2 text-white font-semibold bg-gray-800 bg-opacity-60 px-2 py-1 rounded">
-                {video.title}
-              </p>
-            </div>
-          ))}
-        </div>
-      </div>
+            ))}
+          </div>
+        </section>
+      </main>
       <FooterDark />
 
       {/* Lightbox */}
       {lightbox.isOpen && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 transition-opacity duration-300"
+          className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50"
           onClick={closeLightbox}
         >
           <div
-            className="bg-white p-6 rounded-lg shadow-2xl relative max-w-lg w-full mx-4 transform transition-transform duration-300 scale-100"
+            className="relative max-w-4xl w-full mx-4 p-4 bg-white rounded-xl shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
             {lightbox.content}
             {lightbox.type === "video" && lightbox.videoId && (
-              <div className="mt-4">
-                <p className="text-sm text-gray-600">Share this video:</p>
-                <div className="flex items-center gap-2">
-                  <input
-                    type="text"
-                    value={`https://www.musclescareclinic.com/about/gallery/video/${lightbox.videoId}`}
-                    readOnly
-                    className="flex-1 p-2 border border-gray-300 rounded-lg text-sm"
-                  />
-                  <button
-                    onClick={() =>
-                      copyToClipboard(`https://www.musclescareclinic.com/about/gallery/video/${lightbox.videoId}`)
-                    }
-                    className="p-2 bg-primary text-white rounded-lg hover:bg-primary-dark transition-colors duration-200"
-                  >
-                    Copy
-                  </button>
-                </div>
+              <div className="mt-4 flex items-center gap-3">
+                <input
+                  type="text"
+                  value={`https://www.musclescareclinic.com/about/gallery/video/${lightbox.videoId}`}
+                  readOnly
+                  className="flex-1 p-2 border border-gray-300 rounded-lg text-sm text-gray-700"
+                />
+                <button
+                  onClick={() =>
+                    copyToClipboard(`https://www.musclescareclinic.com/about/gallery/video/${lightbox.videoId}`)
+                  }
+                  className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200"
+                >
+                  Copy
+                </button>
               </div>
             )}
             <button
-              className="absolute top-4 right-4 text-black bg-gray-400 hover:bg-gray-300 rounded-full p-3 transition-colors duration-200"
+              className="absolute top-2 right-2 text-gray-600 hover:text-gray-800 p-2 rounded-full bg-gray-200 hover:bg-gray-300 transition-colors duration-200"
               onClick={closeLightbox}
             >
               ✕

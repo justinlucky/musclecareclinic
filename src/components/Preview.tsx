@@ -1,3 +1,6 @@
+import React from "react";
+import { motion } from "framer-motion";
+
 const Preview = () => {
   const description = `
     At Muscle Care Clinic, we believe in the power of personalized care to restore your body's natural balance. 
@@ -14,58 +17,57 @@ const Preview = () => {
   const Button = () => (
     <a
       href="/about"
-      className="relative inline-flex items-center justify-center w-1/3 p-4 px-4 py-1 overflow-hidden font-medium text-indigo-600 transition duration-300 ease-out border-2 border-secondary rounded-2xl shadow-md group"
+      className="relative inline-flex items-center justify-center w-full sm:w-auto px-6 py-3 font-medium text-indigo-600 transition duration-300 ease-out border-2 border-secondary rounded-xl shadow-md group"
     >
-      <span className="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full bg-secondary group-hover:translate-x-0 ease">
-        <svg
-          className="w-6 h-6"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            d="M14 5l7 7m0 0l-7 7m7-7H3"
-          ></path>
-        </svg>
-      </span>
-      <span className="absolute flex items-center justify-center w-full h-full text-secondary transition-all duration-300 transform group-hover:translate-x-full ease">
-        View More
-      </span>
-      <span className="relative invisible">View More</span>
+      View More
     </a>
   );
 
   return (
-    <>
-      {/* Mobile View */}
-      <div className="flex md:hidden flex-col p-2 md:p-10">
-        <h1 className="font-manrope text-5xl pt-10 pl-3 text-text font-semibold">Our Clinic</h1>
-        <p className="text-justify py-3 m-5">{description}</p>
-        <Button />
-        <p className="text-justify py-3 m-5">{closing}</p>
-      </div>
-
-      {/* Desktop View */}
-      <section className="py-24 mb-32 hidden md:flex font-manrope">
-        <div className="max-w-screen-xl mx-auto flex items-center gap-x-12">
+    <section className="py-12 font-manrope container mx-auto px-4">
+      <div className="flex flex-col md:flex-row items-center gap-8 max-w-screen-xl mx-auto">
+        {/* Image - Hidden on mobile, visible from tablet (md) and up */}
+        <motion.div
+          className="w-full md:w-1/2 hidden md:block"
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
           <img
             src="https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
-            className="w-1/2 h-full sm:rounded-lg hidden xl:block object-cover"
+            className="w-full h-96 object-cover rounded-lg"
             alt="Clinic"
           />
-          <div className="max-w-xl ml-5 lg:max-w-2xl">
-            <h1 className="text-text text-[55px] font-semibold my-10">Our Clinic</h1>
-            <p className="my-10 text-lg text-gray-600">{description}</p>
-            <Button />
-            <p className="my-10 text-lg text-gray-600">{closing}</p>
+        </motion.div>
+
+        {/* Text Content */}
+        <motion.div
+          className="w-full md:w-1/2 space-y-6"
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+        >
+          <h1 className="text-4xl md:text-5xl font-semibold text-white">
+            Our Clinic
+          </h1>
+          <p className="text-base md:text-lg text-gray-200 text-justify">
+            {description}
+          </p>
+          <div className="flex justify-center md:justify-start">
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ duration: 0.3 }}
+            >
+              <Button />
+            </motion.div>
           </div>
-        </div>
-      </section>
-    </>
+          <p className="text-base md:text-lg text-gray-200 text-justify">
+            {closing}
+          </p>
+        </motion.div>
+      </div>
+    </section>
   );
 };
 
