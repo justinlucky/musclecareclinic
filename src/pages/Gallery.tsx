@@ -128,6 +128,27 @@ const Gallery: React.FC = () => {
       type: "video",
       thumbnail: "/FitnessVideo4Thumbnail.jpg",
     },
+    {
+      id:"StrokeRehabilitationVideo1",
+      title: "Stroke Rehabilitation",
+      src: "/treatment-video3.mp4",
+      type: "video",
+      thumbnail: "/StrokeRehabilitationVideoThumbnail.jpg",
+    },
+    {
+      id:"VacuumCupping",
+      title: "Vacuum Cupping",
+      src: "/treatment-video4.mp4",
+      type: "video",
+      thumbnail: "/VacuumCuppingVideoThumbnail.jpg",
+    },
+    {
+      id:"HajimaCupping",
+      title: "Hajima Cupping",
+      src: "/treatment-video5.mp4",
+      type: "video",
+      thumbnail: "/HajimaCuppingVideoThumbnail.jpg",
+    }
   ];
 
   // Automatically open the lightbox if a videoId is present in the URL
