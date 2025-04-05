@@ -37,7 +37,6 @@ const Gallery: React.FC = () => {
     { id: "dumbell-workout", title: "Dumbell Workout", src: "/dumbbell.jpg", type: "image" },
     { id: "treatment-2", title: "Cupping Therapy", src: "/treatment2.jpg", type: "image" },
     { id: "treatment-3", title: "Full Body Relaxation", src: "/treatment3.jpg", type: "image" },
-    { id: "treatment-4", title: "Cupping Therapy", src: "/treatment4.jpg", type: "image" },
   ];
 
   const videos: MediaItem[] = [
