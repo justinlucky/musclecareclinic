@@ -1,11 +1,47 @@
 import { useLocation } from "react-router-dom";
 import { useState } from "react";
+import { motion } from "framer-motion";
 import Navbar from "../components/Navbar";
 import FooterDark from "../components/FooterDark";
 
+// Animation variants
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.2,
+    },
+  },
+};
+
+const childVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      ease: "easeOut",
+    },
+  },
+};
+
+const titleVariants = {
+  hidden: { opacity: 0, y: -20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      ease: "easeOut",
+    },
+  },
+};
+
 // Component for selecting purpose based on specialist
 const PurposeSelection: React.FC<{ name: string; reason: string; setReason: (value: string) => void }> = ({ name, reason, setReason }) => {
-  // Define purposes based on team members
   const purposes: { [key: string]: string[] } = {
     "Poukinlung Kamei": [
       "Physiotherapy",
@@ -28,7 +64,7 @@ const PurposeSelection: React.FC<{ name: string; reason: string; setReason: (val
   const options = purposes[name] || ["General Enquiry"];
 
   return (
-    <div className="mb-4">
+    <motion.div variants={childVariants} className="mb-4">
       <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="reason">
         Reason for Contacting
       </label>
@@ -43,14 +79,14 @@ const PurposeSelection: React.FC<{ name: string; reason: string; setReason: (val
           <option key={index} value={option}>{option}</option>
         ))}
       </select>
-    </div>
+    </motion.div>
   );
 };
 
 const TeamContact: React.FC = () => {
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
-  const name = queryParams.get("name") || "Prudhivi"; // Default to "Prudhivi" if no name is provided
+  const name = queryParams.get("name") || "Prudhivi";
   const title = queryParams.get("title") || "Team Member";
 
   const [reason, setReason] = useState("");
@@ -59,12 +95,10 @@ const TeamContact: React.FC = () => {
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
 
-  // Function to validate phone number (10 digits only)
   const validatePhone = (number: string) => {
     return /^[0-9]{10}$/.test(number);
   };
 
-  // Function to send message via WhatsApp
   const sendMessage = (e: React.FormEvent) => {
     e.preventDefault();
     if (!validatePhone(phone)) {
@@ -88,15 +122,28 @@ const TeamContact: React.FC = () => {
   return (
     <div className="min-h-screen flex flex-col items-center pt-10 bg-secondary px-3 lg:gap-20 gap-10">
       <Navbar />
-      <div className="bg-white p-8 rounded shadow-md w-full max-w-md">
-        <h1 className="text-3xl font-bold mb-4 text-text">Contact {name}</h1>
-        <p className="text-gray-700 mb-4">{title}</p>
-        <form onSubmit={sendMessage}>
-          {/* Purpose selection dropdown based on team member */}
+      <motion.div
+        className="bg-white p-8 rounded shadow-md w-full max-w-md"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        <motion.h1
+          className="text-3xl font-bold mb-4 text-text"
+          variants={titleVariants}
+        >
+          Contact {name}
+        </motion.h1>
+        <motion.p
+          className="text-gray-700 mb-4"
+          variants={childVariants}
+        >
+          {title}
+        </motion.p>
+        <motion.form onSubmit={sendMessage} variants={containerVariants}>
           <PurposeSelection name={name} reason={reason} setReason={setReason} />
           
-          {/* Input field for user name */}
-          <div className="mb-4">
+          <motion.div variants={childVariants} className="mb-4">
             <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="name">
               Your Name
             </label>
@@ -107,10 +154,9 @@ const TeamContact: React.FC = () => {
               onChange={(e) => setUserName(e.target.value)}
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             />
-          </div>
+          </motion.div>
           
-          {/* Input field for user email */}
-          <div className="mb-4">
+          <motion.div variants={childVariants} className="mb-4">
             <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
               Your Email
             </label>
@@ -121,10 +167,9 @@ const TeamContact: React.FC = () => {
               onChange={(e) => setEmail(e.target.value)}
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             />
-          </div>
+          </motion.div>
           
-          {/* Input field for phone number */}
-          <div className="mb-4">
+          <motion.div variants={childVariants} className="mb-4">
             <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="phone">
               Phone Number
             </label>
@@ -135,10 +180,9 @@ const TeamContact: React.FC = () => {
               onChange={(e) => setPhone(e.target.value)}
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             />
-          </div>
+          </motion.div>
           
-          {/* Input field for user message */}
-          <div className="mb-4">
+          <motion.div variants={childVariants} className="mb-4">
             <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="message">
               Message
             </label>
@@ -149,19 +193,24 @@ const TeamContact: React.FC = () => {
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               rows={4}
             ></textarea>
-          </div>
+          </motion.div>
           
-          {/* Submit button */}
-          <div className="flex items-center justify-between">
-            <button
+          <motion.div
+            variants={childVariants}
+            className="flex items-center justify-between"
+          >
+            <motion.button
               type="submit"
               className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ duration: 0.2 }}
             >
               Send via WhatsApp
-            </button>
-          </div>
-        </form>
-      </div>
+            </motion.button>
+          </motion.div>
+        </motion.form>
+      </motion.div>
       <FooterDark/>
     </div>
   );
