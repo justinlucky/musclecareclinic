@@ -1,4 +1,3 @@
-
 import { Route, Routes, BrowserRouter as Router } from 'react-router-dom'
 import Home from './pages/Home'
 import About from './pages/About'
@@ -25,8 +24,8 @@ function App() {
           <Route path="/about/gallery/video/:videoId" element={<Gallery />} />
           <Route path="/services" element={<Services />} />
           <Route path="/admin-login" element={<AdminLogin/>} />
-          <Route path="/admin-dashboard" element={<AdminDashboard/>} />
-          <Route path="/admin-patient-form/:id" element={<AdminPatientForm/>} />
+          <Route path="/admin-dashboard" element={<AdminDashboard />} />
+          <Route path="/admin-patient-form/:id" element={<AdminPatientForm />} />
           <Route path="/contact" element={<Contact />} /> 
           <Route path="/service/:id" element={<ServiceDetails />} />
           <Route path="/service/booking/:id" element={<BookForm />} />
