@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 // Animation variants
 const navVariants = {
@@ -60,15 +61,20 @@ const childVariants = {
   },
 };
 
-const Navbar = () => {
+interface NavbarProps {
+  isAdmin?: boolean;
+  onLogout?: () => void;
+}
+
+const Navbar = ({ isAdmin = false, onLogout }: NavbarProps) => {
   const [state, setState] = useState(false);
 
   const navigation = [
     { title: "Home", path: "/" },
     { title: "About", path: "/about" },
-    { title: "Our Galleries", path: "/about/gallery" },
+    { title: "Galleries", path: "/about/gallery" },
     { title: "Services", path: "/services" },
-    { title: "Contact Us", path: "/contact" },
+    { title: "Contact", path: "/contact" },
   ];
 
   return (
@@ -86,7 +92,7 @@ const Navbar = () => {
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.2 }}
           >
-            <img src="/logo.png" className="h-32 lg:h-24" />
+            <img src="/logo.png" className="h-32 lg:h-24" alt="Muscle Care Logo" />
             <h1 className="font-bold text-5xl hidden md:flex">Muscle Care</h1>
           </motion.a>
 
@@ -128,29 +134,87 @@ const Navbar = () => {
           </div>
         </div>
 
+        {/* Mobile menu (visible only when state is true and not on xl screens) */}
         <AnimatePresence>
           {state && (
             <motion.div
-              className="w-full xl:w-auto flex justify-start pb-3 mt-8 xl:block xl:pb-0 xl:mt-0 bg-secondary rounded-3xl"
+              className="w-full xl:hidden flex justify-start pb-3 mt-8 bg-secondary rounded-3xl"
               variants={menuVariants}
               initial="hidden"
               animate="visible"
               exit="exit"
             >
-              <ul className="flex flex-col xl:flex-row justify-start items-start space-y-8 xl:space-y-0 xl:gap-8 p-3 xl:px-10 rounded-2xl xl:mx-5 text-white">
+              <ul className="flex flex-col justify-start items-start space-y-8 p-3 text-white">
                 {navigation.map((item, idx) => (
                   <motion.li
                     key={idx}
-                    className="text-white font-manrope xl:text-xl md:text-lg hover:text-blue-500"
+                    className="text-white font-manrope md:text-lg hover:text-blue-500"
                     variants={itemVariants}
                   >
                     <a href={item.path}>{item.title}</a>
                   </motion.li>
                 ))}
+                <motion.div
+                  className="flex justify-center items-center w-full"
+                  variants={childVariants}
+                >
+                  {isAdmin ? (
+                    <button
+                      onClick={onLogout}
+                      className="bg-red-600 py-3 px-5 rounded-xl shadow-lg shadow-red-400 hover:bg-red-700 hover:shadow-red-200 transition-shadow duration-200"
+                    >
+                      Logout
+                    </button>
+                  ) : (
+                    <Link
+                      to="/admin-login"
+                      className="bg-pink-700 py-3 px-5 rounded-xl shadow-lg shadow-pink-400 hover:bg-pink-800 hover:shadow-pink-200 transition-shadow duration-200"
+                    >
+                      Admin Login
+                    </Link>
+                  )}
+                </motion.div>
               </ul>
             </motion.div>
           )}
         </AnimatePresence>
+
+        {/* Desktop menu (always visible on xl screens) */}
+        <div className="hidden xl:block xl:pb-0 xl:mt-0">
+          <ul className="flex flex-row justify-start items-start xl:gap-8 p-3 xl:px-10 rounded-2xl xl:mx-5 text-white">
+            {navigation.map((item, idx) => (
+              <motion.li
+                key={idx}
+                className="text-white font-manrope xl:text-xl hover:text-blue-500"
+                variants={itemVariants}
+                initial="hidden"
+                animate="visible"
+              >
+                <a href={item.path}>{item.title}</a>
+              </motion.li>
+            ))}
+            <motion.div
+              className="flex justify-center items-center"
+              variants={childVariants}
+            >
+              {isAdmin ? (
+                <button
+                  onClick={onLogout}
+                  className="bg-red-600 py-3 px-5 rounded-xl shadow-lg shadow-red-400 hover:bg-red-700 hover:shadow-red-200 transition-shadow duration-200"
+                >
+                  Logout
+                </button>
+              ) : (
+                <Link
+                  to="/admin-login"
+                  className="bg-pink-700 py-3 px-5 rounded-xl shadow-lg shadow-pink-400 hover:bg-pink-800 hover:shadow-pink-200 transition-shadow duration-200"
+                >
+                  Admin Login
+                </Link>
+              )}
+            </motion.div>
+          </ul>
+        </div>
 
         <motion.div
           className="hidden xl:inline-block"
