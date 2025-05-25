@@ -1,10 +1,26 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
-import patientData from "../assets/data/patientData.json";
 import { motion } from "framer-motion";
 
-const AdminPatientForm = () => {
+type Patient = {
+  customer_id: string;
+  name: string;
+  email: string;
+  phone_number: string;
+  type_of_services: string;
+  mode_of_treatment: string;
+  duration_days: number;
+  remarks: string[];
+};
+
+type AdminPatientFormProps = {
+  patients: Patient[];
+  addPatient: (patient: Patient) => void;
+  updatePatient: (patient: Patient) => void;
+};
+
+const AdminPatientForm = ({ patients, addPatient, updatePatient }: AdminPatientFormProps) => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -15,28 +31,30 @@ const AdminPatientForm = () => {
     type_of_services: "",
     mode_of_treatment: "",
     duration_days: 0,
-    remarks: ["Initial consultation"]
+    remarks: ["Initial consultation"],
   });
 
   useEffect(() => {
     if (id !== "new") {
-      const patient = patientData.patients.find(p => p.customer_id === id);
+      const patient = patients.find((p) => p.customer_id === id);
       if (patient) {
         setFormData(patient);
       }
     } else {
       // Generate new customer ID
-      const lastId = patientData.patients[patientData.patients.length - 1].customer_id;
+      const lastId = patients.length > 0 ? patients[patients.length - 1].customer_id : "MCC0";
       const newId = `MCC${parseInt(lastId.slice(3)) + 1}`;
-      setFormData(prev => ({ ...prev, customer_id: newId }));
+      setFormData((prev) => ({ ...prev, customer_id: newId }));
     }
-  }, [id]);
+  }, [id, patients]);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // In a real application, you would update the JSON file here
-    // For this demo, we'll just console.log and navigate
-    console.log("Form submitted:", formData);
+    if (id === "new") {
+      addPatient(formData);
+    } else {
+      updatePatient(formData);
+    }
     navigate("/admin-dashboard");
   };
 
@@ -47,7 +65,7 @@ const AdminPatientForm = () => {
   return (
     <div className="md:p-10 p-3 pb-1 md:px-14 flex flex-col font-manrope bg-primary min-h-screen">
       <Navbar isAdmin={true} onLogout={() => navigate("/")} />
-      <motion.div 
+      <motion.div
         className="w-full my-5 bg-white py-10 px-5 rounded-2xl mt-10"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -71,7 +89,7 @@ const AdminPatientForm = () => {
               <input
                 type="text"
                 value={formData.name}
-                onChange={e => setFormData({ ...formData, name: e.target.value })}
+                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 className="w-full p-2 border rounded"
                 required
               />
@@ -81,7 +99,7 @@ const AdminPatientForm = () => {
               <input
                 type="email"
                 value={formData.email}
-                onChange={e => setFormData({ ...formData, email: e.target.value })}
+                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 className="w-full p-2 border rounded"
                 required
               />
@@ -91,7 +109,7 @@ const AdminPatientForm = () => {
               <input
                 type="tel"
                 value={formData.phone_number}
-                onChange={e => setFormData({ ...formData, phone_number: e.target.value })}
+                onChange={(e) => setFormData({ ...formData, phone_number: e.target.value })}
                 className="w-full p-2 border rounded"
                 required
               />
@@ -100,7 +118,7 @@ const AdminPatientForm = () => {
               <label className="block text-gray-700 mb-2">Type of Services</label>
               <select
                 value={formData.type_of_services}
-                onChange={e => setFormData({ ...formData, type_of_services: e.target.value })}
+                onChange={(e) => setFormData({ ...formData, type_of_services: e.target.value })}
                 className="w-full p-2 border rounded focus:outline-none focus:border-[#1679AB]"
                 required
               >
@@ -112,12 +130,11 @@ const AdminPatientForm = () => {
                 ))}
               </select>
             </div>
-
             <div>
               <label className="block text-gray-700 mb-2">Mode of Treatment</label>
               <select
                 value={formData.mode_of_treatment}
-                onChange={e => setFormData({ ...formData, mode_of_treatment: e.target.value })}
+                onChange={(e) => setFormData({ ...formData, mode_of_treatment: e.target.value })}
                 className="w-full p-2 border rounded focus:outline-none focus:border-[#1679AB]"
                 required
               >
@@ -129,12 +146,11 @@ const AdminPatientForm = () => {
                 ))}
               </select>
             </div>
-
             <div>
               <label className="block text-gray-700 mb-2">Duration (in days)</label>
               <select
                 value={formData.duration_days}
-                onChange={e => setFormData({ ...formData, duration_days: parseInt(e.target.value) })}
+                onChange={(e) => setFormData({ ...formData, duration_days: parseInt(e.target.value) })}
                 className="w-full p-2 border rounded focus:outline-none focus:border-[#1679AB]"
                 required
               >
@@ -146,12 +162,11 @@ const AdminPatientForm = () => {
                 ))}
               </select>
             </div>
-
             <div>
               <label className="block text-gray-700 mb-2">Remarks</label>
               <textarea
                 value={formData.remarks.join("\n")}
-                onChange={e => setFormData({ ...formData, remarks: e.target.value.split("\n") })}
+                onChange={(e) => setFormData({ ...formData, remarks: e.target.value.split("\n") })}
                 className="w-full p-2 border rounded"
                 rows={3}
               />

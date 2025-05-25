@@ -29,25 +29,39 @@ const AdminDashboard = () => {
           </motion.button>
         </div>
 
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-          {patients.map((patient) => (
-            <motion.div
-              key={patient.customer_id}
-              whileHover={{ scale: 1.02 }}
-              className="p-4 bg-gray-50 rounded-lg shadow"
-            >
-              <h2 className="text-xl font-semibold mb-2">{patient.name}</h2>
-              <p className="text-gray-600">ID: {patient.customer_id}</p>
-              <p className="text-gray-600">Service: {patient.type_of_services}</p>
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                onClick={() => navigate(`/admin-patient-form/${patient.customer_id}`)}
-                className="mt-3 text-[#1679AB] hover:text-[#146290]"
-              >
-                View Details →
-              </motion.button>
-            </motion.div>
-          ))}
+        <div className="overflow-x-auto">
+          <table className="w-full table-auto border-collapse">
+            <thead>
+              <tr className="bg-gray-100">
+                <th className="px-4 py-2 text-left text-gray-800 font-semibold">Name</th>
+                <th className="px-4 py-2 text-left text-gray-800 font-semibold"> Patient ID</th>
+                <th className="px-4 py-2 text-left text-gray-800 font-semibold">Service</th>
+                <th className="px-4 py-2 text-left text-gray-800 font-semibold">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {patients.map((patient) => (
+                <motion.tr
+                  key={patient.customer_id}
+                  whileHover={{ backgroundColor: "#f9fafb" }}
+                  className="border-b"
+                >
+                  <td className="px-4 py-3 text-gray-800">{patient.name}</td>
+                  <td className="px-4 py-3 text-gray-600">{patient.customer_id}</td>
+                  <td className="px-4 py-3 text-gray-600">{patient.type_of_services}</td>
+                  <td className="px-4 py-3">
+                    <motion.button
+                      whileHover={{ scale: 1.05 }}
+                      onClick={() => navigate(`/admin-patient-form/${patient.customer_id}`)}
+                      className="text-[#1679AB] hover:text-[#146290]"
+                    >
+                      View Details →
+                    </motion.button>
+                  </td>
+                </motion.tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
