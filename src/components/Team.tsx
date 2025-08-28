@@ -41,8 +41,8 @@ const Team = () => {
         </motion.div>
 
         {/* Team Members */}
-        <div className="mt-12 w-full">
-          <ul className="flex flex-wrap items-center justify-center gap-12 md:gap-20">
+        <div className=" w-full">
+          <ul className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {team.map((item, idx) => (
               <motion.li
                 key={idx}

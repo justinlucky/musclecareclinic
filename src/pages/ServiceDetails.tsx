@@ -51,9 +51,9 @@ const ServiceDetails = () => {
   }
 
   return (
-    <div className="min-h-screen flex flex-col gap-6">
+    <div className=" flex flex-col gap-6 flex items-center justify-center pb-8">
       <motion.div
-        className="w-full mt-8 px-4 md:px-8"
+        className="max-w-3xl mt-8 px-4 md:px-8"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
@@ -71,7 +71,7 @@ const ServiceDetails = () => {
           <motion.img
             src={service.imgSrc}
             alt={service.title}
-            className="w-full h-64 xl:w-1/2 rounded-xl"
+            className="w-full h-64 rounded-md"
             variants={childVariants}
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.3 }}

@@ -152,7 +152,7 @@ const About = () => {
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
       <motion.div
-        className="w-full bg-white rounded-3xl mt-20 py-12 md:py-16 flex-grow max-w-7xl mx-auto mb-12 px-4 sm:px-6 lg:px-8 shadow-xl"
+        className="w-full bg-white rounded-3xl py-12 flex-grow max-w-7xl mx-auto mb-12 px-4 sm:px-6 lg:px-8 shadow-xl"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
