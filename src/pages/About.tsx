@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaArrowRight, FaArrowDown, FaArrowUp } from "react-icons/fa";
 import { useState } from "react";
-import Navbar from "../components/Navbar";
 import Team from "../components/Team";
 
 // Define the type for content items
@@ -152,7 +151,6 @@ const About = () => {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
-      <Navbar />
       <motion.div
         className="w-full bg-white rounded-3xl mt-20 py-12 md:py-16 flex-grow max-w-7xl mx-auto mb-12 px-4 sm:px-6 lg:px-8 shadow-xl"
         variants={containerVariants}

@@ -1,8 +1,6 @@
 import { useLocation } from "react-router-dom";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import Navbar from "../components/Navbar";
-import FooterDark from "../components/FooterDark";
 
 // Animation variants
 const containerVariants = {
@@ -120,10 +118,9 @@ const TeamContact: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center pt-10 bg-secondary px-3 lg:gap-20 gap-10">
-      <Navbar />
+    <div className=" flex flex-col items-center pb-8">
       <motion.div
-        className="bg-white p-8 rounded shadow-md w-full max-w-md"
+        className="bg-white py-8 px-4 rounded shadow-md w-full max-w-md"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
@@ -211,7 +208,6 @@ const TeamContact: React.FC = () => {
           </motion.div>
         </motion.form>
       </motion.div>
-      <FooterDark/>
     </div>
   );
 };

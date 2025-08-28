@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import FooterDark from "../components/FooterDark";
-import Navbar from "../components/Navbar";
 
 // Define types for media items
 type MediaType = "image" | "video";
@@ -94,12 +92,11 @@ const Gallery: React.FC = () => {
 
   return (
     <motion.div
-      className="bg-primary min-h-screen flex flex-col"
+      className=""
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
-      <Navbar />
       <main className="flex-grow container mx-auto px-4 py-8">
         <motion.h1
           className="text-4xl md:text-5xl font-bold text-center text-gray-300 mb-10 tracking-wide"
@@ -205,7 +202,6 @@ const Gallery: React.FC = () => {
           </div>
         </motion.section>
       </main>
-      <FooterDark />
 
       {/* Lightbox */}
       <AnimatePresence>

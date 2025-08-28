@@ -19,7 +19,8 @@ function App() {
     <div className='px-2 md:px-4 lg:px-6 xl:px-8 bg-primary'>
       <Router>
          <Navbar/>
-        <Routes>
+       <div className='pt-36 max-w-7xl'>
+         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/about/gallery" element={<Gallery/>} />
@@ -32,6 +33,7 @@ function App() {
           <Route path="/service/booking/:id" element={<BookForm />} />
           <Route path="/team-contact" element={<TeamContact/>} />
         </Routes>
+       </div>
         <FooterDark/>
       </Router>
     </div>

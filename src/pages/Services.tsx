@@ -1,8 +1,18 @@
+
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import FooterDark from "../components/FooterDark";
-import Navbar from "../components/Navbar";
 import { useState } from "react";
+import servicesData from "../assets/servicesData.json";
+import { FaChevronRight } from "react-icons/fa";
+
+// Define the type for service items
+interface Service {
+  id: string;
+  title: string;
+  description: string;
+  points: string[];
+  imgSrc: string;
+}
 
 // Animation variants
 const containerVariants = {
@@ -10,8 +20,8 @@ const containerVariants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.2,
+      staggerChildren: 0.08, // Reduced for mobile performance
+      delayChildren: 0.1,
     },
   },
 };
@@ -24,6 +34,7 @@ const childVariants = {
     transition: {
       duration: 0.5,
       ease: "easeOut",
+      willChange: "opacity, transform",
     },
   },
 };
@@ -36,415 +47,92 @@ const titleVariants = {
     transition: {
       duration: 0.5,
       ease: "easeOut",
+      willChange: "opacity, transform",
     },
   },
 };
 
 const Services = () => {
-  interface Service {
-    id: string;
-    title: string;
-    description: string;
-    imgSrc: string;
-    points: string[];
-  }
-
-  const servicesData: Service[] = [
-    {
-      id: "orthopaedic-physiotherapy",
-      title: "Orthopaedic Physiotherapy",
-      description: "Orthopaedic physiotherapy focuses on the treatment of musculoskeletal injuries and conditions, helping patients recover mobility and reduce pain.",
-      points: [
-        "Pain management",
-        "Improved mobility",
-        "Enhanced recovery",
-        "Injury prevention",
-      ],
-      imgSrc: "/ortho.jpg",
-    },
-    {
-      id: "cupping-therapy",
-      title: "Cupping Therapy",
-      description:
-        "Cupping therapy is an ancient practice that uses suction cups to stimulate blood flow and reduce pain. It includes Hijama Cupping, Vacuum Cupping, and Fire Cupping.",
-      points: [
-        "Pain relief",
-        "Improved circulation",
-        "Relaxation",
-        "Improved range of motion",
-      ],
-      imgSrc: "/cupping.png",
-    },
-    {
-      id: "post-surgery-physiotherapy",
-      title: "Post Surgery Physiotherapy",
-      description: "Post-surgery physiotherapy helps patients recover faster by improving mobility, reducing pain, and restoring function after surgical procedures.",
-      points: [
-        "Enhanced recovery",
-        "Pain management",
-        "Improved mobility",
-        "Reduced swelling",
-      ],
-      imgSrc: "/postSurgerHos.jpg",
-    },
-    {
-      id: "body-stretching",
-      title: "Full Body Stretching",
-      description:
-        "Stretching is essential for improving flexibility and mobility. It helps in preventing injuries and is beneficial for overall muscle health.",
-      points: [
-        "Improved range of motion",
-        "Improved circulation",
-        "Reduced muscle tension",
-        "Improved posture",
-        "Decreased stress",
-      ],
-      imgSrc: "/stretching.jpg",
-    },
-    {
-      id: "dry-needle",
-      title: "Dry Needle Therapy",
-      description:
-        "Dry needling is used to treat musculoskeletal pain by inserting thin needles into trigger points, helping to reduce muscle tightness and pain.",
-      points: ["Reduces muscle tightness", "Increases blood flow", "Pain management"],
-      imgSrc: "/needle.jpg",
-    },
-    {
-      id: "chiropractic",
-      title: "Chiropractic Therapy",
-      description:
-        "Chiropractic care involves manual adjustments of the spine and joints to alleviate pain, improve function, and support overall health.",
-      points: [
-        "Pain relief",
-        "Improved range of motion",
-        "Better balance",
-        "Improved posture",
-        "Enhanced sleep",
-        "Improved athletic performance",
-      ],
-      imgSrc: "/chiro.jpg",
-    },
-    {
-      id: "full-body-relaxation",
-      title: "Full Body Relaxation",
-      description:
-        "This comprehensive service combines heat therapy, stretching, chiropractic adjustments, and muscle stimulation to provide full-body relaxation.",
-      points: ["Overall relaxation", "Pain relief", "Enhanced recovery"],
-      imgSrc: "/relax.jpg",
-    },
-    {
-      id: "cryotherapy",
-      title: "Cryotherapy",
-      description:
-        "A cold therapy treatment that uses extremely low temperatures to reduce pain, inflammation, and support recovery.",
-      points: [
-        "Quick pain relief and reduced inflammation",
-        "Faster recovery for athletes and muscle soreness",
-        "Improvement in skin conditions and metabolism",
-        "Boosted mental health and immune system",
-      ],
-      imgSrc: "/cryo.webp",
-    },
-    {
-      id: "boxing-and-fitness",
-      title: "Boxing and Fitness",
-      description:
-        "A full-body workout combining boxing techniques with physical training to enhance strength, endurance, coordination, and cardiovascular health.",
-      points: [
-        "Improved cardiovascular health and stamina",
-        "Boosts muscular endurance and strength",
-        "Enhances balance, coordination, and agility",
-        "Helps with stress relief and mental focus",
-      ],
-      imgSrc: "/boxing.jpg",
-    },
-    {
-      id: "athletic-training",
-      title: "Athletic Training (ROM)",
-      description:
-        "A form of workout that alternates between intense bursts of exercise and short recovery periods, designed to improve fitness quickly.",
-      points: [
-        "Burns more calories in a shorter amount of time",
-        "Improves heart health and cardiovascular endurance",
-        "Builds muscle mass and increases metabolism",
-        "Boosts mood and reduces stress",
-      ],
-      imgSrc: "/hiit.webp",
-    },
-    {
-      id: "circuit-training",
-      title: "Circuit Training",
-      description:
-        "A training method that involves moving quickly from one exercise to another in a circuit to target different muscle groups and improve overall fitness.",
-      points: [
-        "Promotes weight loss by increasing metabolism",
-        "Enhances cardiovascular fitness and muscular endurance",
-        "Builds strength and flexibility",
-        "Time-efficient, full-body workout",
-      ],
-      imgSrc: "/circuit.webp",
-    },
-    {
-      id: "neurology-physiotherapy",
-      title: "Neurology Physiotherapy",
-      description: "Neurology physiotherapy focuses on treating patients with neurological disorders to improve their mobility and quality of life.",
-      points: [
-        "Improved mobility",
-        "Enhanced coordination",
-        "Pain management",
-        "Better balance",
-      ],
-      imgSrc: "/Neuro.jpg",
-    },
-    {
-      id: "sports-physiotherapy",
-      title: "Sports Physiotherapy",
-      description: "Sports physiotherapy helps athletes recover from injuries and improve their performance through specialized exercises and treatments.",
-      points: [
-        "Injury prevention",
-        "Enhanced recovery",
-        "Improved performance",
-        "Pain management",
-      ],
-      imgSrc: "/sport.jpg",
-    },
-    {
-      id: "pediatric-physiotherapy",
-      title: "Pediatric Physiotherapy",
-      description: "Pediatric physiotherapy focuses on the physical development and rehabilitation of children to help them achieve their full potential.",
-      points: [
-        "Improved motor skills",
-        "Enhanced coordination",
-        "Pain management",
-        "Better balance",
-      ],
-      imgSrc: "/Pediatric.jpg",
-    },
-    {
-      id: "rehabilitation",
-      title: "Rehabilitation",
-      description: "Rehabilitation services help patients recover from injuries, surgeries, or illnesses to regain their strength and functionality.",
-      points: [
-        "Enhanced recovery",
-        "Improved mobility",
-        "Pain management",
-        "Better quality of life",
-      ],
-      imgSrc: "/rehab.jpg",
-    },
-    {
-      id: "geriatric-care",
-      title: "Geriatric Care",
-      description: "Geriatric care focuses on the health and well-being of elderly patients, helping them maintain their independence and quality of life.",
-      points: [
-        "Improved mobility",
-        "Pain management",
-        "Enhanced balance",
-        "Better quality of life",
-      ],
-      imgSrc: "/neck.jpg",
-    },
-    {
-      id: "knee-pain",
-      title: "Knee Pain",
-      description: "Knee pain treatment focuses on reducing pain and improving the function of the knee joint through various therapeutic techniques.",
-      points: [
-        "Pain relief",
-        "Improved mobility",
-        "Enhanced recovery",
-        "Injury prevention",
-      ],
-      imgSrc: "/postSurgery.jpg",
-    },
-    {
-      id: "spinal-injuries",
-      title: "Spinal Injuries",
-      description: "Spinal injury treatment focuses on improving the function and reducing pain in patients with spinal injuries through specialized therapies.",
-      points: [
-        "Pain management",
-        "Improved mobility",
-        "Enhanced recovery",
-        "Better quality of life",
-      ],
-      imgSrc: "/spinal.jpg",
-    },
-    {
-      id: "foot-and-ankle",
-      title: "Foot and Ankle Pain",
-      description: "Foot and ankle pain treatment focuses on reducing pain and improving the function of the foot and ankle through various therapeutic techniques.",
-      points: [
-        "Pain relief",
-        "Improved mobility",
-        "Enhanced recovery",
-        "Injury prevention",
-      ],
-      imgSrc: "/ankle.jpg",
-    },
-    {
-      id: "stroke",
-      title: "Stroke Rehabilitation",
-      description: "Stroke rehabilitation helps patients recover from the effects of a stroke, improving their mobility and quality of life through specialized therapies.",
-      points: [
-        "Improved mobility",
-        "Enhanced coordination",
-        "Pain management",
-        "Better quality of life",
-      ],
-      imgSrc: "/hip.jpg",
-    },
-    {
-      id: "weight-loss",
-      title: "Weight Loss",
-      description: "Weight loss programs designed to help you shed excess weight through a combination of diet, exercise, and lifestyle changes.",
-      points: [
-        "Personalized diet plans",
-        "Effective workout routines",
-        "Regular progress tracking",
-        "Support and motivation",
-      ],
-      imgSrc: "/weightLoss.jpg",
-    },
-    {
-      id: "weight-gain",
-      title: "Weight Gain",
-      description: "Weight gain programs focused on helping you build muscle mass and achieve a healthy weight through proper nutrition and exercise.",
-      points: [
-        "Customized meal plans",
-        "Strength training exercises",
-        "Progress monitoring",
-        "Nutritional guidance",
-      ],
-      imgSrc: "/weightGain.jpg",
-    },
-    {
-      id: "strengthening-training",
-      title: "Strength and Conditioning Training",
-      description: "Strength training programs aimed at increasing muscle strength and endurance through resistance exercises and weightlifting.",
-      points: [
-        "Personalized workout plans",
-        "Strength and conditioning",
-        "Progress tracking",
-        "Injury prevention",
-      ],
-      imgSrc: "/strength.jpg",
-    },
-    {
-      id: "crossfit-training",
-      title: "Power Lifting",
-      description: "CrossFit training combines high-intensity workouts with functional movements to improve overall fitness and performance.",
-      points: [
-        "High-intensity workouts",
-        "Functional movements",
-        "Community support",
-        "Improved fitness",
-      ],
-      imgSrc: "/CrossFitTraining.jpg",
-    },
-    {
-      id: "yoga",
-      title: "Yoga",
-      description: "Yoga sessions designed to improve flexibility, strength, and mental well-being through various poses and breathing techniques.",
-      points: [
-        "Improved flexibility",
-        "Enhanced strength",
-        "Stress relief",
-        "Better mental focus",
-      ],
-      imgSrc: "/yoga.jpg",
-    },
-    {
-      id: "nutrition-diet",
-      title: "Nutrition and Diet",
-      description: "Nutrition and diet plans tailored to your specific needs to help you achieve your health and fitness goals.",
-      points: [
-        "Personalized meal plans",
-        "Nutritional guidance",
-        "Healthy eating habits",
-        "Support and motivation",
-      ],
-      imgSrc: "/Deit.jpg",
-    }
-  ];
-
   const [searchTerm, setSearchTerm] = useState("");
 
-  const filteredServices = servicesData.filter((service) =>
+  const filteredServices = servicesData.filter((service: Service) =>
     service.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   return (
-    <div className="md:p-10 p-3 pb-1 md:px-14 flex flex-col font-manrope bg-primary min-h-screen gap-5">
-      <Navbar />
+    <div className="font-manrope mb-8">
       <motion.div
-        className="w-full bg-white rounded-t-2xl rounded-b-2xl mt-20 md:p-20 pb-28"
+        className="w-full mt-16 max-w-7xl mx-auto"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
       >
         <motion.h1
-          className="text-4xl md:text-5xl font-semibold py-5 text-text mx-10 mt-5"
+          className="text-3xl sm:text-4xl lg:text-5xl font-bold py-4 sm:py-5 text-text mx-4 sm:mx-6 lg:mx-0 mt-4 tracking-tight"
           variants={titleVariants}
         >
           Services
         </motion.h1>
-        <motion.div variants={childVariants} className="mx-10 mb-5">
+        <motion.div variants={childVariants} className="mx-4 sm:mx-6 lg:mx-0 mb-6">
           <input
             type="text"
             placeholder="Search for services..."
-            className="w-full p-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-600"
+            className="w-full p-2 sm:p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-600 transition-all duration-200 text-sm sm:text-base"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
+            aria-label="Search services"
           />
         </motion.div>
 
-        <section className="py-12">
-          <div className="container mx-auto px-6">
+        <section className="py-8 sm:py-12">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             {filteredServices.length > 0 ? (
               <motion.div
-                className="grid grid-cols-1 gap-8"
+                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8"
                 variants={containerVariants}
               >
-                {filteredServices.map((service) => (
+                {filteredServices.map((service: Service) => (
                   <motion.div
                     key={service.id}
                     id={service.id}
-                    className="flex flex-col gap-3 md:flex-row bg-white p-6 rounded-lg shadow-md"
+                    className="flex flex-col bg-white p-4 sm:p-6 rounded-2xl shadow-md hover:shadow-lg transition-shadow duration-300"
                     variants={childVariants}
                     whileHover={{ scale: 1.02 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <motion.div
-                      className="md:w-1/3"
-                      variants={childVariants}
-                    >
+                    <motion.div variants={childVariants}>
                       <img
                         src={service.imgSrc}
                         alt={service.title}
-                        className="w-full rounded-lg object-cover"
+                        className="w-full h-64 md:h-80 object-cover rounded-lg aspect-[4/3]"
                       />
                     </motion.div>
                     <motion.div
-                      className="md:w-2/3 md:pl-8"
+                      className="flex flex-col justify-between pt-4"
                       variants={childVariants}
                     >
-                      <h3 className="text-xl font-semibold text-gray-700 mb-4">
-                        {service.title}
-                      </h3>
-                      <p className="text-gray-600">{service.description}</p>
-                      <ul className="list-disc list-inside mt-4 text-gray-600">
-                        {service.points.map((point, index) => (
-                          <motion.li
-                            key={index}
-                            variants={childVariants}
-                            custom={index}
-                            transition={{ delay: index * 0.05 }}
-                          >
-                            {point}
-                          </motion.li>
-                        ))}
-                      </ul>
+                      <div>
+                        <h3 className="text-lg sm:text-xl font-semibold text-gray-800 mb-3 sm:mb-4">
+                          {service.title}
+                        </h3>
+                        <p className="text-gray-600 text-sm sm:text-base mb-3 sm:mb-4">
+                          {service.description}
+                        </p>
+                        <ul className="list-disc list-inside text-gray-600 text-sm sm:text-base space-y-1 sm:space-y-2">
+                          {service.points.map((point, index) => (
+                            <motion.li
+                              key={index}
+                              variants={childVariants}
+                              custom={index}
+                              transition={{ delay: index * 0.05 }}
+                            >
+                              {point}
+                            </motion.li>
+                          ))}
+                        </ul>
+                      </div>
                       <motion.div
-                        className="flex items-center content-center mt-5"
+                        className="mt-4 sm:mt-5"
                         variants={childVariants}
                       >
                         <motion.div
@@ -453,10 +141,13 @@ const Services = () => {
                           transition={{ duration: 0.2 }}
                         >
                           <Link
-                            to={`/service/booking/${service.id}`}
-                            className="px-4 py-2 text-white bg-blue-700 hover:bg-blue-900 rounded-md inline-block"
+                            to={`/service/booking/${service.id}`} // String path
+                            state={{ serviceTitle: service.title }} // Pass service title as state
+                            className="flex items-center justify-between gap-2 px-4 sm:px-5 py-2 sm:py-2.5 text-white bg-blue-700 hover:bg-blue-900 rounded-md font-semibold text-sm sm:text-base transition-colors duration-300"
+                            aria-label={`Book appointment for ${service.title}`}
                           >
                             Book Appointment
+                            <FaChevronRight className="w-4 h-4" />
                           </Link>
                         </motion.div>
                       </motion.div>
@@ -466,7 +157,7 @@ const Services = () => {
               </motion.div>
             ) : (
               <motion.p
-                className="text-center text-gray-600"
+                className="text-center text-gray-600 text-base sm:text-lg"
                 variants={childVariants}
               >
                 No services found.
@@ -475,7 +166,6 @@ const Services = () => {
           </div>
         </section>
       </motion.div>
-      <FooterDark />
     </div>
   );
 };

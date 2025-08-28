@@ -1,9 +1,8 @@
-import { useParams } from "react-router-dom";
+
 import { useState } from "react";
 import emailjs from "emailjs-com";
 import { motion } from "framer-motion";
-import Navbar from "../components/Navbar";
-import FooterDark from "../components/FooterDark";
+import { useLocation } from "react-router-dom";
 
 // Animation variants
 const containerVariants = {
@@ -42,11 +41,8 @@ const titleVariants = {
 };
 
 const BookForm = () => {
-  const { id } = useParams<{ id: string }>();
-
-  const serviceList: Record<string, string> = {
-    // [Service list remains the same...]
-  };
+  const location = useLocation();
+  const serviceTitle = location.state?.serviceTitle || "Selected Service";
 
   const [formData, setFormData] = useState({
     name: "",
@@ -59,7 +55,6 @@ const BookForm = () => {
   });
 
   const [visitType, setVisitType] = useState("at-site");
-  const serviceName = id && serviceList[id] ? serviceList[id] : "Selected Service";
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -78,7 +73,7 @@ const BookForm = () => {
 
     const emailData = {
       ...formData,
-      serviceName,
+      serviceName: serviceTitle,
       visitType,
     };
 
@@ -103,10 +98,9 @@ const BookForm = () => {
   };
 
   return (
-    <div className="bg-primary flex flex-col items-center content-center gap-10 p-3 min-h-screen">
-      <Navbar />
+    <div className="pb-8">
       <motion.div
-        className="max-w-xl w-full flex flex-col gap-5"
+        className=""
         variants={containerVariants}
         initial="hidden"
         animate="visible"
@@ -115,16 +109,15 @@ const BookForm = () => {
           className="text-2xl sm:text-3xl font-bold mb-4 text-center text-white"
           variants={titleVariants}
         >
-          Book Appointment for {serviceName}
+          Book Appointment for {serviceTitle}
         </motion.h1>
         <motion.form
           onSubmit={handleSubmit}
-          className="space-y-4 bg-secondary p-5"
-          style={{ borderRadius: "15px" }}
+          className="space-y-4 p-5"
           variants={containerVariants}
         >
           <motion.div variants={childVariants} className="flex gap-2 flex-col">
-            <p className="text-xl text-white font-bold text-center">
+            <p className="text-md text-white font-semibold text-center">
               Select the mode of service you are looking for:
             </p>
             <div className="flex gap-4 justify-center">
@@ -261,8 +254,8 @@ const BookForm = () => {
               className="w-full px-3 py-2 border rounded-md"
               placeholder="Enter any additional notes"
             />
-            <p className="text-white mt-1">
-              <span className="text-red-500">*</span>Please share your problems, we collect information only for medical purposes. Your information is not shared with anyone apart from your doctor.
+            <p className="text-red-500 mt-1 text-sm mt-2">
+              <span className="text-red-500 mr-1">*</span>Please share your problems, we collect information only for medical purposes. Your information is not shared with anyone apart from your doctor.
             </p>
           </motion.div>
 
@@ -279,7 +272,6 @@ const BookForm = () => {
           </motion.div>
         </motion.form>
       </motion.div>
-      <FooterDark />
     </div>
   );
 };

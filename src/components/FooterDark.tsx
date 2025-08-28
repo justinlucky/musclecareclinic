@@ -72,7 +72,7 @@ const FooterDark = () => {
       <ul className="items-center justify-center mt-8 space-y-5 sm:flex sm:space-x-4 sm:space-y-0">
         {
           footerNavs.map((item, idx) => (
-            <li key={idx} className=" hover:text-gray-800">
+            <li key={idx} className=" hover:text-gray-300">
               <a href={item.href}>
                 {item.name}
               </a>
@@ -82,7 +82,7 @@ const FooterDark = () => {
       </ul>
       <div className="mt-8 items-center justify-between sm:flex">
         <div className="mt-4 sm:mt-0">
-          &copy; 2024 <a href="https://www.linkedin.com/in/lungchuingam-riammei-9a8528227/" className="hover:text-text">Lungchuingam Riammei</a> All rights reserved.
+          &copy; 2024 Develop with ❤️ by<a href="https://www.linkedin.com/in/lungchuingam-riammei-9a8528227/" className="hover:text-text hover:underline"> Lungchuingam Riammei</a> All rights reserved.
         </div>
         <div className="mt-6 sm:mt-0">
           <ul className="flex items-center space-x-4 mr-24">

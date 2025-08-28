@@ -1,6 +1,8 @@
-import { useState } from 'react';
+
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { FaChevronRight, FaLockOpen, FaPhoneAlt } from 'react-icons/fa';
 
 // Animation variants
 const navVariants = {
@@ -9,19 +11,19 @@ const navVariants = {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.5,
+      duration: 0.6,
       ease: "easeOut",
     },
   },
 };
 
 const menuVariants = {
-  hidden: { opacity: 0, height: 0 },
+  hidden: { opacity: 0, x: -100 },
   visible: {
     opacity: 1,
-    height: "auto",
+    x: 0,
     transition: {
-      duration: 0.3,
+      duration: 0.4,
       ease: "easeOut",
       when: "beforeChildren",
       staggerChildren: 0.1,
@@ -29,7 +31,7 @@ const menuVariants = {
   },
   exit: {
     opacity: 0,
-    height: 0,
+    x: -100,
     transition: {
       duration: 0.3,
       ease: "easeIn",
@@ -45,6 +47,8 @@ const itemVariants = {
     transition: {
       duration: 0.3,
       ease: "easeOut",
+      type: "spring",
+      stiffness: 100,
     },
   },
 };
@@ -57,6 +61,8 @@ const childVariants = {
     transition: {
       duration: 0.3,
       ease: "easeOut",
+      type: "spring",
+      stiffness: 120,
     },
   },
 };
@@ -68,6 +74,17 @@ interface NavbarProps {
 
 const Navbar = ({ isAdmin = false, onLogout }: NavbarProps) => {
   const [state, setState] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  // Scroll event listener to toggle background transparency
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const navigation = [
     { title: "Home", path: "/" },
@@ -79,32 +96,40 @@ const Navbar = ({ isAdmin = false, onLogout }: NavbarProps) => {
 
   return (
     <motion.nav
-      className="w-full md:static"
+      className={`fixed top-0 w-full z-50 transition-all duration-300 font-manrope ${
+        isScrolled
+          ? 'bg-transparent backdrop-blur-md'
+          : 'bg-primary'
+      }`}
       variants={navVariants}
       initial="hidden"
       animate="visible"
     >
-      <div className="items-center mx-auto xl:flex md:justify-between md:mb-6">
-        <div className="flex items-center justify-between py-3">
-          <motion.a
-            href="/"
-            className="p-3 gap-3 rounded-2xl text-white font-heading flex justify-center items-center"
+      <div className=" max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col xl:flex-row xl:items-center xl:justify-between py-3 sm:py-4">
+        <div className="flex items-center justify-between w-full">
+          <motion.div
+            className="flex items-center gap-2 sm:gap-3"
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.2 }}
           >
-            <img src="/logo.png" className="h-32 lg:h-24" alt="Muscle Care Logo" />
-            <h1 className="font-bold text-5xl hidden md:flex">Muscle Care</h1>
-          </motion.a>
+            <Link to="/">
+              <img src="/logo.png" className="h-16 sm:h-20 lg:h-24" alt="Muscle Care Logo" />
+            </Link>
+            <h1 className="font-heading font-bold text-2xl sm:text-3xl lg:text-4xl text-white hidden md:flex">
+              Muscle Care
+            </h1>
+          </motion.div>
 
           <div className="xl:hidden">
             <button
-              className="text-white outline-none p-2 rounded-md"
+              className="text-white p-2 rounded-md"
               onClick={() => setState(!state)}
+              aria-label={state ? "Close menu" : "Open menu"}
             >
               {state ? (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-8 w-8"
+                  className="h-6 sm:h-7 w-6 sm:w-7"
                   viewBox="0 0 20 20"
                   fill="white"
                 >
@@ -117,15 +142,15 @@ const Navbar = ({ isAdmin = false, onLogout }: NavbarProps) => {
               ) : (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-8 w-8"
+                  className="h-6 sm:h-7 w-6 sm:w-7"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="white"
+                  strokeWidth={2}
                 >
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    strokeWidth={2}
                     d="M4 8h16M4 16h16"
                   />
                 </svg>
@@ -134,101 +159,90 @@ const Navbar = ({ isAdmin = false, onLogout }: NavbarProps) => {
           </div>
         </div>
 
-        {/* Mobile menu (visible only when state is true and not on xl screens) */}
+        {/* Mobile menu */}
         <AnimatePresence>
           {state && (
             <motion.div
-              className="w-full xl:hidden flex justify-start pb-3 mt-8 bg-secondary rounded-3xl"
+              className="xl:hidden px-4 py-6"
               variants={menuVariants}
               initial="hidden"
               animate="visible"
               exit="exit"
             >
-              <ul className="flex flex-col justify-start items-start space-y-8 p-3 text-white">
+              <ul className="flex flex-col space-y-3">
                 {navigation.map((item, idx) => (
                   <motion.li
                     key={idx}
-                    className="text-white font-manrope md:text-lg hover:text-blue-500"
+                    className="font-manrope text-base sm:text-lg text-white group"
                     variants={itemVariants}
                   >
-                    <a href={item.path}>{item.title}</a>
+                    <Link
+                      to={item.path}
+                      className="flex items-center justify-between py-2 px-3 rounded-md hover:bg-blue-600 hover:text-white transition-all duration-200"
+                      onClick={() => setState(false)}
+                    >
+                      {item.title}
+                      <FaChevronRight className="h-4 w-4" />
+                    </Link>
                   </motion.li>
                 ))}
-                <motion.div
-                  className="flex justify-center items-center w-full"
-                  variants={childVariants}
-                >
+                <motion.div variants={childVariants}>
                   {isAdmin ? (
                     <button
-                      onClick={onLogout}
-                      className="bg-red-600 py-3 px-5 rounded-xl shadow-lg shadow-red-400 hover:bg-red-700 hover:shadow-red-200 transition-shadow duration-200"
+                      onClick={() => {
+                        onLogout?.();
+                        setState(false);
+                      }}
+                      className="w-full text-left bg-red-600 py-2 px-4 rounded-xl shadow-md hover:bg-red-700 transition-all duration-200"
                     >
                       Logout
                     </button>
                   ) : (
                     <Link
                       to="/admin-login"
-                      className="bg-pink-700 py-3 px-5 rounded-xl shadow-lg shadow-pink-400 hover:bg-pink-800 hover:shadow-pink-200 transition-shadow duration-200"
+                      className="flex items-center gap-2 block w-full text-left text-white bg-pink-600 py-2 px-4 rounded-xl shadow-md hover:bg-pink-700 transition-all duration-200"
+                      onClick={() => setState(false)}
                     >
-                      Admin Login
+                      <FaLockOpen/> Admin Login
                     </Link>
                   )}
+                </motion.div>
+                <motion.div variants={childVariants}>
+                  <Link
+                    to="tel:+917093280464"
+                    className="flex items-center gap-2 block w-full text-left text-white py-2 px-4 bg-blue-600 rounded-full shadow-md hover:shadow-lg transition-all duration-200"
+                    onClick={() => setState(false)}
+                  >
+                    <FaPhoneAlt className='h-4 w-4'/>(+91) 70932 80464
+                  </Link>
                 </motion.div>
               </ul>
             </motion.div>
           )}
         </AnimatePresence>
 
-        {/* Desktop menu (always visible on xl screens) */}
-        <div className="hidden xl:block xl:pb-0 xl:mt-0">
-          <ul className="flex flex-row justify-start items-start xl:gap-8 p-3 xl:px-10 rounded-2xl xl:mx-5 text-white">
+        {/* Desktop menu */}
+        <div className="hidden xl:flex xl:items-center gap-4">
+          <ul className="flex flex-row items-center gap-2 xl:gap-4">
             {navigation.map((item, idx) => (
               <motion.li
                 key={idx}
-                className="text-white font-manrope xl:text-xl hover:text-blue-500"
+                className="font-manrope text-sm xl:text-md text-white hover:text-blue-300 relative group"
                 variants={itemVariants}
                 initial="hidden"
                 animate="visible"
               >
-                <a href={item.path}>{item.title}</a>
+                <Link
+                  to={item.path}
+                  className="py-1 px-2 rounded-md hover:bg-blue-600/30 transition-all duration-200"
+                >
+                  {item.title}
+                </Link>
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-300 group-hover:w-full transition-all duration-300" />
               </motion.li>
             ))}
-            <motion.div
-              className="flex justify-center items-center"
-              variants={childVariants}
-            >
-              {isAdmin ? (
-                <button
-                  onClick={onLogout}
-                  className="bg-red-600 py-3 px-5 rounded-xl shadow-lg shadow-red-400 hover:bg-red-700 hover:shadow-red-200 transition-shadow duration-200"
-                >
-                  Logout
-                </button>
-              ) : (
-                <Link
-                  to="/admin-login"
-                  className="bg-pink-700 py-3 px-5 rounded-xl shadow-lg shadow-pink-400 hover:bg-pink-800 hover:shadow-pink-200 transition-shadow duration-200"
-                >
-                  Admin Login
-                </Link>
-              )}
-            </motion.div>
           </ul>
         </div>
-
-        <motion.div
-          className="hidden xl:inline-block"
-          variants={childVariants}
-        >
-          <motion.a
-            href="tel:+917093280464"
-            className="py-3 px-4 text-backgroundColor bg-white hover:bg-blue-500 hover:text-white text-xl rounded-full font-heading shadow"
-            whileHover={{ scale: 1.05 }}
-            transition={{ duration: 0.2 }}
-          >
-            (+91)70932 80464
-          </motion.a>
-        </motion.div>
       </div>
     </motion.nav>
   );

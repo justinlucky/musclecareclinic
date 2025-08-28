@@ -1,6 +1,4 @@
 import { motion } from "framer-motion";
-import Navbar from "../components/Navbar";
-import FooterDark from "../components/FooterDark";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
@@ -50,8 +48,7 @@ const AdminLogin = () => {
   };
 
   return (
-    <div className="md:p-10 p-3 pb-1 md:px-14 flex flex-col font-manrope bg-primary min-h-screen">
-      <Navbar />
+    <div className="pb-8">
       <motion.div
         className="w-full my-5 py-10 px-5 rounded-2xl mt-10"
         variants={containerVariants}
@@ -152,7 +149,6 @@ const AdminLogin = () => {
           </form>
         </motion.div>
       </motion.div>
-      <FooterDark />
     </div>
   );
 };
