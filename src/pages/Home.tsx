@@ -1,16 +1,13 @@
 
 import HeroText from "../components/HeroText";
 import Details from "../components/Details";
-import Navbar from "../components/Navbar";
 import Banner from "../components/Banner";
 import Faq from "../components/Faq";
-import Footer from "../components/Footer";
 
 const Home = () => {
 
   return (
-    <div className="md:p-10 p-3 pb-1 md:px-14 flex flex-col font-manrope bg-primary h-full">
-      <Navbar />
+    <div className=" h-full pb-8">
       
       {/* WhatsApp icon */}
       <div className="z-50 fixed bottom-3 right-5 md:right-16 shadow-lg rounded-full flex items-center">
@@ -55,7 +52,6 @@ const Home = () => {
         <Banner />
         <Details />
         <Faq />
-        <Footer />
       </div>
     </div>
   );

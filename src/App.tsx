@@ -9,14 +9,16 @@ import Gallery from './pages/Gallery'
 import TeamContact from './pages/TeamContact'
 import AdminLogin from './pages/AdminLogin'
 import AdminDashboard from './pages/AdminDashboard'
-import AdminPatientForm from './pages/AdminPatientForm'
+import Navbar from './components/Navbar'
+import FooterDark from './components/FooterDark'
 
 function App() {
 
 
   return (
-    <>
+    <div className='px-2 md:px-4 lg:px-6 xl:px-8 bg-primary'>
       <Router>
+         <Navbar/>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
@@ -25,14 +27,14 @@ function App() {
           <Route path="/services" element={<Services />} />
           <Route path="/admin-login" element={<AdminLogin/>} />
           <Route path="/admin-dashboard" element={<AdminDashboard />} />
-          <Route path="/admin-patient-form/:id" element={<AdminPatientForm />} />
           <Route path="/contact" element={<Contact />} /> 
           <Route path="/service/:id" element={<ServiceDetails />} />
           <Route path="/service/booking/:id" element={<BookForm />} />
           <Route path="/team-contact" element={<TeamContact/>} />
         </Routes>
+        <FooterDark/>
       </Router>
-    </>
+    </div>
   )
 }
 
