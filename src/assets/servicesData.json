@@ -92,7 +92,7 @@
     "points": [
       "Quick pain relief and reduced inflammation",
       "Faster recovery for athletes and muscle soreness",
-      "Improvement in skin conditions and 업데이트 metabolism",
+      "Improvement in skin conditions and metabolism",
       "Boosted mental health and immune system"
     ],
     "imgSrc": "/cryo.webp"
@@ -194,42 +194,6 @@
     "imgSrc": "/neck.jpg"
   },
   {
-    "id": "knee-pain",
-    "title": "Knee Pain",
-    "description": "Knee pain treatment focuses on reducing pain and improving the function of the knee joint through various therapeutic techniques.",
-    "points": [
-      "Pain relief",
-      "Improved mobility",
-      "Enhanced recovery",
-      "Injury prevention"
-    ],
-    "imgSrc": "/postSurgery.jpg"
-  },
-  {
-    "id": "spinal-injuries",
-    "title": "Spinal Injuries",
-    "description": "Spinal injury treatment focuses on improving the function and reducing pain in patients with spinal injuries through specialized therapies.",
-    "points": [
-      "Pain management",
-      "Improved mobility",
-      "Enhanced recovery",
-      "Better quality of life"
-    ],
-    "imgSrc": "/spinal.jpg"
-  },
-  {
-    "id": "foot-and-ankle",
-    "title": "Foot and Ankle Pain",
-    "description": "Foot and ankle pain treatment focuses on reducing pain and improving the function of the foot and ankle through various therapeutic techniques.",
-    "points": [
-      "Pain relief",
-      "Improved mobility",
-      "Enhanced recovery",
-      "Injury prevention"
-    ],
-    "imgSrc": "/ankle.jpg"
-  },
-  {
     "id": "stroke",
     "title": "Stroke Rehabilitation",
     "description": "Stroke rehabilitation helps patients recover from the effects of a stroke, improving their mobility and quality of life through specialized therapies.",
@@ -252,18 +216,6 @@
       "Support and motivation"
     ],
     "imgSrc": "/weightLoss.jpg"
-  },
-  {
-    "id": "weight-gain",
-    "title": "Weight Gain",
-    "description": "Weight gain programs focused on helping you build muscle mass and achieve a healthy weight through proper nutrition and exercise.",
-    "points": [
-      "Customized meal plans",
-      "Strength training exercises",
-      "Progress monitoring",
-      "Nutritional guidance"
-    ],
-    "imgSrc": "/weightGain.jpg"
   },
   {
     "id": "strengthening-training",
