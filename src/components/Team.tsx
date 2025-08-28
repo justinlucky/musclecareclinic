@@ -8,11 +8,6 @@ const team = [
     title: "Physiotherapist, Dietician, Professional Boxer",
   },
   {
-    avatar: "/abhi.jpg",
-    name: "Abhishek",
-    title: "Master Personal Trainer, Administrative",
-  },
-  {
     avatar: "/mahesh.jpg",
     name: "Prudhivi",
     title: "Manager and Administrator",

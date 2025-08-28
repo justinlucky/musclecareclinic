@@ -11,6 +11,8 @@ import AdminLogin from './pages/AdminLogin'
 import AdminDashboard from './pages/AdminDashboard'
 import Navbar from './components/Navbar'
 import FooterDark from './components/FooterDark'
+import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from "@vercel/speed-insights/react"
 
 function App() {
 
@@ -19,7 +21,7 @@ function App() {
     <div className='px-2 md:px-4 lg:px-6 xl:px-8 bg-primary'>
       <Router>
          <Navbar/>
-       <div className='pt-36 max-w-7xl'>
+       <div className='pt-36 max-w-7xl '>
          <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
@@ -35,6 +37,8 @@ function App() {
         </Routes>
        </div>
         <FooterDark/>
+        <Analytics/>
+        <SpeedInsights dsn="icaZnuV2oDEYEv2VBqxxoi6bElo" />
       </Router>
     </div>
   )
