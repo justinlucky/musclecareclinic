@@ -1,7 +1,7 @@
 
 import { useState } from "react";
 import ContactForm from "../components/ContactForm";
-import ContactAddress from "./ContactAddress";
+import ContactAddress from "../components/ContactAddress";
 import Faq from "../components/Faq";
 
 const Contact = () => {

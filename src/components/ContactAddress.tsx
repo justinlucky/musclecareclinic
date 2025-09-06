@@ -40,7 +40,7 @@ const ContactAddress = () => {
                 <motion.div variants={childVariants}>
                     <div className="flex items-center text-xl p-3">
                         <FaLocationDot className="text-[#1679AB] mr-2 text-2xl font-semibold" />
-                        <h1>Muscle Care Clinic</h1>
+                        <h1>Kin Multi-Speciality Physiotherapy Clinic</h1>
                     </div>
                     <p className="ml-12">
                         8C85+VP7,
