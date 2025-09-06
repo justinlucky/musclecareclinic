@@ -47,6 +47,13 @@ const ContactAddress = () => {
                         <br /> LIC Colony RD, Satyanarayana Puram, Nayi Brahmana Colony,
                         <br /> Guntur, Andhra Pradesh, India - 522007
                     </p>
+                    <div className="flex justify-center mt-4 px-12">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3829.1260441096338!2d80.40884821957403!3d16.31650271396272!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTbCsDE5JzAxLjgiTiA4MMKwMjQnMzMuMiJF!5e0!3m2!1sen!2sin!4v1726322982382!5m2!1sen!2sin"
+                            className="w-full h-48 rounded-md"
+                            loading="lazy"
+                        ></iframe>
+                    </div>
                 </motion.div>
                 <motion.div variants={childVariants}>
                     <div className="flex items-center text-xl p-3">
@@ -62,18 +69,6 @@ const ContactAddress = () => {
                     </div>
                     <p className="ml-12">musclecareclinic@gmail.com</p>
                 </motion.div>
-            </motion.div>
-            <motion.div
-                className=" h-64 shadow border-white"
-                variants={childVariants}
-                whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.3 }}
-            >
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3829.1260441096338!2d80.40884821957403!3d16.31650271396272!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTbCsDE5JzAxLjgiTiA4MMKwMjQnMzMuMiJF!5e0!3m2!1sen!2sin!4v1726322982382!5m2!1sen!2sin"
-                    className="w-full h-80 rounded-md"
-                    loading="lazy"
-                ></iframe>
             </motion.div>
         </div>
     )
