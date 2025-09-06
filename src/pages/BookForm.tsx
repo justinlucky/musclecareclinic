@@ -98,7 +98,7 @@ const BookForm = () => {
   };
 
   return (
-    <div className="pb-8">
+    <div className="py-8">
       <motion.div
         className=""
         variants={containerVariants}
@@ -106,7 +106,7 @@ const BookForm = () => {
         animate="visible"
       >
         <motion.h1
-          className="text-2xl sm:text-3xl font-bold mb-4 text-center text-white"
+          className="text-2xl md:text-4xl font-bold mb-4 text-center text-primary"
           variants={titleVariants}
         >
           Book Appointment for {serviceTitle}
@@ -117,11 +117,11 @@ const BookForm = () => {
           variants={containerVariants}
         >
           <motion.div variants={childVariants} className="flex gap-2 flex-col">
-            <p className="text-md text-white font-semibold text-center">
+            <p className="text-md text-blue-400 font-semibold text-center">
               Select the mode of service you are looking for:
             </p>
-            <div className="flex gap-4 justify-center">
-              <label className="text-white">
+            <div className="flex gap-4 justify-center items-center">
+              <label className="text-gray-400">
                 <input
                   type="radio"
                   name="visitType"
@@ -132,7 +132,7 @@ const BookForm = () => {
                 />
                 At Site
               </label>
-              <label className="text-white">
+              <label className="text-gray-400">
                 <input
                   type="radio"
                   name="visitType"
@@ -148,7 +148,7 @@ const BookForm = () => {
 
           {visitType === "home-visit" && (
             <motion.div variants={childVariants}>
-              <label className="block text-sm font-medium mb-1 text-white" htmlFor="location">
+              <label className="block text-sm font-medium mb-1 text-gray-500" htmlFor="location">
                 Enter Your Location or URL
               </label>
               <input
@@ -165,7 +165,7 @@ const BookForm = () => {
           )}
 
           <motion.div variants={childVariants}>
-            <label className="block text-sm font-medium mb-1 text-white" htmlFor="name">
+            <label className="block text-sm font-medium mb-1 text-gray-500" htmlFor="name">
               Full Name
             </label>
             <input
@@ -181,7 +181,7 @@ const BookForm = () => {
           </motion.div>
 
           <motion.div variants={childVariants}>
-            <label className="block text-sm font-medium mb-1 text-white" htmlFor="email">
+            <label className="block text-sm font-medium mb-1 text-gray-500" htmlFor="email">
               Email
             </label>
             <input
@@ -197,7 +197,7 @@ const BookForm = () => {
           </motion.div>
 
           <motion.div variants={childVariants}>
-            <label className="block text-sm font-medium mb-1 text-white" htmlFor="phone">
+            <label className="block text-sm font-medium mb-1 text-gray-500" htmlFor="phone">
               Phone Number
             </label>
             <input
@@ -213,7 +213,7 @@ const BookForm = () => {
           </motion.div>
 
           <motion.div variants={childVariants}>
-            <label className="block text-sm font-medium mb-1 text-white" htmlFor="date">
+            <label className="block text-sm font-medium mb-1 text-gray-500" htmlFor="date">
               Appointment Date
             </label>
             <input
@@ -228,7 +228,7 @@ const BookForm = () => {
           </motion.div>
 
           <motion.div variants={childVariants}>
-            <label className="block text-sm font-medium mb-1 text-white" htmlFor="time">
+            <label className="block text-sm font-medium mb-1 text-gray-500" htmlFor="time">
               Appointment Time
             </label>
             <input
@@ -243,13 +243,14 @@ const BookForm = () => {
           </motion.div>
 
           <motion.div variants={childVariants}>
-            <label className="block text-sm font-medium mb-1 text-white" htmlFor="additionalNotes">
+            <label className="block text-sm font-medium mb-1 text-gray-500" htmlFor="additionalNotes">
               Additional Notes
             </label>
             <textarea
               id="additionalNotes"
               name="additionalNotes"
               value={formData.additionalNotes}
+              rows={4}
               onChange={handleChange}
               className="w-full px-3 py-2 border rounded-md"
               placeholder="Enter any additional notes"
@@ -262,8 +263,8 @@ const BookForm = () => {
           <motion.div variants={childVariants}>
             <motion.button
               type="submit"
-              className="w-full bg-blue-700 hover:bg-blue-900 text-white px-4 py-2 rounded-md"
-              whileHover={{ scale: 1.05 }}
+              className="w-full bg-primary hover:bg-blue-500 text-white px-4 py-2 rounded-md"
+              whileHover={{ scale: 1.0125 }}
               whileTap={{ scale: 0.95 }}
               transition={{ duration: 0.2 }}
             >

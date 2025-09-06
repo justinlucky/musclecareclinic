@@ -6,7 +6,7 @@ import Team from "./Team"
 
 const Details = () => {
   return (
-    <div className="w-full rounded-t-2xl rounded-b-2xl mt-[10px] p-3">
+    <div className="w-full">
       <Preview />
       <ServicePreview/>
       <Team />

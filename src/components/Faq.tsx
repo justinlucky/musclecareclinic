@@ -21,10 +21,9 @@ const FaqsCard: React.FC<FaqsCardProps> = (props) => {
 
   const handleOpenAnswer = () => {
     if (answerElRef.current) {
-      const answerElH = answerElRef.current.childNodes[0] as HTMLElement;
-      const height = answerElH.offsetHeight;
+      const answerElH = answerElRef.current.scrollHeight; // Use scrollHeight for dynamic height
       setState(!state);
-      setAnswerH(`${height + 20}px`);
+      setAnswerH(state ? "0px" : `${answerElH}px`);
     }
   };
 
@@ -34,9 +33,13 @@ const FaqsCard: React.FC<FaqsCardProps> = (props) => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: idx * 0.1, ease: "easeOut" }}
-      onClick={handleOpenAnswer}
     >
-      <h4 className="cursor-pointer pb-5 flex items-center justify-between text-lg font-medium">
+      <button
+        onClick={handleOpenAnswer}
+        className="cursor-pointer pb-5 flex items-center justify-between text-lg font-medium w-full text-left"
+        aria-expanded={state}
+        aria-controls={`faq-answer-${idx}`}
+      >
         {faqsList.q}
         {state ? (
           <motion.svg
@@ -49,7 +52,7 @@ const FaqsCard: React.FC<FaqsCardProps> = (props) => {
             animate={{ rotate: 180 }}
             transition={{ duration: 0.3 }}
           >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 12H4" />
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
           </motion.svg>
         ) : (
           <motion.svg
@@ -62,15 +65,16 @@ const FaqsCard: React.FC<FaqsCardProps> = (props) => {
             animate={{ rotate: 0 }}
             transition={{ duration: 0.3 }}
           >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
           </motion.svg>
         )}
-      </h4>
+      </button>
       <AnimatePresence>
         {state && (
           <motion.div
             ref={answerElRef}
-            className="text-gray-100"
+            id={`faq-answer-${idx}`} // Unique ID for accessibility
+            className="text-gray-100 overflow-hidden"
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: answerH, opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}

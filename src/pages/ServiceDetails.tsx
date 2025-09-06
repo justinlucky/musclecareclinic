@@ -59,7 +59,7 @@ const ServiceDetails = () => {
         animate="visible"
       >
         <motion.h1
-          className="font-bold mb-4 text-center text-2xl md:text-3xl xl:text-4xl text-white"
+          className="font-bold mb-4 text-center text-2xl md:text-3xl xl:text-4xl text-primary"
           variants={titleVariants}
         >
           {service.title}
@@ -71,9 +71,9 @@ const ServiceDetails = () => {
           <motion.img
             src={service.imgSrc}
             alt={service.title}
-            className="w-full h-64 rounded-md"
+            className="w-full h-64 md:h-80 rounded-md"
             variants={childVariants}
-            whileHover={{ scale: 1.05 }}
+            whileHover={{ scale: 1.0125 }}
             transition={{ duration: 0.3 }}
           />
           <motion.div
@@ -81,20 +81,20 @@ const ServiceDetails = () => {
             variants={containerVariants}
           >
             <motion.p
-              className="text-white font-medium"
+              className="text-gray-500 font-medium"
               variants={childVariants}
             >
               {service.description}
             </motion.p>
             <ul className="pl-4">
-              <p className="pt-2 text-white">We have observed this during our treatment/rehabilitation through <span className="text-gold font-semibold">{service.title}</span>:</p>
+              <p className="pt-2 text-gray-500">We have observed this during our treatment/rehabilitation through <span className="text-gold font-semibold">{service.title}</span>:</p>
               {service.points?.map((point, index) => (
                 <motion.li
                   key={index}
                   variants={childVariants}
                   custom={index}
                   transition={{ delay: index * 0.1 }}
-                  className="text-white flex items-center text-sm mt-3 gap-2"
+                  className="text-gray-400 flex items-center text-sm mt-3 gap-2"
                 >
                   <FaStethoscope className="text-gold"/>{point}
                 </motion.li>
@@ -111,7 +111,7 @@ const ServiceDetails = () => {
                 <Link
                   to={`/service/booking/${service.id}`} // String path
                   state={{ serviceTitle: service.title }} // Separate state prop
-                  className="bg-blue-700 hover:bg-blue-900 text-white px-4 py-2 rounded-md inline-block"
+                  className="bg-secondary hover:bg-green-500 text-white px-4 py-2 rounded-md inline-block"
                 >
                   Book Appointment
                 </Link>

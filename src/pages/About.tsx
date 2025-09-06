@@ -1,8 +1,7 @@
 
 import { Link } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
-import { FaArrowRight, FaArrowDown, FaArrowUp } from "react-icons/fa";
-import { useState } from "react";
+import { motion } from "framer-motion";
+import { FaArrowRight } from "react-icons/fa";
 import Team from "../components/Team";
 
 // Define the type for content items
@@ -35,49 +34,9 @@ const content: ContentItem[] = [
     text: "The role of our physical therapy team in neurological, orthopedic, cardiology, and sport rehabilitation is invaluable. Our team brings expertise, dedication, and a personalized approach to help individuals with various conditions regain their physical abilities and independence.",
   },
   {
-    id: "goals-2",
-    type: "paragraph",
-    text: "Our team aims to restore movement and function of the body through the use of exercises, stretches, and other treatments. It can be used to manage a wide range of conditions, including musculoskeletal injuries, neurological conditions, and cardiovascular and respiratory conditions.",
-  },
-  {
     id: "goals-3",
     type: "paragraph",
     text: "In the case of injury or surgery, we can help to reduce pain and swelling, improve mobility and flexibility, and restore functional abilities. It can also help to prevent complications and facilitate a faster recovery process.",
-  },
-  {
-    id: "show-more-1",
-    type: "paragraph",
-    text: "In the early stages of rehabilitation, our team focuses on reducing pain and swelling through the use of modalities such as heat and ice therapy, electrical stimulation, and massage. These modalities can help to reduce inflammation and improve blood flow to the affected area, which can in turn help to reduce pain and promote healing.",
-  },
-  {
-    id: "show-more-2",
-    type: "paragraph",
-    text: "As the individual’s condition improves, the focus of treatment may shift to improving mobility and flexibility through exercises and modalities. These exercises may be designed to strengthen the muscles around the affected area, improve range of motion, and restore normal movement patterns.",
-  },
-  {
-    id: "show-more-3",
-    type: "paragraph",
-    text: "In the later stages of rehabilitation, our team focuses on restoring functional abilities and helping the individual return to their pre-injury or pre-surgery level of activity. This may involve activities such as gait training, balance training, and functional exercises.",
-  },
-  {
-    id: "show-more-4",
-    type: "paragraph",
-    text: "Muscle Care Clinic treatment is provided on a one-on-one basis, and sessions may last anywhere from 30 minutes to an hour. The frequency and duration of treatment will depend on the individual’s condition and goals, and the treatment plan may be adjusted as the individual progresses through the rehabilitation process.",
-  },
-  {
-    id: "show-more-5",
-    type: "paragraph",
-    text: "At Muscle Care Clinic, our team of experienced physiotherapists is dedicated to providing high-quality care to help individuals achieve their best possible outcomes and return to a functional and active lifestyle.",
-  },
-  {
-    id: "show-more-6",
-    type: "paragraph",
-    text: "Our team is committed to working with each individual to develop a customized treatment plan that addresses their specific needs and goals. If you have recently sustained an injury or undergone surgery and are in need of physiotherapy, we encourage you to contact us to learn more about how we can help.",
-  },
-  {
-    id: "show-more-7",
-    type: "paragraph",
-    text: "Through a combination of techniques, exercises, and best practices, our therapy paves the way for improved mobility, enhanced quality of life, and renewed hope for those on the path to recovery.",
   },
   {
     id: "services",
@@ -132,12 +91,8 @@ const itemVariants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
 };
 
-const buttonVariants = {
-  hover: { scale: 1.05, transition: { duration: 0.3 } },
-};
 
 const About = () => {
-  const [showMore, setShowMore] = useState(false);
 
   // Helper function to safely get text from content array
   const getContentText = (id: string, fallback: string = "Content not found"): string => {
@@ -152,7 +107,7 @@ const About = () => {
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
       <motion.div
-        className="w-full bg-white rounded-3xl py-12 flex-grow max-w-7xl mx-auto mb-12 px-4 sm:px-6 lg:px-8 shadow-xl"
+        className=" py-12"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
@@ -170,7 +125,7 @@ const About = () => {
 
         {/* Heading */}
         <motion.h1
-          className="text-4xl md:text-5xl font-bold text-text font-heading mt-8 mb-10 tracking-tight"
+          className="text-2xl md:text-4xl lg:text-5xl font-bold text-text font-heading mt-8 mb-10 tracking-tight"
           variants={itemVariants}
         >
           {getContentText("heading-1")}
@@ -195,37 +150,6 @@ const About = () => {
                     {item.text}
                   </motion.p>
                 ))}
-              <AnimatePresence>
-                {showMore && (
-                  <motion.div
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: "auto" }}
-                    exit={{ opacity: 0, height: 0 }}
-                    transition={{ duration: 0.5 }}
-                  >
-                    {content
-                      .filter((item) => item.id.startsWith("show-more-"))
-                      .map((item) => (
-                        <motion.p key={item.id} variants={itemVariants} className="mt-4">
-                          {item.text}
-                        </motion.p>
-                      ))}
-                  </motion.div>
-                )}
-              </AnimatePresence>
-              <motion.div
-                className="flex justify-center mt-6"
-                variants={buttonVariants}
-                whileHover="hover"
-              >
-                <button
-                  className="font-semibold bg-gradient-to-r from-secondary to-indigo-500 px-6 py-3 rounded-full text-backgroundColor flex items-center gap-3 hover:shadow-md transition-all duration-300"
-                  onClick={() => setShowMore(!showMore)}
-                >
-                  {showMore ? getContentText("show-less-button") : getContentText("show-more-button")}
-                  {showMore ? <FaArrowUp /> : <FaArrowDown />}
-                </button>
-              </motion.div>
             </div>
           </motion.div>
 
@@ -238,14 +162,6 @@ const About = () => {
           </motion.p>
 
           <Team />
-
-          <motion.p variants={itemVariants}>
-            {getContentText("vision")}
-          </motion.p>
-
-          <motion.p variants={itemVariants}>
-            {getContentText("holistic")}
-          </motion.p>
         </motion.div>
       </motion.div>
     </motion.div>

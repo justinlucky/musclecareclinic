@@ -2,7 +2,8 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { FaChevronRight, FaLockOpen, FaPhoneAlt } from 'react-icons/fa';
+import { FaChevronRight, FaHamburger, FaLockOpen, FaPhoneAlt, FaWhatsapp } from 'react-icons/fa';
+import { FaX } from 'react-icons/fa6';
 
 // Animation variants
 const navVariants = {
@@ -96,11 +97,10 @@ const Navbar = ({ isAdmin = false, onLogout }: NavbarProps) => {
 
   return (
     <motion.nav
-      className={`fixed top-0 w-full z-50 transition-all duration-300 font-manrope ${
-        isScrolled
+      className={`fixed top-0 w-full z-50 transition-all duration-300 font-manrope ${isScrolled
           ? 'bg-transparent backdrop-blur-md'
-          : 'bg-primary'
-      }`}
+          : 'bg-white'
+        }`}
       variants={navVariants}
       initial="hidden"
       animate="visible"
@@ -115,8 +115,8 @@ const Navbar = ({ isAdmin = false, onLogout }: NavbarProps) => {
             <Link to="/">
               <img src="/logo.png" className="h-16 sm:h-20 lg:h-24" alt="Muscle Care Logo" />
             </Link>
-            <h1 className="font-heading font-bold text-2xl sm:text-3xl lg:text-4xl text-white hidden md:flex">
-              Muscle Care
+            <h1 className="font-heading font-bold text-2xl sm:text-3xl lg:text-4xl text-primary hidden md:flex">
+              Kin Multi-Speciality Clinic
             </h1>
           </motion.div>
 
@@ -127,33 +127,9 @@ const Navbar = ({ isAdmin = false, onLogout }: NavbarProps) => {
               aria-label={state ? "Close menu" : "Open menu"}
             >
               {state ? (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 sm:h-7 w-6 sm:w-7"
-                  viewBox="0 0 20 20"
-                  fill="white"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                    clipRule="evenodd"
-                  />
-                </svg>
+                <FaX className='size-5 text-blue-900' />
               ) : (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 sm:h-7 w-6 sm:w-7"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="white"
-                  strokeWidth={2}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M4 8h16M4 16h16"
-                  />
-                </svg>
+                <FaHamburger className='size-5 text-blue-900' />
               )}
             </button>
           </div>
@@ -173,12 +149,12 @@ const Navbar = ({ isAdmin = false, onLogout }: NavbarProps) => {
                 {navigation.map((item, idx) => (
                   <motion.li
                     key={idx}
-                    className="font-manrope text-base sm:text-lg text-white group"
+                    className="font-manrope text-base sm:text-lg text-primary group"
                     variants={itemVariants}
                   >
                     <Link
                       to={item.path}
-                      className="flex items-center justify-between py-2 px-3 rounded-md hover:bg-blue-600 hover:text-white transition-all duration-200"
+                      className="flex items-center justify-between py-2 px-3 rounded-md hover:bg-green-300 hover:text-white transition-all duration-200"
                       onClick={() => setState(false)}
                     >
                       {item.title}
@@ -186,36 +162,47 @@ const Navbar = ({ isAdmin = false, onLogout }: NavbarProps) => {
                     </Link>
                   </motion.li>
                 ))}
-                <motion.div variants={childVariants}>
-                  {isAdmin ? (
-                    <button
-                      onClick={() => {
-                        onLogout?.();
-                        setState(false);
-                      }}
-                      className="w-full text-left bg-red-600 py-2 px-4 rounded-xl shadow-md hover:bg-red-700 transition-all duration-200"
-                    >
-                      Logout
-                    </button>
-                  ) : (
+                <div className='flex sm:flex-row flex-col gap-3 mt-4'>
+                  <motion.div variants={childVariants}>
+                    {isAdmin ? (
+                      <button
+                        onClick={() => {
+                          onLogout?.();
+                          setState(false);
+                        }}
+                        className="w-full text-left bg-red-600 py-2 px-4 rounded-xl shadow-md hover:bg-red-700 transition-all duration-200"
+                      >
+                        Logout
+                      </button>
+                    ) : (
+                      <Link
+                        to="/admin-login"
+                        className="flex items-center gap-2 block w-full text-left text-white bg-primary py-2 px-4 rounded-xl shadow-md transition-all duration-200"
+                        onClick={() => setState(false)}
+                      >
+                        <FaLockOpen /> Admin Login
+                      </Link>
+                    )}
+                  </motion.div>
+                  <motion.div variants={childVariants}>
                     <Link
-                      to="/admin-login"
-                      className="flex items-center gap-2 block w-full text-left text-white bg-pink-600 py-2 px-4 rounded-xl shadow-md hover:bg-pink-700 transition-all duration-200"
+                      to="tel:+917093280464"
+                      className="flex items-center gap-2 block w-full text-left text-white py-2 px-4 bg-secondary rounded-full shadow-md hover:shadow-lg transition-all duration-200"
                       onClick={() => setState(false)}
                     >
-                      <FaLockOpen/> Admin Login
+                      <FaPhoneAlt className='h-4 w-4' />(+91) 70932 80464
                     </Link>
-                  )}
-                </motion.div>
-                <motion.div variants={childVariants}>
-                  <Link
-                    to="tel:+917093280464"
-                    className="flex items-center gap-2 block w-full text-left text-white py-2 px-4 bg-blue-600 rounded-full shadow-md hover:shadow-lg transition-all duration-200"
-                    onClick={() => setState(false)}
-                  >
-                    <FaPhoneAlt className='h-4 w-4'/>(+91) 70932 80464
-                  </Link>
-                </motion.div>
+                  </motion.div>
+                  <motion.div variants={childVariants}>
+                    <Link
+                      to="https://wa.me/917093280464?text=Know%20more%20about%20Muscle%20Care%20Clinic"
+                      className="flex items-center gap-2 block w-full text-left text-white py-2 px-4 bg-green-500 rounded-full shadow-md hover:shadow-lg transition-all duration-200"
+                      onClick={() => setState(false)}
+                    >
+                      <FaWhatsapp className='h-4 w-4' />(+91) 70932 80464
+                    </Link>
+                  </motion.div>
+                </div>
               </ul>
             </motion.div>
           )}
@@ -227,14 +214,14 @@ const Navbar = ({ isAdmin = false, onLogout }: NavbarProps) => {
             {navigation.map((item, idx) => (
               <motion.li
                 key={idx}
-                className="font-manrope text-sm xl:text-md text-white hover:text-blue-300 relative group"
+                className="font-manrope text-sm xl:text-md text-primary hover:text-blue-400 relative group"
                 variants={itemVariants}
                 initial="hidden"
                 animate="visible"
               >
                 <Link
                   to={item.path}
-                  className="py-1 px-2 rounded-md hover:bg-blue-600/30 transition-all duration-200"
+                  className="py-1 px-2 rounded-md transition-all duration-200"
                 >
                   {item.title}
                 </Link>

@@ -26,8 +26,8 @@ const Team = () => {
   };
 
   return (
-    <section className="py-20 font-manrope container mx-auto px-4">
-      <div className="flex flex-col items-center max-w-screen-xl mx-auto gap-12">
+    <section className="py-8 font-manrope container mx-auto px-4">
+      <div className="flex flex-col items-center gap-12">
         {/* Heading Animation */}
         <motion.div
           className="max-w-xl text-center"
@@ -35,13 +35,13 @@ const Team = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          <h3 className="text-5xl md:text-6xl font-semibold text-white">
+          <h3 className="text-2xl md:text-4xl font-semibold text-primary">
             Meet Our Team
           </h3>
         </motion.div>
 
         {/* Team Members */}
-        <div className=" w-full">
+        <div className="">
           <ul className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {team.map((item, idx) => (
               <motion.li
@@ -53,7 +53,7 @@ const Team = () => {
                 className="flex flex-col justify-center gap-4 items-center text-center"
                 whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
               >
-                <div className="flex-none h-28 w-28 md:h-40 md:w-40 bg-gold rounded-full p-1 shadow-lg">
+                <div className="flex-none h-28 w-28 md:h-40 md:w-40 bg-secondary rounded-full p-1 shadow-lg">
                   <img
                     src={item.avatar}
                     className="w-full h-full rounded-full object-cover"
@@ -61,7 +61,7 @@ const Team = () => {
                   />
                 </div>
                 <div className="space-y-2">
-                  <h4 className="text-white font-semibold text-lg md:text-xl">
+                  <h4 className="text-primary font-semibold text-lg md:text-xl">
                     {item.name}
                   </h4>
                   <p className="text-gray-400 text-sm md:text-base">{item.title}</p>
@@ -72,7 +72,7 @@ const Team = () => {
                   >
                     <Link
                       to={`/team-contact?name=${encodeURIComponent(item.name)}&title=${encodeURIComponent(item.title)}`}
-                      className="inline-block bg-white text-gold px-4 py-2 rounded-2xl font-medium shadow-md hover:bg-gray-100 transition-colors duration-200"
+                      className="inline-block bg-white text-secondary px-4 py-2 rounded-2xl font-medium shadow-md hover:bg-gray-100 transition-colors duration-200"
                     >
                       Reach Out
                     </Link>

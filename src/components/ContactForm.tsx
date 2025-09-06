@@ -62,9 +62,9 @@ const ContactForm = ({ onCancel }: { onCancel: () => void }) => {
 
   return (
     <div>
-      <div className="shadow-md rounded-md shadow-gray-700 py-8">
-        <h2 className="text-2xl md:text-3xl xl:text-4xl text-center text-white font-semibold">Reach Us here</h2>
-        <p className="text-sm text-center text-white">We will try our best to provide assistance within a day or less.</p>
+      <div className=" py-8">
+        <h2 className="text-2xl md:text-3xl xl:text-4xl text-center text-primary font-semibold">Reach Us here</h2>
+        <p className="text-sm text-center text-gray-700">We will try our best to provide assistance within a day or less.</p>
         <motion.form
           className="mt-8 py-4 px-2 md:px-4 xl:px-8 flex flex-col gap-4"
           variants={containerVariants}
@@ -72,7 +72,7 @@ const ContactForm = ({ onCancel }: { onCancel: () => void }) => {
           animate="visible"
         >
           <motion.div className="flex flex-col gap-1" variants={childVariants}>
-            <label htmlFor="name" className="text-gray-200 text-sm">Full Name</label>
+            <label htmlFor="name" className="text-gray-500 text-sm">Full Name</label>
             <input
               type="text"
               name="name"
@@ -85,7 +85,7 @@ const ContactForm = ({ onCancel }: { onCancel: () => void }) => {
             />
           </motion.div>
           <motion.div className="flex flex-col gap-1" variants={childVariants}>
-            <label htmlFor="phone" className="text-gray-200 text-sm">Phone Number</label>
+            <label htmlFor="phone" className="text-gray-500 text-sm">Phone Number</label>
             <input
               type="number"
               name="phone"
@@ -98,7 +98,7 @@ const ContactForm = ({ onCancel }: { onCancel: () => void }) => {
             />
           </motion.div>
           <motion.div className="flex flex-col gap-1" variants={childVariants}>
-            <label htmlFor="email" className="text-gray-200 text-sm">Email Address</label>
+            <label htmlFor="email" className="text-gray-500 text-sm">Email Address</label>
             <input
               type="text"
               name="email"
@@ -111,7 +111,7 @@ const ContactForm = ({ onCancel }: { onCancel: () => void }) => {
             />
           </motion.div>
           <motion.div className="flex flex-col gap-1" variants={childVariants}>
-            <label htmlFor="purpose" className="text-gray-200 text-sm">Purpose</label>
+            <label htmlFor="purpose" className="text-gray-500 text-sm">Purpose</label>
             <select
               name="purpose"
               id="purpose"
@@ -128,7 +128,7 @@ const ContactForm = ({ onCancel }: { onCancel: () => void }) => {
             </select>
           </motion.div>
           <motion.div className="flex flex-col gap-1" variants={childVariants}>
-            <label htmlFor="message" className="text-gray-200 text-sm">Your Message</label>
+            <label htmlFor="message" className="text-gray-500 text-sm">Your Message</label>
             <textarea
               name="message"
               id="message"

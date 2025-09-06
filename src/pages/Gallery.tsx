@@ -99,7 +99,7 @@ const Gallery: React.FC = () => {
     >
       <main className="flex-grow container mx-auto px-4 py-8">
         <motion.h1
-          className="text-4xl md:text-5xl font-bold text-center text-gray-300 mb-10 tracking-wide"
+          className="text-4xl md:text-5xl font-bold text-center text-primary mb-10 tracking-wide"
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
@@ -152,7 +152,7 @@ const Gallery: React.FC = () => {
           transition={{ duration: 0.6, delay: 0.4 }}
         >
           <motion.h2
-            className="text-2xl md:text-3xl font-semibold text-center text-gray-200 mb-8"
+            className="text-2xl md:text-4xl font-semibold text-center text-gray-500 mb-8"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.5 }}

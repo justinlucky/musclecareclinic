@@ -64,15 +64,15 @@ const FooterDark = () => {
     //           }
     //       `}</style>
     // </footer>
-    <footer className="text-gray-500 bg-[#0c202b] px-4 py-5 mt-[-10px] rounded-t-2xl rounded-lg w-full   self-end mx-auto md:px-8">
+    <footer className="text-gray-500 px-4 py-5 w-full   self-end mx-auto md:px-8">
       <div className="max-w-lg sm:mx-auto sm:text-center">
 
-        <h1 className=" font-bold text-white text-2xl md:text-3xl">Muscle Care Clinic</h1>
+        <h1 className=" font-bold text-primary text-2xl md:text-3xl">Kin Multi-Speciality Clinic</h1>
       </div>
       <ul className="items-center justify-center mt-8 space-y-5 sm:flex sm:space-x-4 sm:space-y-0">
         {
           footerNavs.map((item, idx) => (
-            <li key={idx} className=" hover:text-gray-300">
+            <li key={idx} className=" hover:text-primary">
               <a href={item.href}>
                 {item.name}
               </a>

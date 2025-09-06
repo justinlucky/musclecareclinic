@@ -49,14 +49,13 @@ const PurposeSelection: React.FC<{ name: string; reason: string; setReason: (val
       "Rehabilitation",
       "Nutrition and Diet"
     ],
-    "Abhishek": [
-      "Personal Training",
-      "Weight Management",
-      "Strength Training",
-      "Cardio Training",
-      "Flexibility Training"
-    ],
-    "Prudhivi": ["General Enquiry", "Membership Management", "Complaints", "Feedback", "Fees Enquiry"]
+    "Prudhivi": [
+      "General Enquiry", 
+      "Membership Management", 
+      "Complaints", 
+      "Feedback", 
+      "Fees Enquiry"
+    ]
   };
 
   const options = purposes[name] || ["General Enquiry"];
@@ -106,7 +105,6 @@ const TeamContact: React.FC = () => {
     
     const teamNumbers: { [key: string]: string } = {
       "Poukinlung Kamei": "+917093280464",
-      "Abhishek": "+917997605423",
       "Prudhivi": "+918639028264"
     };
 
@@ -120,7 +118,7 @@ const TeamContact: React.FC = () => {
   return (
     <div className=" flex flex-col items-center pb-8">
       <motion.div
-        className="bg-white py-8 px-4 rounded shadow-md w-full max-w-md"
+        className=" py-8 px-4 w-full max-w-2xl mx-auto"
         variants={containerVariants}
         initial="hidden"
         animate="visible"

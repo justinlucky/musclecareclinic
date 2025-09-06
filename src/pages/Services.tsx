@@ -62,17 +62,25 @@ const Services = () => {
   return (
     <div className="font-manrope mb-8">
       <motion.div
-        className="w-full mt-16 max-w-7xl mx-auto"
+        className="w-full"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
       >
         <motion.h1
-          className="text-3xl sm:text-4xl lg:text-5xl font-bold py-4 sm:py-5 text-text mx-4 sm:mx-6 lg:mx-0 mt-4 tracking-tight"
+          className="text-2xl md:text-4xl lg:text-5xl font-bold py-4 sm:py-5 text-text mx-4 sm:mx-6 lg:mx-0 mt-4 tracking-tight"
           variants={titleVariants}
         >
-          Services
+          Our Services 
         </motion.h1>
+        <motion.p
+          className="text-gray-600 text-sm sm:text-base mx-4 sm:mx-6 lg:mx-0 mb-4 sm:mb-6 max-w-3xl"
+          variants={childVariants}
+        >
+          Explore our wide range of services designed to help you achieve optimal
+          health and wellness. Whether you're seeking pain relief, injury
+          prevention, or overall well-being, we have a solution tailored for you.
+        </motion.p>
         <motion.div variants={childVariants} className="mx-4 sm:mx-6 lg:mx-0 mb-6">
           <input
             type="text"
@@ -97,7 +105,7 @@ const Services = () => {
                     id={service.id}
                     className="flex flex-col bg-white p-4 sm:p-6 rounded-2xl shadow-md hover:shadow-lg transition-shadow duration-300"
                     variants={childVariants}
-                    whileHover={{ scale: 1.02 }}
+                    whileHover={{ scale: 1.0125 }}
                     transition={{ duration: 0.3 }}
                   >
                     <motion.div variants={childVariants}>
@@ -136,14 +144,14 @@ const Services = () => {
                         variants={childVariants}
                       >
                         <motion.div
-                          whileHover={{ scale: 1.05 }}
+                          whileHover={{ scale: 1.0125 }}
                           whileTap={{ scale: 0.95 }}
                           transition={{ duration: 0.2 }}
                         >
                           <Link
                             to={`/service/booking/${service.id}`} // String path
                             state={{ serviceTitle: service.title }} // Pass service title as state
-                            className="flex items-center justify-between gap-2 px-4 sm:px-5 py-2 sm:py-2.5 text-white bg-blue-700 hover:bg-blue-900 rounded-md font-semibold text-sm sm:text-base transition-colors duration-300"
+                            className="flex items-center justify-between gap-2 px-4 sm:px-5 py-2 sm:py-2.5 text-white bg-primary  rounded-md font-semibold text-sm sm:text-base transition-colors duration-300"
                             aria-label={`Book appointment for ${service.title}`}
                           >
                             Book Appointment

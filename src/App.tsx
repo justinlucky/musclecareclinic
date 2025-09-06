@@ -12,15 +12,16 @@ import AdminDashboard from './pages/AdminDashboard'
 import Navbar from './components/Navbar'
 import FooterDark from './components/FooterDark'
 import { Analytics } from "@vercel/analytics/react"
+import Whatsapp from './components/ui/Whatsapp'
 
 function App() {
 
 
   return (
-    <div className='bg-primary'>
+    <div className=''>
       <Router>
          <Navbar/>
-       <div className=' pt-16 max-w-7xl px-2 md:px-4 lg:px-6 xl:px-8'>
+       <div className='pt-16 md:pt-24 max-w-7xl px-2 md:px-4 lg:px-6 xl:px-8 mx-auto'>
          <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
@@ -37,6 +38,7 @@ function App() {
        </div>
         <FooterDark/>
         <Analytics/>
+        <Whatsapp/>
       </Router>
     </div>
   )
