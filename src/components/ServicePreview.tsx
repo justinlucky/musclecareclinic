@@ -55,7 +55,7 @@ const ServicePreview = () => {
   };
 
   return (
-    <div className="py-12 container mx-auto px-4">
+    <div className="pb-8 container mx-auto">
       <motion.h1
         className="font-manrope text-5xl md:text-6xl font-semibold text-center text-white mb-12"
         initial={{ opacity: 0, y: -50 }}

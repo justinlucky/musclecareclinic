@@ -149,7 +149,7 @@ const Banner: React.FC = () => {
                   className="w-full h-full object-cover rounded-xl"
                 />
                 <motion.div
-                  className="absolute bottom-0 bg-white bg-opacity-50 p-4 rounded-b-lg w-full"
+                  className="absolute bottom-0 bg-white bg-opacity-50 p-2 rounded-b-lg w-full"
                   variants={textVariants}
                 >
                   <div className="marquee">

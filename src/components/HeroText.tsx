@@ -7,32 +7,32 @@ const HeroText = () => {
     {
       text: "Where ",
       className:
-        "text-gray-500 font-heading font-bold lg:text-6xl md:text-5xl md:w-2/3 xl:text-7xl text-3xl",
+        "text-secondary font-heading font-bold lg:text-6xl md:text-5xl md:w-2/3 xl:text-7xl text-3xl",
     },
     {
       text: "Healing ",
       className:
-        "font-heading font-bold lg:text-6xl md:text-5xl md:w-2/3 xl:text-7xl text-3xl text-gold",
+        "font-heading font-bold lg:text-6xl md:text-5xl md:w-2/3 xl:text-7xl text-3xl text-primary",
     },
     {
       text: "Meets ",
       className:
-        "text-gray-500 font-heading font-bold lg:text-6xl md:text-5xl md:w-2/3 xl:text-7xl text-3xl",
+        "text-secondary font-heading font-bold lg:text-6xl md:text-5xl md:w-2/3 xl:text-7xl text-3xl",
     },
     {
       text: "Expertise ",
       className:
-        "font-heading font-bold md:text-5xl lg:text-6xl md:w-2/3 xl:text-7xl text-3xl text-gold",
+        "font-heading font-bold md:text-5xl lg:text-6xl md:w-2/3 xl:text-7xl text-3xl text-primary",
     },
     {
       text: "& ",
       className:
-        "text-gray-500 font-heading font-bold lg:text-6xl md:text-5xl md:w-2/3 xl:text-7xl text-3xl",
+        "text-secondary font-heading font-bold lg:text-6xl md:text-5xl md:w-2/3 xl:text-7xl text-3xl",
     },
     {
       text: "Experience. ",
       className:
-        "font-heading font-bold md:text-5xl lg:text-6xl md:w-2/3 xl:text-7xl text-3xl text-gold",
+        "font-heading font-bold md:text-5xl lg:text-6xl md:w-2/3 xl:text-7xl text-3xl text-primary",
     },
   ];
 

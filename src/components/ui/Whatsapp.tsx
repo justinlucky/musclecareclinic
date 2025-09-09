@@ -7,7 +7,7 @@ const Whatsapp = () => {
             <a
                 href="https://wa.me/917093280464?text=Know%20more%20about%20Muscle%20Care%20Clinic"
                 target="_blank"
-                className="bg-gray-200 p-2 rounded-full hover:bg-gray-300 transition"
+                className="bg-green-100 p-2 rounded-full hover:bg-green-200 transition duration-300"
             >
                 <FaWhatsapp className="size-8 text-green-600" />
             </a>

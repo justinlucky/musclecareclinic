@@ -65,9 +65,9 @@ const FooterDark = () => {
     //       `}</style>
     // </footer>
     <footer className="text-gray-500 px-4 py-5 w-full   self-end mx-auto md:px-8">
-      <div className="max-w-lg sm:mx-auto sm:text-center">
+      <div className="">
 
-        <h1 className=" font-bold text-primary text-2xl md:text-3xl">Kin Multi-Speciality Clinic</h1>
+        <h1 className=" text-center font-bold text-primary text-2xl md:text-3xl"><span className="text-3xl  md:text-4xl text-secondary">Kin</span> Physiotherapy Rehabilitation Center</h1>
       </div>
       <ul className="items-center justify-center mt-8 space-y-5 sm:flex sm:space-x-4 sm:space-y-0">
         {

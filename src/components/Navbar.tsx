@@ -116,7 +116,7 @@ const Navbar = ({ isAdmin = false, onLogout }: NavbarProps) => {
               <img src="/logo.png" className="h-16 sm:h-20 lg:h-24" alt="Muscle Care Logo" />
             </Link>
             <h1 className="font-heading font-bold text-2xl sm:text-3xl lg:text-4xl text-primary hidden md:flex">
-              Kin Multi-Speciality Clinic
+              Kin Physiotherapy Rehabilitation Center
             </h1>
           </motion.div>
 

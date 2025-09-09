@@ -42,10 +42,10 @@ const Preview = () => {
           <h1 className="text-2xl md:text-4xl lg:text-5xl font-semibold text-primary">
             About Our Clinic
           </h1>
-          <p className="text-base md:text-lg text-gray-500 text-justify">
+          <p className="text-sm md:text-base text-gray-500 text-justify">
             {description}
           </p>
-          <p className="text-base md:text-lg text-gray-500 text-justify">
+          <p className="hidden md:block text-base md:text-lg text-gray-500 text-justify">
             {closing}
           </p>
         </motion.div>
