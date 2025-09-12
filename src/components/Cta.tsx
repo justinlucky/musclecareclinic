@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 
 const Cta = () => {
   return (
-    <div className="bg-primary py-4 rounded-md items-center flex justify-center flex-col">
+    <div className="px-4 bg-primary py-8 rounded-md items-center flex justify-center flex-col">
         <h1 className="text-white font-semibold text-2xl md:text-4xl mb-2">Book an Appointment Now!</h1>
         <p className="text-gray-200 text-sm md:text-base">We provide personalized care for your muscle and joint health.</p>
         <div className="mt-4 flex flex-col gap-2 justify-center items-center">
