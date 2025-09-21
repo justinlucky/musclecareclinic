@@ -7,6 +7,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "../styles.css";
 import "swiper/css/scrollbar";
+import Ads from "./Ads";
 
 // Define a type for services
 type Service = {
@@ -166,6 +167,7 @@ const Banner: React.FC = () => {
           ))}
         </Swiper>
       </div>
+      <Ads/>
     </div>
   );
 };

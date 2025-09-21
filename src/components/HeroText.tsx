@@ -5,17 +5,17 @@ import { TypewriterEffect } from "./ui/typewriter-effect";
 const HeroText = () => {
   const words = [
     {
-      text: "Where ",
+      text: "Welcome ",
       className:
         "text-secondary font-heading font-bold lg:text-6xl md:text-5xl md:w-2/3 xl:text-7xl text-3xl",
     },
     {
-      text: "Healing ",
+      text: "You ",
       className:
         "font-heading font-bold lg:text-6xl md:text-5xl md:w-2/3 xl:text-7xl text-3xl text-primary",
     },
     {
-      text: "Meets ",
+      text: "To ",
       className:
         "text-secondary font-heading font-bold lg:text-6xl md:text-5xl md:w-2/3 xl:text-7xl text-3xl",
     },

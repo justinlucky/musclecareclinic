@@ -1,5 +1,4 @@
 
-import HeroText from "../components/HeroText";
 import Details from "../components/Details";
 import Banner from "../components/Banner";
 import Faq from "../components/Faq";
@@ -14,7 +13,6 @@ const Home = () => {
 
       <div className="flex flex-col gap-5">
         <Banner />
-        <HeroText />
         <Details />
         <Faq />
         <Cta/>
