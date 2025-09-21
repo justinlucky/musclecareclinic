@@ -43,14 +43,14 @@ const ContactAddress = () => {
                         <h1>Kin Multi-Speciality Physiotherapy Clinic</h1>
                     </div>
                     <p className="ml-12">
-                        8C85+VP7,
-                        <br /> LIC Colony RD, Satyanarayana Puram, Nayi Brahmana Colony,
-                        <br /> Guntur, Andhra Pradesh, India - 522007
+                        Syamaunil Kumar
+                        <br /> OBR Enclave 301 Flat, Vidiyanagar 1st Lane,
+                        <br /> Guntur, Andhra Pradesh 522006, India
                     </p>
                     <div className="flex justify-center mt-4 px-12">
                         <iframe
                             src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3829.1260441096338!2d80.40884821957403!3d16.31650271396272!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTbCsDE5JzAxLjgiTiA4MMKwMjQnMzMuMiJF!5e0!3m2!1sen!2sin!4v1726322982382!5m2!1sen!2sin"
-                            className="w-full h-48 rounded-md"
+                            className="w-full h-64 md:h-80 rounded-md"
                             loading="lazy"
                         ></iframe>
                     </div>
@@ -58,7 +58,7 @@ const ContactAddress = () => {
                 <motion.div variants={childVariants}>
                     <div className="flex items-center text-xl p-3">
                         <FaPhone className="text-[#1679AB] mr-2 text-2xl font-semibold" />
-                        <h1>Telephone</h1>
+                        <h1>Phone Number:</h1>
                     </div>
                     <p className="ml-12">(+91) 70932 80464 </p>
                 </motion.div>

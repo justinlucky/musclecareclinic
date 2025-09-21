@@ -23,63 +23,174 @@ const FooterDark = () => {
 
   ]
 
+  const physio = [
+    {
+      href: '/service/orthopaedic-physiotherapy',
+      name: 'Orthopaedic Physiotherapy',
+    },
+    {
+      href: '/service/post-surgery-physiotherapy',
+      name: 'Post Surgery Physiotherapy',
+    },
+    {
+      href: '/service/neurology-physiotherapy',
+      name: 'Neurology Physiotherapy',
+    },
+    {
+      href: '/service/sports-physiotherapy',
+      name: 'Sports Physiotherapy',
+    },
+    {
+      href: '/service/pediatric-physiotherapy',
+      name: 'Pediatric Physiotherapy',
+    },
+    {
+      href: '/service/rehabilitation',
+      name: 'Rehabilitation',
+    }, {
+      href: '/service/geriatric-care',
+      name: 'Geriatric Care',
+    }, {
+      href: '/service/stroke',
+      name: 'Stroke Rehabilitaion',
+    }
+  ]
+
+  const fitness = [
+    {
+      href: '/service/athletic-training',
+      name: 'Athletic Training (ROM)'
+    },
+    {
+      href: '/service/circuit-training',
+      name: 'Circuit Training'
+    },
+    {
+      href: '/service/strengthening-training',
+      name: 'Strength & Conditioning'
+    },
+    {
+      href: '/service/crossfit-training',
+      name: 'Power Lifting'
+    },
+    {
+      href: '/service/yoga',
+      name: 'Yoga'
+    }
+  ]
+
+  const relax = [
+    {
+      href: '/service/cupping-therapy',
+      name: 'Cupping Therapy'
+    },
+    {
+      href: '/service/cryotherapy',
+      name: 'Cryotherapy'
+    }
+  ]
+
+  const diet = [
+    {
+      href: '/service/nutrition-diet',
+      name: 'Nutrition & Diet'
+    }
+  ]
+
   return (
-
-    // <footer className="text-white bg-[#0c202b] px-4 py-5 mt-[-10px] rounded-t-2xl rounded-lg w-full  mx-auto md:px-8">
-    //   <div className="max-w-lg sm:mx-auto sm:text-center">
-
-    //     <h1 className=" font-bold text-white text-2xl md:text-3xl">Muscle Care Clinic</h1>
-    //   </div>
-    //   <ul className="items-center justify-center mt-8 space-y-5 sm:flex sm:space-x-4 sm:space-y-0">
-    //     {
-    //       footerNavs.map((item, idx) => (
-    //         <li className=" hover:text-blue-500">
-    //           <a key={idx} href={item.href}>
-    //             {item.name}
-    //           </a>
-    //         </li>
-    //       ))
-    //     }
-    //   </ul>
-    //   <div className="mt-8 items-center justify-between sm:flex">
-    //     <div className="mt-4 sm:mt-0">
-    //       &copy; 2024 <a href="https://www.telosconsortium.tech/" className="hover:text-blue-500">Telos Consortium</a> All rights reserved.
-    //     </div>
-    //     <div className="mt-6 sm:mt-0">
-    //       <ul className="flex items-center space-x-4">
-    //         <li className="w-10 h-10 border rounded-full flex items-center justify-center">
-    //           <a href="https://www.instagram.com/musclecare_clinic/">
-    //             <FaInstagram className="w-8 h-8" />
-    //           </a>
-    //         </li>
-
-    //       </ul>
-    //     </div>
-    //   </div>
-    //   <style>{`
-    //           .svg-icon path,
-    //           .svg-icon polygon,
-    //           .svg-icon rect {
-    //               fill: currentColor;
-    //           }
-    //       `}</style>
-    // </footer>
     <footer className="text-gray-500 px-4 py-5 w-full   self-end mx-auto md:px-8">
       <div className="">
-
         <h1 className=" text-center font-bold text-primary text-2xl md:text-3xl"><span className="text-3xl  md:text-4xl text-secondary">Kin</span> Physiotherapy Rehabilitation Center</h1>
       </div>
-      <ul className="items-center justify-center mt-8 space-y-5 sm:flex sm:space-x-4 sm:space-y-0">
-        {
-          footerNavs.map((item, idx) => (
-            <li key={idx} className=" hover:text-primary">
-              <a href={item.href}>
-                {item.name}
-              </a>
-            </li>
-          ))
-        }
-      </ul>
+      <div className="flex flex-wrap gap-8 md:gap-12 mt-8">
+        <ul className="items-center justify-center gap-6 sm:fle">
+          <p className="text-primary text-sm font-semibold mb-2">Quick Links</p>
+          {
+            footerNavs.map((item, idx) => (
+              <li key={idx} className="text-sm hover:text-primary hover:underline transition-all duration-300 mt-2">
+                <a href={item.href}>
+                  {item.name}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+        <div>
+          <p className="text-primary text-sm font-semibold mb-2">Our Sevices</p>
+          <div>
+            <div className="flex flex-wrap gap-8">
+              <div>
+                <p className="text-sm mb-2 text-primary">Physiotherapy</p>
+                <ul className="items-center justify-center gap-6 sm:fle pl-4">
+                  {
+                    physio.map((item, idx) => (
+                      <li key={idx} className="text-sm hover:text-primary hover:underline transition-all duration-300 mt-2">
+                        <a href={item.href}>
+                          {item.name}
+                        </a>
+                      </li>
+                    ))
+                  }
+                </ul>
+              </div>
+              <div>
+                <p className="text-sm mb-2 text-primary">Fitness Training</p>
+                <ul className="items-center justify-center gap-6 sm:fle pl-4">
+                  {
+                    fitness.map((item, idx) => (
+                      <li key={idx} className="text-sm hover:text-primary hover:underline transition-all duration-300 mt-2">
+                        <a href={item.href}>
+                          {item.name}
+                        </a>
+                      </li>
+                    ))
+                  }
+                </ul>
+              </div>
+              <div>
+                <p className="text-sm mb-2 text-primary">Body Relaxation</p>
+                <ul className="items-center justify-center gap-6 sm:fle pl-4">
+                  {
+                    relax.map((item, idx) => (
+                      <li key={idx} className="text-sm hover:text-primary hover:underline transition-all duration-300 mt-2">
+                        <a href={item.href}>
+                          {item.name}
+                        </a>
+                      </li>
+                    ))
+                  }
+                </ul>
+              </div>
+              <div>
+                <p className="text-sm mb-2 text-primary">Nutrition & Diet Planning</p>
+                <ul className="items-center justify-center gap-6 sm:fle pl-4">
+                  {
+                    diet.map((item, idx) => (
+                      <li key={idx} className="text-sm hover:text-primary hover:underline transition-all duration-300 mt-2">
+                        <a href={item.href}>
+                          {item.name}
+                        </a>
+                      </li>
+                    ))
+                  }
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <p className="text-primary text-sm font-semibold mb-2">Visit us at</p>
+          <div className=" flex flex-wrap max-w-[350px]">
+            <p className="text-sm">
+              Syamaunil Kumar
+              OBR Enclave 301 Flat, Vidiyanagar 1st Lane,
+              Guntur, Andhra Pradesh 522006, India
+            </p>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4118.188248811923!2d80.42068727545154!3d16.322042634394744!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a358a9945b25cad%3A0xebebc939a9e684e2!2sOBR%20Enclaves!5e1!3m2!1sen!2sde!4v1758434267577!5m2!1sen!2sde"
+              className="h-64 w-full mt-4 rounded-md"></iframe>
+          </div>
+        </div>
+      </div>
       <div className="mt-8 items-center justify-between sm:flex">
         <div className="mt-4 sm:mt-0">
           &copy; 2024 Develop with ❤️ by<a href="https://www.linkedin.com/in/lungchuingam-riammei-9a8528227/" className="hover:text-text hover:underline"> Lungchuingam Riammei</a> All rights reserved.
@@ -104,13 +215,6 @@ const FooterDark = () => {
           </ul>
         </div>
       </div>
-      <style>{`
-            .svg-icon path,
-            .svg-icon polygon,
-            .svg-icon rect {
-                fill: currentColor;
-            }
-        `}</style>
     </footer>
   )
 }
